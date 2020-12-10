@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export class Home extends Component {
   static displayName = Home.name;
 
-  render () {
+  componentDidMount() {
+    this.met();
+  }
+  met = async () =>{
+      const a = await axios.post('https://localhost:44379/api/CalculateDP', {a: 10, b:20});
+      console.log(a)
+  }
+
+    render () {
     return (
       <div>
         <h1>Hello, world!</h1>

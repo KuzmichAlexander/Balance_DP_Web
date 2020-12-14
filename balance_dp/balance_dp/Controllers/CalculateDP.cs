@@ -16,14 +16,11 @@ namespace balance_dp.Controllers
        
 
         // POST api/<CalculateDP>
-        /*[HttpPost]
-        public float Post(Test1 ts)
+        [HttpPost]
+        public float Post(DPInputData id)
         {
-            
-            float res = ts.a + ts.b + ts.c;
-            float aa = ts.c;
-            return aa;
-        }*/
+            return 1.5f;
+        }
 
         // PUT api/<CalculateDP>/5
         [HttpPut("{id}")]

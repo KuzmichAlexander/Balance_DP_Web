@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace balance_dp.Models
 {
-    public class InputParametsList2
+    public class InputParametrsList2
     {
-
+        public Flus flus { get; set; }
     }
 
     public class FlusModels

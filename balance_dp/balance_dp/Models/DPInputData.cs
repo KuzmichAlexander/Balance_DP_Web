@@ -8,9 +8,8 @@ namespace balance_dp.Models
 {
     public class DPInputData
     {
-       public InputParametrsList1 InputDatalist1 { get; set; }
-       public InputParametrsList2 InputDatalist2 { get; set; }
-
+       public InputParametrsList1 InputData1 { get; set; }
+       public InputParametrsList2 InputData2 { get; set; }
     }
     
 

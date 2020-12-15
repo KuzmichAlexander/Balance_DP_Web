@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using balance_dp.Models;
@@ -22,7 +23,14 @@ namespace balance_dp.Controllers
         [HttpPost]
         public ResultHeat Post(test t)
         {
+            var b = new MaterialBalance();
+            var c = new HeatBalance();
             var a = new ResultHeat();
+
+            a.mb = b;
+            a.hb = c;
+            a.hb.C66 = "324";
+            Thread.Sleep(2000);
             return a;
         }
     }

@@ -1,22 +1,25 @@
-import React, { Component } from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
-export class Home extends Component {
-  static displayName = Home.name;
 
-  componentDidMount() {
-    this.met();
-  }
-  met = async () =>{
-      const a = await axios.post('https://localhost:44379/api/CalculateDP', {a: 10});
-      console.log(a)
-  }
+export const Home = () => {
+   const [data, setData] = useState(null);
+    const met = async () => {
+        const {data} = await axios.post('https://localhost:44379/api/CalculateDP', { a: 10 });
+        setData(data.hb.c66)
+        alert('Пошол нахуй через 3 секунды')
+        setTimeout(()=>{
+            window.close()
+        }, 3000)
+    }
 
-    render () {
     return (
       <div>
-        <h1>Hello, world!</h1>
-        <p>Welcome to your new single-page application, built with:</p>
+
+          <input type="button" onClick={()=> met()}/>
+          <h1>Hello, world!</h1>
+         { data ? <input type="text" value={data}/> : null}
+            <p>Welcome to your new single-page application, built with:</p>
         <ul>
           <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
           <li><a href='https://facebook.github.io/react/'>React</a> for client-side code</li>
@@ -32,4 +35,4 @@ export class Home extends Component {
       </div>
     );
   }
-}
+

@@ -8,7 +8,7 @@ export class Home extends Component {
     this.met();
   }
   met = async () =>{
-      const a = await axios.post('https://localhost:44379/api/CalculateDP', {a: 10, b:20});
+      const a = await axios.post('https://localhost:44379/api/CalculateDP', {a: 10});
       console.log(a)
   }
 

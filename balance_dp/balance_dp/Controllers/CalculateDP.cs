@@ -13,26 +13,17 @@ namespace balance_dp.Controllers
     [ApiController]
     public class CalculateDP : ControllerBase
     {
-       
+        public class test
+        {
+            public int a { get; set; }
+        }
 
         // POST api/<CalculateDP>
         [HttpPost]
-        public float Post(DPInputData id)
+        public ResultHeat Post(test t)
         {
-            return 1.5f;
-        }
-
-        // PUT api/<CalculateDP>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-
-        }
-
-        // DELETE api/<CalculateDP>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            var a = new ResultHeat();
+            return a;
         }
     }
 }

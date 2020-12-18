@@ -1,14 +1,69 @@
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 
-code {
-  color: #E01A76;
+h1, h2 {
+    text-align: center;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+@media (max-width: 1080px) {
+    .container {
+        width: 90% !important;
+    }
 }
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.image__container {
+    width: 100vw;
+    height: 100vh;
+    background-color: aliceblue;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.nav__container {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(193,193,193,0.95);
+    margin-bottom: 30px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.logo {
+    padding: 0 15px;
+}
+
+.nav__container a {
+    padding: 20px;
+    color: #000;
+    text-decoration: none;
+    font-size: 18px;
+    background: rgba(242,242,242,0.55);
+    transition: background .15s ease-in;
+}
+
+.nav__container a:hover {
+    background: rgba(242,242,242,0.9);
+    cursor: pointer;
+}
+
+.content {
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.95);
+    border-radius: 5px;
+}
+

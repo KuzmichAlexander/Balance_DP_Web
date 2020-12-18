@@ -13,8 +13,6 @@ namespace balance_dp.Controllers
     [ApiController]
     public class CalculateDP : ControllerBase
     {
-       
-
         // POST api/<CalculateDP>
         [HttpPost]
         public float Post(DPInputData id)

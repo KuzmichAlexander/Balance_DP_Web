@@ -112,9 +112,28 @@ namespace balance_dp.Models
         public float С90_HeatLosesOnLiquidCastIron_persent;
         public float С91_HeatLosesOnLiquidSlug;
         public float С92_HeatLosesOnLiquidSlug_persent;
-           
+        public float С93_HeatLosesOnLiquidCastIron;
+        public float С94_HeatLosesOnLiquidCastIron_persent;
+        public float С95_HeatLosesOnLiquidSlug;
+        public float С96_HeatLosesOnLiquidSlug_persent;
+        public float С97_HeatLosesOnLiquidCastIron;
+        public float С98_HeatLosesOnLiquidCastIron_persent;
+        public float С99_HeatLosesOnLiquidSlug;
+        public float С100_HeatLosesOnLiquidSlug_persent;
+        public float С101_HeatLosesOnLiquidSlug_persent;
+        public float С102_HeatLosesOnLiquidSlug_persent;
+        public float С103_HeatLosesOnLiquidSlug_persent;
+        public float С104_HeatLosesOnLiquidSlug_persent;
+        public float С105_HeatLosesOnLiquidSlug_persent;
+        public float С106_HeatLosesOnLiquidSlug_persent;
+        public float С107_HeatLosesOnLiquidSlug_persent;
+        public float С108_HeatLosesOnLiquidSlug_persent;
+        public float С109_HeatLosesOnLiquidSlug_persent;
+        public float С110_HeatLosesOnLiquidSlug_persent;
+        public float С112_HeatLosesOnLiquidSlug_persent;
 
-        
+
+
 
     }
 

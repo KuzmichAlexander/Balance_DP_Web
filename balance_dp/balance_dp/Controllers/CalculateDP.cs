@@ -21,17 +21,13 @@ namespace balance_dp.Controllers
 
         // POST api/<CalculateDP>
         [HttpPost]
-        public ResultHeat Post(test t)
+        public ResultHeat Post(DPInputData dt)
         {
-            var b = new MaterialBalance();
-            var c = new HeatBalance();
-            var a = new ResultHeat();
-
-            a.mb = b;
-            a.hb = c;
-            a.hb.C66 = "324";
-            Thread.Sleep(2000);
-            return a;
+            var result = new ResultHeat();
+            
+            result = Calculate.Calculator(dt);
+            
+            return result;
         }
     }
 }

@@ -10,8 +10,32 @@ namespace balance_dp.Models
         public static ResultHeat Calculator(DPInputData did)
         {
             ResultHeat rh = new ResultHeat();
+            InputParametrsList1 InputIndicators = new InputParametrsList1();
 
             Indicators indicators = new Indicators();
+            indicators.list3_C7_RD_GoglibFourmula = 0.54f - 0.00214f * InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas;
+            indicators.list3_C8_FE_CapacityInCastIron = 100 - InputIndicators.CastIron.list1_C9_Si - InputIndicators.CastIron.list1_C10_Mn - InputIndicators.CastIron.list1_C11_S - InputIndicators.CastIron.list1_C12_P - InputIndicators.CastIron.list1_C13_Ti - InputIndicators.CastIron.list1_C14_Cr - InputIndicators.CastIron.list1_C15_V - InputIndicators.CastIron.list1_c16_C;
+            indicators.list3_C9_Spr_CarbonConsuptionOnFe = indicators.list3_C8_FE_CapacityInCastIron * 10 * indicators.list3_C7_RD_GoglibFourmula * 12 / 56;
+            indicators.list3_C10_Sprim_CarbonConsuptionOnElements = 10 * (InputIndicators.CastIron.list1_C10_Mn * (12 / 56) + InputIndicators.CastIron.list1_C12_P * (60 / 12) + InputIndicators.CastIron.list1_C9_Si * (24 / 28) * InputIndicators.CastIron.list1_C11_S * (12 / 32) + InputIndicators.CastIron.list1_C15_V * (60 / 110) + InputIndicators.CastIron.list1_C13_Ti * (12 / 48) + InputIndicators.CastIron.list1_C14_Cr * (48 / 104));
+            indicators.list3_C11_Snel_UnflightInCocksCount = 100 - (InputIndicators.CockParam.CocksComposit.list2_A42_AhsCocks + InputIndicators.CockParam.CocksComposit.list2_B42_SulfurCocks + InputIndicators.CockParam.CocksComposit.list2_C42_LiquidCocks);
+            indicators.list3_C12_Sprish_CarbonInFurnaceWithCocks = 0.01f * InputIndicators.BlastFur.list1_C21_CockCUMsuption * indicators.list3_C11_Snel_UnflightInCocksCount;
+            indicators.list3_C13_SCH4_CarbonOnMetan = 0.008f * indicators.list3_C12_Sprish_CarbonInFurnaceWithCocks;
+            indicators.list3_C14_Sch_CarbonDissolutionInCastIron = 10 * InputIndicators.CastIron.list1_c16_C;
+            indicators.list3_C15_Sf_CarbonBurnInFurma = indicators.list3_C12_Sprish_CarbonInFurnaceWithCocks - (indicators.list3_C14_Sch_CarbonDissolutionInCastIron + indicators.list3_C9_Spr_CarbonConsuptionOnFe + indicators.list3_C10_Sprim_CarbonConsuptionOnElements + indicators.list3_C13_SCH4_CarbonOnMetan);
+            indicators.list3_C16_Vd1_BlastConsuptionFor1Cocks = 0.9333f / ((0.01f * InputIndicators.blowing.list1_C37_PersentOxygenInBlowing) + (0.00062f * InputIndicators.blowing.list1_C36_BlowingMoistureSumm));
+            indicators.list3_C17_Vd2_BlastConsuptionForGas = 0.5f / (InputIndicators.blowing.list1_C37_PersentOxygenInBlowing + (0.00062f * InputIndicators.blowing.list1_C36_BlowingMoistureSumm));
+            indicators.list3_C18_GasConsuptionFor1Cocks = InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / indicators.list3_C15_Sf_CarbonBurnInFurma;
+            indicators.list3_C19_BlastConsuptiomSumm = indicators.list3_C16_Vd1_BlastConsuptionFor1Cocks + indicators.list3_C17_Vd2_BlastConsuptionForGas * indicators.list3_C18_GasConsuptionFor1Cocks;
+            indicators.list3_C20_Qd_BlastConsuptionCalculate = indicators.list3_C19_BlastConsuptiomSumm * indicators.list3_C15_Sf_CarbonBurnInFurma;
+            indicators.list3_C21_O2BlastConsuptionCalculate = indicators.list3_C20_Qd_BlastConsuptionCalculate * InputIndicators.blowing.list1_C37_PersentOxygenInBlowing*0.01f;
+            indicators.list3_C22_N2BlastConsuptionCalculate =  (indicators.list3_C20_Qd_BlastConsuptionCalculate *(100 - InputIndicators.blowing.list1_C37_PersentOxygenInBlowing)*0.01f);
+            indicators.list3_C23_BlastConsuptionForMinute = indicators.list3_C20_Qd_BlastConsuptionCalculate* InputIndicators.BlastFur.list1_C20_Dailyproductivity/ 1440;
+            indicators.list3_C24_Vg1_FurmaGasOutputFor1Cocks =1.8667f+ indicators.list3_C16_Vd1_BlastConsuptionFor1Cocks*(1 - 0.1f* InputIndicators.blowing.list1_C37_PersentOxygenInBlowing + 0.00124f* InputIndicators.blowing.list1_C36_BlowingMoistureSumm) ;
+            indicators.list3_C25_Vg2_FurmaGasOutputForConversion  =  3+ indicators.list3_C17_Vd2_BlastConsuptionForGas* (1- 0.1f* InputIndicators.blowing.list1_C37_PersentOxygenInBlowing+ 0.00124f *InputIndicators.blowing.list1_C36_BlowingMoistureSumm) ;
+            indicators.list3_C26_Vgg_FurmaGasOutputSumm = indicators.list3_C24_Vg1_FurmaGasOutputFor1Cocks + InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas /( indicators.list3_C15_Sf_CarbonBurnInFurma* indicators.list3_C25_Vg2_FurmaGasOutputForConversion);
+            indicators.list3_C27_Qgg_FurmaGasOutput =indicators.list3_C15_Sf_CarbonBurnInFurma * indicators.list3_C26_Vgg_FurmaGasOutputSumm ;
+            indicators.list3_C28_Vco_FurmaGasCOCapacity = 1.8667f + InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / (indicators.list3_C15_Sf_CarbonBurnInFurma* InputIndicators.blowing.list1_C43_C_Capacity);
+            indicators.list3_C29_Vh2_FurmaGasH2Capacity = (0.9333f + 0.5f * InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / (indicators.list3_C15_Sf_CarbonBurnInFurma * 1)) / ((0.1f * InputIndicators.blowing.list1_C37_PersentOxygenInBlowing) + (0.00124f * InputIndicators.blowing.list1_C36_BlowingMoistureSumm) * (0.00124f * InputIndicators.blowing.list1_C36_BlowingMoistureSumm + InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas) / (indicators.list3_C15_Sf_CarbonBurnInFurma * InputIndicators.blowing.list1_C44_H2_Capacity));
 
             return new ResultHeat();
         }
@@ -112,25 +136,28 @@ namespace balance_dp.Models
         public float С90_HeatLosesOnLiquidCastIron_persent;
         public float С91_HeatLosesOnLiquidSlug;
         public float С92_HeatLosesOnLiquidSlug_persent;
-        public float С93_HeatLosesOnLiquidCastIron;
-        public float С94_HeatLosesOnLiquidCastIron_persent;
-        public float С95_HeatLosesOnLiquidSlug;
-        public float С96_HeatLosesOnLiquidSlug_persent;
-        public float С97_HeatLosesOnLiquidCastIron;
-        public float С98_HeatLosesOnLiquidCastIron_persent;
-        public float С99_HeatLosesOnLiquidSlug;
-        public float С100_HeatLosesOnLiquidSlug_persent;
-        public float С101_HeatLosesOnLiquidSlug_persent;
-        public float С102_HeatLosesOnLiquidSlug_persent;
-        public float С103_HeatLosesOnLiquidSlug_persent;
-        public float С104_HeatLosesOnLiquidSlug_persent;
-        public float С105_HeatLosesOnLiquidSlug_persent;
-        public float С106_HeatLosesOnLiquidSlug_persent;
-        public float С107_HeatLosesOnLiquidSlug_persent;
-        public float С108_HeatLosesOnLiquidSlug_persent;
-        public float С109_HeatLosesOnLiquidSlug_persent;
-        public float С110_HeatLosesOnLiquidSlug_persent;
-        public float С112_HeatLosesOnLiquidSlug_persent;
+        public float С93_HeatLosesOnWaterBlowing;
+        public float С94_HeatLosesOnWaterBlowing_persent;
+        public float С95_HeatLosesOnLime;
+        public float С96_HeatLosesOnLime_persent;
+        public float С97_HeatLosesOnWaterShicht;
+        public float С98_HeatLosesOnWaterWhicht_persent;
+        public float С99_CO_HeatCapacityBlastFurnaceGas;
+        public float С100_CO2_HeatCapacityBlastFurnaceGas;
+        public float С101_H2_HeatCapacityBlastFurnaceGas;
+        public float С102_H20_HeatCapacityBlastFurnaceGas;
+        public float С103_N2_HeatCapacityBlastFurnaceGas;
+        public float С104_HeatLosesFromBlastFurnaceGas;
+        public float С105_HeatLosesFromBlastFurnaceGas_persent;
+        public float С106_IntensionOfMeltingOnCocks;
+        public float С107_HeatLosesOnFurnaceRamm;
+        public float С108_HeatLosesOnFurnaceRamm_persent;
+        public float С109_OutputHeatSumm;
+        public float С110_OutputHeatSumm_persent;
+        public float С112_POGreshnostHeatBalance;
+        public float С112_POGreshnostHeatBalance__persent;
+        public float С112_HeatBalanceHeatLoses;
+        public float С112_HeatBalanceHeatLoses__persent;
 
 
 

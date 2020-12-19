@@ -14,11 +14,6 @@ namespace balance_dp.Controllers
     [ApiController]
     public class CalculateDP : ControllerBase
     {
-        public class test
-        {
-            public int a { get; set; }
-        }
-
         // POST api/<CalculateDP>
         [HttpPost]
         public ResultHeat Post(DPInputData dt)

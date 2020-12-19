@@ -12,6 +12,7 @@ namespace balance_dp.Models
         public COCKsParamsPersent CockParam { get; set; }
         public Season season { get; set; }
         public BlastFurnaceGas FurnaceGas { get; set; }
+        public BlowingParams blowing { get; set; }
     }
 
     public class Season
@@ -24,7 +25,7 @@ namespace balance_dp.Models
         public float list1_C10_Mn { get; set; }
         public float list1_C11_S { get; set; }
         public float list1_C12_P { get; set; }
-        public float list1_C14_Ti { get; set; }
+        public float list1_C13_Ti { get; set; }
         public float list1_C14_Cr { get; set; }
         public float list1_C15_V { get; set; }
         public float list1_c16_C { get; set; }
@@ -62,11 +63,10 @@ namespace balance_dp.Models
         public COCKsComposition CocksComposit { get; set; }
         public COCKsAsh CocksAsh { get; set; }
 
-        public float list1_C26_AhsCOCKs { get; set; } //Зола Cock'са %
-        public float list1_C27_SulfurCOCKs { get; set; } // сера Cock'са
-        public float list1_C28_FlyingCOCKs { get; set; } // летучий Cock'са
-        public float list1_C29_LiquidCOCKs { get; set; } // влага Cock'са
-        public float list1_C30_SulfurCOCKs { get; set; } // Содержание FeO в золе Cock'са
+       
+        
+        public float list1_C29_WaterCOCKs { get; set; } // влага Cock'са
+        public float list1_C30_FeoCOCKs { get; set; } // Содержание FeO в золе Cock'са
     }
     public class COCKsComposition
     {
@@ -95,14 +95,17 @@ namespace balance_dp.Models
     {
         public float list1_C32_BlowingConsumptionPerMinute { get; set; } //Минутный расход дутья
         public float list1_C33_HotBlowingTemperature { get; set; }
-        public float list1_C34_BlowingMoisture { get; set; } //Влажность дутья (из техотчета)
+        public float list1_C34_BlowingMoistureTechReport { get; set; } //Влажность дутья (из техотчета)
         public float list1_C35_NaturalBlowingConsumption { get; set; } //Естественная влажность дутья (зависит от времени года)
-        public float list1_C35_Oxygen { get; set; } //Минутный расход дутья
+        public float list1_C36_BlowingMoistureSumm // ВлажностьДутьясумма
+        {
+            get { return list1_C35_NaturalBlowingConsumption +list1_C34_BlowingMoistureTechReport; }
+        } 
 
         public float list2_D42_Snell
         {
 
-            get { return list1_C35_NaturalBlowingConsumption + list1_C34_BlowingMoisture; }
+            get { return list1_C35_NaturalBlowingConsumption + list1_C34_BlowingMoistureTechReport; }
         }
 
         public float list1_C37_PersentOxygenInBlowing { get; set; } //Содержание кислорода в дутье

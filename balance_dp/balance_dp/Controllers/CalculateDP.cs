@@ -16,9 +16,9 @@ namespace balance_dp.Controllers
     {
         // POST api/<CalculateDP>
         [HttpPost]
-        public Indicators Post(DPInputData dt)
+        public ResultHeat Post(DPInputData dt)
         {
-            var result = new Indicators();
+            var result = new ResultHeat();
             
             result = Calculate.Calculator(dt);
             

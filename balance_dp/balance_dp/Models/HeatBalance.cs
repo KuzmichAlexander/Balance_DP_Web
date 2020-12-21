@@ -10,32 +10,38 @@ namespace balance_dp.Models
         public static ResultHeat Calculator(DPInputData did)
         {
             ResultHeat rh = new ResultHeat();
-            InputParametrsList1 InputIndicators = new InputParametrsList1();
+            
+
 
             Indicators indicators = new Indicators();
-            indicators.list3_C7_RD_GoglibFourmula = 0.54f - 0.00214f * InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas;
-            indicators.list3_C8_FE_CapacityInCastIron = 100 - InputIndicators.CastIron.list1_C9_Si - InputIndicators.CastIron.list1_C10_Mn - InputIndicators.CastIron.list1_C11_S - InputIndicators.CastIron.list1_C12_P - InputIndicators.CastIron.list1_C13_Ti - InputIndicators.CastIron.list1_C14_Cr - InputIndicators.CastIron.list1_C15_V - InputIndicators.CastIron.list1_C16_C;
+
+            indicators.list3_C7_RD_GoglibFourmula = 0.54f - 0.00214f * did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas;
+            indicators.list3_C8_FE_CapacityInCastIron = 100 - did.InputIndicators.CastIron.list1_C9_Si - did.InputIndicators.CastIron.list1_C10_Mn - did.InputIndicators.CastIron.list1_C11_S - did.InputIndicators.CastIron.list1_C12_P - did.InputIndicators.CastIron.list1_C13_Ti - did.InputIndicators.CastIron.list1_C14_Cr - did.InputIndicators.CastIron.list1_C15_V - did.InputIndicators.CastIron.list1_С16_C;
             indicators.list3_C9_Spr_CarbonConsuptionOnFe = indicators.list3_C8_FE_CapacityInCastIron * 10 * indicators.list3_C7_RD_GoglibFourmula * 12 / 56;
-            indicators.list3_C10_Sprim_CarbonConsuptionOnElements = 10 * (InputIndicators.CastIron.list1_C10_Mn * (12 / 56) + InputIndicators.CastIron.list1_C12_P * (60 / 12) + InputIndicators.CastIron.list1_C9_Si * (24 / 28) * InputIndicators.CastIron.list1_C11_S * (12 / 32) + InputIndicators.CastIron.list1_C15_V * (60 / 110) + InputIndicators.CastIron.list1_C13_Ti * (12 / 48) + InputIndicators.CastIron.list1_C14_Cr * (48 / 104));
-            indicators.list3_C11_Snel_UnflightInCocksCount = 100 - (InputIndicators.CockParam.CocksComposit.list2_A42_AhsCocks + InputIndicators.CockParam.CocksComposit.list2_B42_SulfurCocks + InputIndicators.CockParam.CocksComposit.list2_C42_LiquidCocks);
-            indicators.list3_C12_Sprish_CarbonInFurnaceWithCocks = 0.01f * InputIndicators.BlastFur.list1_C21_CockCUMsuption * indicators.list3_C11_Snel_UnflightInCocksCount;
+            indicators.list3_C10_Sprim_CarbonConsuptionOnElements = 10 * (did.InputIndicators.CastIron.list1_C10_Mn * (12 / 56) + did.InputIndicators.CastIron.list1_C12_P * (60 / 12) + did.InputIndicators.CastIron.list1_C9_Si * (24 / 28) * did.InputIndicators.CastIron.list1_C11_S * (12 / 32) + did.InputIndicators.CastIron.list1_C15_V * (60 / 110) + did.InputIndicators.CastIron.list1_C13_Ti * (12 / 48) + did.InputIndicators.CastIron.list1_C14_Cr * (48 / 104));
+            indicators.list3_C11_Snel_UnflightInCocksCount = 100 - (did.InputIndicators.CockParam.CocksComposit.list2_A42_AhsCocks + did.InputIndicators.CockParam.CocksComposit.list2_B42_SulfurCocks + did.InputIndicators.CockParam.CocksComposit.list2_C42_LiquidCocks);
+            indicators.list3_C12_Sprish_CarbonInFurnaceWithCocks = 0.01f * did.InputIndicators.BlastFur.list1_C21_CockCUMsuption * indicators.list3_C11_Snel_UnflightInCocksCount;
             indicators.list3_C13_SCH4_CarbonOnMetan = 0.008f * indicators.list3_C12_Sprish_CarbonInFurnaceWithCocks;
-            indicators.list3_C14_Sch_CarbonDissolutionInCastIron = 10 * InputIndicators.CastIron.list1_C16_C;
+
+            indicators.list3_C14_Sch_CarbonDissolutionInCastIron = 10 * did.InputIndicators.CastIron.list1_С16_C;
+
             indicators.list3_C15_Sf_CarbonBurnInFurma = indicators.list3_C12_Sprish_CarbonInFurnaceWithCocks - (indicators.list3_C14_Sch_CarbonDissolutionInCastIron + indicators.list3_C9_Spr_CarbonConsuptionOnFe + indicators.list3_C10_Sprim_CarbonConsuptionOnElements + indicators.list3_C13_SCH4_CarbonOnMetan);
-            indicators.list3_C16_Vd1_BlastConsuptionFor1Cocks = 0.9333f / ((0.01f * InputIndicators.blowing.list1_C37_PersentOxygenInBlowing) + (0.00062f * InputIndicators.blowing.list1_C36_BlowingMoistureSumm));
-            indicators.list3_C17_Vd2_BlastConsuptionForGas = 0.5f / (InputIndicators.blowing.list1_C37_PersentOxygenInBlowing + (0.00062f * InputIndicators.blowing.list1_C36_BlowingMoistureSumm));
-            indicators.list3_C18_GasConsuptionFor1Cocks = InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / indicators.list3_C15_Sf_CarbonBurnInFurma;
+            indicators.list3_C16_Vd1_BlastConsuptionFor1Cocks = 0.9333f / ((0.01f * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing) + (0.00062f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm));
+            indicators.list3_C17_Vd2_BlastConsuptionForGas = 0.5f / (did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing + (0.00062f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm));
+            indicators.list3_C18_GasConsuptionFor1Cocks = did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / indicators.list3_C15_Sf_CarbonBurnInFurma;
             indicators.list3_C19_BlastConsuptiomSumm = indicators.list3_C16_Vd1_BlastConsuptionFor1Cocks + indicators.list3_C17_Vd2_BlastConsuptionForGas * indicators.list3_C18_GasConsuptionFor1Cocks;
             indicators.list3_C20_Qd_BlastConsuptionCalculate = indicators.list3_C19_BlastConsuptiomSumm * indicators.list3_C15_Sf_CarbonBurnInFurma;
-            indicators.list3_C21_O2BlastConsuptionCalculate = indicators.list3_C20_Qd_BlastConsuptionCalculate * InputIndicators.blowing.list1_C37_PersentOxygenInBlowing*0.01f;
-            indicators.list3_C22_N2BlastConsuptionCalculate =  (indicators.list3_C20_Qd_BlastConsuptionCalculate *(100 - InputIndicators.blowing.list1_C37_PersentOxygenInBlowing)*0.01f);
-            indicators.list3_C23_BlastConsuptionForMinute = indicators.list3_C20_Qd_BlastConsuptionCalculate* InputIndicators.BlastFur.list1_C20_Dailyproductivity/ 1440;
-            indicators.list3_C24_Vg1_FurmaGasOutputFor1Cocks =1.8667f+ indicators.list3_C16_Vd1_BlastConsuptionFor1Cocks*(1 - 0.1f* InputIndicators.blowing.list1_C37_PersentOxygenInBlowing + 0.00124f* InputIndicators.blowing.list1_C36_BlowingMoistureSumm) ;
-            indicators.list3_C25_Vg2_FurmaGasOutputForConversion  =  3+ indicators.list3_C17_Vd2_BlastConsuptionForGas* (1- 0.1f* InputIndicators.blowing.list1_C37_PersentOxygenInBlowing+ 0.00124f *InputIndicators.blowing.list1_C36_BlowingMoistureSumm) ;
-            indicators.list3_C26_Vgg_FurmaGasOutputSumm = indicators.list3_C24_Vg1_FurmaGasOutputFor1Cocks + InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas /( indicators.list3_C15_Sf_CarbonBurnInFurma* indicators.list3_C25_Vg2_FurmaGasOutputForConversion);
+            indicators.list3_C21_O2BlastConsuptionCalculate = indicators.list3_C20_Qd_BlastConsuptionCalculate * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing*0.01f;
+            indicators.list3_C22_N2BlastConsuptionCalculate =  (indicators.list3_C20_Qd_BlastConsuptionCalculate *(100 - did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing)*0.01f);
+            indicators.list3_C23_BlastConsuptionForMinute = indicators.list3_C20_Qd_BlastConsuptionCalculate* did.InputIndicators.BlastFur.list1_C20_Dailyproductivity/ 1440;
+            indicators.list3_C24_Vg1_FurmaGasOutputFor1Cocks =1.8667f+ indicators.list3_C16_Vd1_BlastConsuptionFor1Cocks*(1 - 0.1f* did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing + 0.00124f* did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm) ;
+            indicators.list3_C25_Vg2_FurmaGasOutputForConversion  =  3+ indicators.list3_C17_Vd2_BlastConsuptionForGas* (1- 0.1f* did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing+ 0.00124f *did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm) ;
+            indicators.list3_C26_Vgg_FurmaGasOutputSumm = indicators.list3_C24_Vg1_FurmaGasOutputFor1Cocks + did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas /( indicators.list3_C15_Sf_CarbonBurnInFurma* indicators.list3_C25_Vg2_FurmaGasOutputForConversion);
             indicators.list3_C27_Qgg_FurmaGasOutput =indicators.list3_C15_Sf_CarbonBurnInFurma * indicators.list3_C26_Vgg_FurmaGasOutputSumm ;
-            indicators.list3_C28_Vco_FurmaGasCOCapacity = 1.8667f + InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / (indicators.list3_C15_Sf_CarbonBurnInFurma* InputIndicators.blowing.list1_C43_C_Capacity);
-            indicators.list3_C29_Vh2_FurmaGasH2Capacity = (0.9333f + 0.5f * InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / (indicators.list3_C15_Sf_CarbonBurnInFurma * 1)) / ((0.1f * InputIndicators.blowing.list1_C37_PersentOxygenInBlowing) + (0.00124f * InputIndicators.blowing.list1_C36_BlowingMoistureSumm) * (0.00124f * InputIndicators.blowing.list1_C36_BlowingMoistureSumm + InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas) / (indicators.list3_C15_Sf_CarbonBurnInFurma * InputIndicators.blowing.list1_C44_H2_Capacity));
+            indicators.list3_C28_Vco_FurmaGasCOCapacity = 1.8667f + did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / (indicators.list3_C15_Sf_CarbonBurnInFurma* did.InputIndicators.blowing.list1_C43_C_Capacity);
+            indicators.list3_C29_Vh2_FurmaGasH2Capacity = (0.9333f + 0.5f * did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / (indicators.list3_C15_Sf_CarbonBurnInFurma * 1)) / ((0.1f * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing) + (0.00124f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm) * (0.00124f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm + did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas) / (indicators.list3_C15_Sf_CarbonBurnInFurma * did.InputIndicators.blowing.list1_C44_H2_Capacity));
+            rh.hb.C104 = indicators.С101_H2_HeatCapacityBlastFurnaceGas.ToString();
+            rh.hb.C66 = indicators.C77_InputHeatSumm.ToString();
 
             return new ResultHeat();
         }
@@ -166,6 +172,7 @@ namespace balance_dp.Models
 
     public class HeatBalance
     {
+        
         //  --- ПРИХОД ТЕПЛА СТАТЬИ (: клиент :)--- //
         public string C66 { get; set; }
         public string C66_persent { get; set; }

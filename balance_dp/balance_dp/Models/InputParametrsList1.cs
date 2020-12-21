@@ -10,15 +10,13 @@ namespace balance_dp.Models
         public CastIronElementsPercent CastIron { get; set; }
         public BlastFurnace BlastFur { get; set; }
         public COCKsParamsPersent CockParam { get; set; }
-        public Season season { get; set; }
+        
         public BlastFurnaceGas FurnaceGas { get; set; }
         public BlowingParams blowing { get; set; }
+        public Slag slag { get; set; }
     }
 
-    public class Season
-    {
-        public float list1_C35_NaturalBlowingConsumption { get; set; } //берется из списка о времени года
-    }
+    
     public class CastIronElementsPercent // Состав чугуна и его характеристики
     {
         public float list1_C9_Si { get; set; }
@@ -28,7 +26,7 @@ namespace balance_dp.Models
         public float list1_C13_Ti { get; set; }
         public float list1_C14_Cr { get; set; }
         public float list1_C15_V { get; set; }
-        public float list1_c16_C { get; set; }
+        public float list1_С16_C { get; set; }
 
         public float list1_C17_CastIronTemperature { get; set; }
         public float list1_C18_CastIronHeatCapacity { get; set; } = 0.9f; // в КИЛОДЖОУЛЯХ!

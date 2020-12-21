@@ -53,10 +53,10 @@ export class Calc extends React.Component {
                     <h3>Исходные данные (показатели)</h3>
                     {this.state.data ?
                         <>
-                            <CastIron name={'InputData1-CastIron'} params={this.state.data.InputData1.CastIron} onChangeInput={this.onInputChange} />
-                            <BlastFur name={'InputData1-BlastFur'} params={this.state.data.InputData1.BlastFur} onChangeInput={this.onInputChange} />
-                            <Blowing name={'InputData1-blowing'} params={this.state.data.InputData1.blowing} onChangeInput={this.onInputChange} onSelectChange={this.onSelectChange} />
-                            <FurnaceGas name={'InputData1-FurnaceGas'} params={this.state.data.InputData1.FurnaceGas} onChangeInput={this.onInputChange} />
+                            <CastIron name={'InputIndicators-CastIron'} params={this.state.data.InputIndicators.CastIron} onChangeInput={this.onInputChange} />
+                            <BlastFur name={'InputIndicators-BlastFur'} params={this.state.data.InputIndicators.BlastFur} onChangeInput={this.onInputChange} />
+                            <Blowing name={'InputIndicators-blowing'} params={this.state.data.InputIndicators.blowing} onChangeInput={this.onInputChange} onSelectChange={this.onSelectChange} />
+                            <FurnaceGas name={'InputIndicators-FurnaceGas'} params={this.state.data.InputIndicators.FurnaceGas} onChangeInput={this.onInputChange} />
                         </>
                          : 'Данные подгружаются'}
                 </div>

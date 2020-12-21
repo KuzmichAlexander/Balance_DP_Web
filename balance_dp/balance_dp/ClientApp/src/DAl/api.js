@@ -6,13 +6,12 @@ export const getData = () => {
 }
 
 export const fetchData = async (params) => {
-    console.log(params)
     const { data } = await axios.post(url, params);
     console.log(data);
 }
 
 const data = {
-    InputData1: {
+    InputIndicators: {
         CastIron: {
             list1_C9_Si: 0.521,
             list1_C10_Mn: 0.467,
@@ -21,7 +20,7 @@ const data = {
             list1_C13_Ti: 0.44,
             list1_C14_Cr: 0.033,
             list1_C15_V: 0,
-            list1_C16_C: 4.762,
+            list1_С16_C: 4.762,
             list1_C17_CastIronTemperature: 1405
         },
         BlastFur: {

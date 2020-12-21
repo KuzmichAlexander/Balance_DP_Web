@@ -7,10 +7,13 @@ namespace balance_dp.Models
 {
     public static class Calculate 
     {
-        public static ResultHeat Calculator(DPInputData did)
+        public static Indicators Calculator(DPInputData did)
         {
             ResultHeat rh = new ResultHeat();
-            
+
+            rh.hb = new HeatBalance();
+            rh.mb = new MaterialBalance();
+
 
 
             Indicators indicators = new Indicators();
@@ -18,7 +21,7 @@ namespace balance_dp.Models
             indicators.list3_C7_RD_GoglibFourmula = 0.54f - 0.00214f * did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas;
             indicators.list3_C8_FE_CapacityInCastIron = 100 - did.InputIndicators.CastIron.list1_C9_Si - did.InputIndicators.CastIron.list1_C10_Mn - did.InputIndicators.CastIron.list1_C11_S - did.InputIndicators.CastIron.list1_C12_P - did.InputIndicators.CastIron.list1_C13_Ti - did.InputIndicators.CastIron.list1_C14_Cr - did.InputIndicators.CastIron.list1_C15_V - did.InputIndicators.CastIron.list1_С16_C;
             indicators.list3_C9_Spr_CarbonConsuptionOnFe = indicators.list3_C8_FE_CapacityInCastIron * 10 * indicators.list3_C7_RD_GoglibFourmula * 12 / 56;
-            indicators.list3_C10_Sprim_CarbonConsuptionOnElements = 10 * (did.InputIndicators.CastIron.list1_C10_Mn * (12 / 56) + did.InputIndicators.CastIron.list1_C12_P * (60 / 12) + did.InputIndicators.CastIron.list1_C9_Si * (24 / 28) * did.InputIndicators.CastIron.list1_C11_S * (12 / 32) + did.InputIndicators.CastIron.list1_C15_V * (60 / 110) + did.InputIndicators.CastIron.list1_C13_Ti * (12 / 48) + did.InputIndicators.CastIron.list1_C14_Cr * (48 / 104));
+            indicators.list3_C10_Sprim_CarbonConsuptionOnElements = 10 * (did.InputIndicators.CastIron.list1_C10_Mn * (12 / 56) + did.InputIndicators.CastIron.list1_C12_P * (60 / 12) + did.InputIndicators.CastIron.list1_C9_Si * (24 / 28) + did.InputIndicators.CastIron.list1_C11_S * (12 / 32) + did.InputIndicators.CastIron.list1_C15_V * (60 / 110) + did.InputIndicators.CastIron.list1_C13_Ti * (12 / 48) + did.InputIndicators.CastIron.list1_C14_Cr * (48 / 104));
             indicators.list3_C11_Snel_UnflightInCocksCount = 100 - (did.InputIndicators.CockParam.CocksComposit.list2_A42_AhsCocks + did.InputIndicators.CockParam.CocksComposit.list2_B42_SulfurCocks + did.InputIndicators.CockParam.CocksComposit.list2_C42_LiquidCocks);
             indicators.list3_C12_Sprish_CarbonInFurnaceWithCocks = 0.01f * did.InputIndicators.BlastFur.list1_C21_CockCUMsuption * indicators.list3_C11_Snel_UnflightInCocksCount;
             indicators.list3_C13_SCH4_CarbonOnMetan = 0.008f * indicators.list3_C12_Sprish_CarbonInFurnaceWithCocks;
@@ -40,10 +43,10 @@ namespace balance_dp.Models
             indicators.list3_C27_Qgg_FurmaGasOutput =indicators.list3_C15_Sf_CarbonBurnInFurma * indicators.list3_C26_Vgg_FurmaGasOutputSumm ;
             indicators.list3_C28_Vco_FurmaGasCOCapacity = 1.8667f + did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / (indicators.list3_C15_Sf_CarbonBurnInFurma* did.InputIndicators.blowing.list1_C43_C_Capacity);
             indicators.list3_C29_Vh2_FurmaGasH2Capacity = (0.9333f + 0.5f * did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / (indicators.list3_C15_Sf_CarbonBurnInFurma * 1)) / ((0.1f * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing) + (0.00124f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm) * (0.00124f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm + did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas) / (indicators.list3_C15_Sf_CarbonBurnInFurma * did.InputIndicators.blowing.list1_C44_H2_Capacity));
-            rh.hb.C104 = indicators.С101_H2_HeatCapacityBlastFurnaceGas.ToString();
-            rh.hb.C66 = indicators.C77_InputHeatSumm.ToString();
+            rh.hb.C104 = indicators.list3_C22_N2BlastConsuptionCalculate.ToString();
+            rh.hb.C66 = indicators.list3_C17_Vd2_BlastConsuptionForGas.ToString();
 
-            return new ResultHeat();
+            return indicators;
         }
     }
 

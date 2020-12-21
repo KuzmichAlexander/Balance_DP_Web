@@ -14,13 +14,13 @@ namespace balance_dp.Models
 
             Indicators indicators = new Indicators();
             indicators.list3_C7_RD_GoglibFourmula = 0.54f - 0.00214f * InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas;
-            indicators.list3_C8_FE_CapacityInCastIron = 100 - InputIndicators.CastIron.list1_C9_Si - InputIndicators.CastIron.list1_C10_Mn - InputIndicators.CastIron.list1_C11_S - InputIndicators.CastIron.list1_C12_P - InputIndicators.CastIron.list1_C13_Ti - InputIndicators.CastIron.list1_C14_Cr - InputIndicators.CastIron.list1_C15_V - InputIndicators.CastIron.list1_c16_C;
+            indicators.list3_C8_FE_CapacityInCastIron = 100 - InputIndicators.CastIron.list1_C9_Si - InputIndicators.CastIron.list1_C10_Mn - InputIndicators.CastIron.list1_C11_S - InputIndicators.CastIron.list1_C12_P - InputIndicators.CastIron.list1_C13_Ti - InputIndicators.CastIron.list1_C14_Cr - InputIndicators.CastIron.list1_C15_V - InputIndicators.CastIron.list1_C16_C;
             indicators.list3_C9_Spr_CarbonConsuptionOnFe = indicators.list3_C8_FE_CapacityInCastIron * 10 * indicators.list3_C7_RD_GoglibFourmula * 12 / 56;
             indicators.list3_C10_Sprim_CarbonConsuptionOnElements = 10 * (InputIndicators.CastIron.list1_C10_Mn * (12 / 56) + InputIndicators.CastIron.list1_C12_P * (60 / 12) + InputIndicators.CastIron.list1_C9_Si * (24 / 28) * InputIndicators.CastIron.list1_C11_S * (12 / 32) + InputIndicators.CastIron.list1_C15_V * (60 / 110) + InputIndicators.CastIron.list1_C13_Ti * (12 / 48) + InputIndicators.CastIron.list1_C14_Cr * (48 / 104));
             indicators.list3_C11_Snel_UnflightInCocksCount = 100 - (InputIndicators.CockParam.CocksComposit.list2_A42_AhsCocks + InputIndicators.CockParam.CocksComposit.list2_B42_SulfurCocks + InputIndicators.CockParam.CocksComposit.list2_C42_LiquidCocks);
             indicators.list3_C12_Sprish_CarbonInFurnaceWithCocks = 0.01f * InputIndicators.BlastFur.list1_C21_CockCUMsuption * indicators.list3_C11_Snel_UnflightInCocksCount;
             indicators.list3_C13_SCH4_CarbonOnMetan = 0.008f * indicators.list3_C12_Sprish_CarbonInFurnaceWithCocks;
-            indicators.list3_C14_Sch_CarbonDissolutionInCastIron = 10 * InputIndicators.CastIron.list1_c16_C;
+            indicators.list3_C14_Sch_CarbonDissolutionInCastIron = 10 * InputIndicators.CastIron.list1_C16_C;
             indicators.list3_C15_Sf_CarbonBurnInFurma = indicators.list3_C12_Sprish_CarbonInFurnaceWithCocks - (indicators.list3_C14_Sch_CarbonDissolutionInCastIron + indicators.list3_C9_Spr_CarbonConsuptionOnFe + indicators.list3_C10_Sprim_CarbonConsuptionOnElements + indicators.list3_C13_SCH4_CarbonOnMetan);
             indicators.list3_C16_Vd1_BlastConsuptionFor1Cocks = 0.9333f / ((0.01f * InputIndicators.blowing.list1_C37_PersentOxygenInBlowing) + (0.00062f * InputIndicators.blowing.list1_C36_BlowingMoistureSumm));
             indicators.list3_C17_Vd2_BlastConsuptionForGas = 0.5f / (InputIndicators.blowing.list1_C37_PersentOxygenInBlowing + (0.00062f * InputIndicators.blowing.list1_C36_BlowingMoistureSumm));

@@ -14,6 +14,7 @@ namespace balance_dp.Models
 
 
             Indicators indicators = new Indicators();
+
             indicators.list3_C7_RD_GoglibFourmula = 0.54f - 0.00214f * did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas;
             indicators.list3_C8_FE_CapacityInCastIron = 100 - did.InputIndicators.CastIron.list1_C9_Si - did.InputIndicators.CastIron.list1_C10_Mn - did.InputIndicators.CastIron.list1_C11_S - did.InputIndicators.CastIron.list1_C12_P - did.InputIndicators.CastIron.list1_C13_Ti - did.InputIndicators.CastIron.list1_C14_Cr - did.InputIndicators.CastIron.list1_C15_V - did.InputIndicators.CastIron.list1_С16_C;
             indicators.list3_C9_Spr_CarbonConsuptionOnFe = indicators.list3_C8_FE_CapacityInCastIron * 10 * indicators.list3_C7_RD_GoglibFourmula * 12 / 56;
@@ -21,7 +22,9 @@ namespace balance_dp.Models
             indicators.list3_C11_Snel_UnflightInCocksCount = 100 - (did.InputIndicators.CockParam.CocksComposit.list2_A42_AhsCocks + did.InputIndicators.CockParam.CocksComposit.list2_B42_SulfurCocks + did.InputIndicators.CockParam.CocksComposit.list2_C42_LiquidCocks);
             indicators.list3_C12_Sprish_CarbonInFurnaceWithCocks = 0.01f * did.InputIndicators.BlastFur.list1_C21_CockCUMsuption * indicators.list3_C11_Snel_UnflightInCocksCount;
             indicators.list3_C13_SCH4_CarbonOnMetan = 0.008f * indicators.list3_C12_Sprish_CarbonInFurnaceWithCocks;
+
             indicators.list3_C14_Sch_CarbonDissolutionInCastIron = 10 * did.InputIndicators.CastIron.list1_С16_C;
+
             indicators.list3_C15_Sf_CarbonBurnInFurma = indicators.list3_C12_Sprish_CarbonInFurnaceWithCocks - (indicators.list3_C14_Sch_CarbonDissolutionInCastIron + indicators.list3_C9_Spr_CarbonConsuptionOnFe + indicators.list3_C10_Sprim_CarbonConsuptionOnElements + indicators.list3_C13_SCH4_CarbonOnMetan);
             indicators.list3_C16_Vd1_BlastConsuptionFor1Cocks = 0.9333f / ((0.01f * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing) + (0.00062f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm));
             indicators.list3_C17_Vd2_BlastConsuptionForGas = 0.5f / (did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing + (0.00062f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm));

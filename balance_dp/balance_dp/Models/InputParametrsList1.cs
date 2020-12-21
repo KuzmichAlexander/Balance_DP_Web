@@ -10,13 +10,12 @@ namespace balance_dp.Models
         public CastIronElementsPercent CastIron { get; set; }
         public BlastFurnace BlastFur { get; set; }
         public COCKsParamsPersent CockParam { get; set; }
-        
+
         public BlastFurnaceGas FurnaceGas { get; set; }
         public BlowingParams blowing { get; set; }
         public Slag slag { get; set; }
     }
-
-    
+  
     public class CastIronElementsPercent // Состав чугуна и его характеристики
     {
         public float list1_C9_Si { get; set; }
@@ -34,11 +33,10 @@ namespace balance_dp.Models
     }
     public class BlastFurnace // Доменная печь и её характеристики
     {
-
-
         public float list1_C20_Dailyproductivity { get; set; } // Продуктивность печи по чугуну т/сут
         public float list1_C21_CockCUMsuption { get; set; } // Удельный расход кокса кг/ т.чугуна
         public float list1_C23_EffectVolume { get; set; } // Полезный объем печи м3
+
         private float heatlosesvalue;
 
         public float list1_C24_HeatLoses_ofBlastFurnace // Отработать на фронте
@@ -77,8 +75,6 @@ namespace balance_dp.Models
             get { return 100 - (list2_A42_AhsCocks + list2_B42_SulfurCocks + list2_C42_LiquidCocks); }
         }
 
-
-
     }
     public class COCKsAsh
     {
@@ -97,7 +93,7 @@ namespace balance_dp.Models
         public float list1_C35_NaturalBlowingConsumption { get; set; } //Естественная влажность дутья (зависит от времени года)
         public float list1_C36_BlowingMoistureSumm // ВлажностьДутьясумма
         {
-            get { return list1_C35_NaturalBlowingConsumption +list1_C34_BlowingMoistureTechReport; }
+            get { return list1_C35_NaturalBlowingConsumption + list1_C34_BlowingMoistureTechReport; }
         } 
 
         public float list2_D42_Snell
@@ -145,8 +141,6 @@ namespace balance_dp.Models
         public float list1_C62_CO2_Capacity { get; set; }
         public float list1_C63_CO_Capacity { get; set; }
         public float list1_C64_H2_Capacity { get; set; }
-        private float n2_capacity { get; set; }
-
         public float list1_C65_N2_Capacity => 100 - (list1_C62_CO2_Capacity + list1_C63_CO_Capacity + list1_C64_H2_Capacity);
         public float list1_C66_DustExit { get; set; }
         public float list1_C67_FeO_Capacity { get; set; }

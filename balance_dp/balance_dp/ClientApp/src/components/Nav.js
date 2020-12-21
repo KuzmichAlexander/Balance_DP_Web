@@ -7,6 +7,7 @@ export const Nav = () => {
             <nav>
                 <Link to={'/'}>Описание</Link>
                 <Link to={'/Calc'}>Рассчёт</Link>
+                <Link to={'/Help'}>Справка</Link>
             </nav>
             <span className='logo'>
                 Мне похуй придумай сам ченить

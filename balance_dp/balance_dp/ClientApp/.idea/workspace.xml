@@ -2,22 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84cf6584-b376-4e37-866b-1bfaf5813a1f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Colc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Nav.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/bg2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/bg3.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Counter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FetchData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavMenu.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavMenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAl/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAl/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Calc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/InputParametrsList1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/InputParametrsList1.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +79,8 @@
       <workItem from="1607622590293" duration="900000" />
       <workItem from="1607790546326" duration="237000" />
       <workItem from="1608301645476" duration="7498000" />
+      <workItem from="1608374098791" duration="20701000" />
+      <workItem from="1608443737828" duration="3797000" />
     </task>
     <servers />
   </component>
@@ -106,6 +97,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

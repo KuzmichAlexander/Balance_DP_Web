@@ -10,21 +10,14 @@ h1, h2 {
     text-align: center;
 }
 
-@media (max-width: 1080px) {
-    .container {
-        width: 90% !important;
-    }
-}
-
 .container {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
 }
 
 .image__container {
-    width: 100vw;
-    height: 100vh;
-    background-color: aliceblue;
+    width: 100%;
+    background-color: #515151;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -38,7 +31,7 @@ h1, h2 {
     background: rgba(193,193,193,0.95);
     margin-bottom: 30px;
     height: 60px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     border-radius: 5px;
 }
 
@@ -47,12 +40,17 @@ h1, h2 {
 }
 
 .nav__container a {
-    padding: 20px;
+    padding: 18px;
     color: #000;
     text-decoration: none;
     font-size: 18px;
     background: rgba(242,242,242,0.55);
     transition: background .15s ease-in;
+}
+
+.nav__container a:nth-last-child(2) {
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
 }
 
 .nav__container a:hover {
@@ -67,3 +65,66 @@ h1, h2 {
     border-radius: 5px;
 }
 
+.inputs__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.input__container {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    margin: 5px;
+}
+
+.input__container input, select {
+    padding: 4px;
+    margin: 0 10px;
+    width: 150px;
+}
+
+.input__description {
+    display: block;
+    width: 40%;
+    color: #535353;
+    font-size: 14px;
+}
+
+.input__value-tag {
+    color: #535353;
+    font-size: 14px;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h5 {
+    color: #292929;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.DP-work__inputs{
+    /*border: 2px solid red;*/
+    min-width: 400px;
+    width: 49%;
+    margin: 0 auto;
+}
+
+@media (max-width: 1080px) {
+    .container {
+        width: 90% !important;
+    }
+    .DP-work__inputs {
+        width: 80%;
+        margin: 0 auto;
+        align-content: center;
+    }
+    p {
+        font-size: 12px;
+    }
+}

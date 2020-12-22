@@ -31,4 +31,22 @@ namespace balance_dp.Models
         public FlusModels Quartzite { get; set; }
         public FlusModels Slug { get; set; }
     }
+    public class MaterialConsuption 
+    {
+        public float A8_Fe { get; set; }
+        public float B8_FeO { get; set; }
+        public float C8_Fe2O3 { get; set; }
+        public float D8_SiO2 { get; set; }
+        public float E8_AlO3 { get; set; }
+        public float F8_CaO { get; set; }
+        public float G8_MgO{ get; set; }
+        public float H8_P{ get; set; }
+        public float I8_S { get; set; }
+        public float J8_MnO { get; set; }
+        public float K8_Zn { get; set; }
+        public float L8_Pmpp { get; set; }
+        public float M8_H20 { get; set; }
+        public float N8_TiO2 { get; set; }
+        public float O8_Cr { get; set; }
+    }
 }

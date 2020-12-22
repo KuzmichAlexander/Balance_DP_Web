@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84cf6584-b376-4e37-866b-1bfaf5813a1f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Inputs/Slag.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Results/HeatBalance.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Results/MaterialBalance.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Results/ResultContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DAl/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAl/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Calc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/HeatBalance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/HeatBalance.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Help.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Help.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../balance_dp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../balance_dp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../data/data.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +89,8 @@
       <workItem from="1608301645476" duration="7498000" />
       <workItem from="1608374098791" duration="20701000" />
       <workItem from="1608443737828" duration="3797000" />
-      <workItem from="1608550527728" duration="2002000" />
+      <workItem from="1608550527728" duration="4421000" />
+      <workItem from="1608611423458" duration="6702000" />
     </task>
     <servers />
   </component>

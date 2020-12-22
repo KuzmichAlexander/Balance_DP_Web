@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const url = 'https://localhost:44379/api/CalculateDP';
 
 export const getData = () => {
@@ -6,8 +7,48 @@ export const getData = () => {
 }
 
 export const fetchData = async (params) => {
-    const { data } = await axios.post(url, params);
-    console.log(data);
+    //const {data} = await axios.post(url, params);
+    return fdata;
+}
+
+const fdata = {
+    hb:{
+        c66: "2650,0947",
+        c66_persent: null,
+        c71: "1427,8228",
+        c71_persent: null,
+        c73: "231,31721",
+        c73_persent: null,
+        c81: null,
+        c81_persent: null,
+        c83: null,
+        c83_persent: null,
+        c85: null,
+        c85_persent: null,
+        c87: null,
+        c87_persent: null,
+        c89: null,
+        c89_persent: null,
+        c91: null,
+        c91_persent: null,
+        c93: null,
+        c93_persent: null,
+        c95: null,
+        c95_persent: null,
+        c97: null,
+        c97_persent: null,
+        c104: null,
+        c104_persent: null,
+        c107: null,
+        c107_persent: null,
+        c114: null,
+        c114_persent: null,
+        sum: "4309,235",
+        sum_persent: null,
+    },
+    mb: {
+
+    }
 }
 
 const data = {
@@ -29,15 +70,14 @@ const data = {
             list1_C23_EffectVolume: 1370,
             list1_C24_HeatLoses_ofBlastFurnace: 1047
         },
-
         CockParam: {
             CocksComposit: {
                 list2_A42_AhsCocks: 11.45,
                 list2_B42_SulfurCocks: 0.46,
                 list2_C42_LiquidCocks: 0.98
-                },
+            },
             CocksAsh: {
-                list2_A46_Fe:6.258,
+                list2_A46_Fe: 6.258,
                 list2_B46_Cao: 6.355,
                 list2_C46_Sio2: 50.15,
                 list2_D46_Al2O3: 24.95,
@@ -46,7 +86,7 @@ const data = {
             },
             list1_C29_WaterCOCKs: 3.5,
             list1_C30_FeoCOCKs: 12
-            },
+        },
         FurnaceGas: {
             list1_C61_GasTemperature: 222,
             list1_C62_CO2_Capacity: 18.93,
@@ -60,10 +100,9 @@ const data = {
             list1_C33_HotBlowingTemperature: 1240,
             list1_C34_BlowingMoistureTechReport: 1.8,
             list1_C35_NaturalBlowingConsumption: 11,
-
-            list1_C37_PersentOxygenInBlowing:  30.98,
+            list1_C37_PersentOxygenInBlowing: 30.98,
             list1_C38_SpecificConsuptionNaturalGas: 139.6,
-            list1_C39_CH4Consuption:100,
+            list1_C39_CH4Consuption: 100,
             list1_C40_C2H6Comsuption: 0,
             list1_C41_C3H8Comsuption: 0,
             list1_C42_CO2Comsuption: 0,
@@ -72,7 +111,17 @@ const data = {
 
             list1_C46_limestoneWaterCapacity: 0,
             list1_C47_limestoneWeightLoss: 44.4
-        }
+        },
+        slag: {
+            list1_C49_SlagOutput: 367.5,
+            list1_C50_SulfurCapacity: 0.6,
+            list1_C51_HeatCapacity: 1.26,
+            list1_C53_CaO_Capacity: 38.86,
+            list1_C54_SiO2_Caacity: 38.81,
+            list1_C55_Al2O3_Capacity: 10.45,
+            list1_C56_MgO_Capacity: 7.96,
+            list1_C58_TiO2_Capacity: 0.73
+        },
     },
     InputData2: {
         flus: {
@@ -85,7 +134,7 @@ const data = {
                 list2_G33_TiO2Capacity: 0,
                 list2_H33_MnO_Capacity: 0,
                 list2_I33_P_Capacity: 0,
-                list2_J33_S_Capacity:0,
+                list2_J33_S_Capacity: 0,
             },
             Fluospat: {
                 list2_B33flusConsuption: 0,
@@ -96,7 +145,7 @@ const data = {
                 list2_G33_TiO2Capacity: 0,
                 list2_H33_MnO_Capacity: 0,
                 list2_I33_P_Capacity: 0,
-                list2_J33_S_Capacity:0,
+                list2_J33_S_Capacity: 0,
             },
             Quartzite: {
                 list2_B33flusConsuption: 4.3,
@@ -107,7 +156,7 @@ const data = {
                 list2_G33_TiO2Capacity: 0,
                 list2_H33_MnO_Capacity: 0,
                 list2_I33_P_Capacity: 0,
-                list2_J33_S_Capacity:0,
+                list2_J33_S_Capacity: 0,
             },
             Slug: {
                 list2_B33flusConsuption: 0,
@@ -118,8 +167,9 @@ const data = {
                 list2_G33_TiO2Capacity: 0.73,
                 list2_H33_MnO_Capacity: 0,
                 list2_I33_P_Capacity: 0,
-                list2_J33_S_Capacity:0.97,
+                list2_J33_S_Capacity: 0.97,
             }
         }
     }
+
 }

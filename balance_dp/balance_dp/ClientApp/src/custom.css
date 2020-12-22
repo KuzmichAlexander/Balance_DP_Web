@@ -111,8 +111,14 @@ h5 {
 .DP-work__inputs{
     /*border: 2px solid red;*/
     min-width: 400px;
-    width: 49%;
+    width: 46%;
     margin: 0 auto;
+}
+
+.result-table h5{
+    text-align: center;
+    margin: 20px 0;
+    font-size: 20px;
 }
 
 @media (max-width: 1080px) {

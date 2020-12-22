@@ -96,8 +96,13 @@ namespace balance_dp.Models
 
             rh.hb.C66 = indicators.C66_HeatOfBurningCocks.ToString();
             rh.hb.C71 = indicators.C71_HeatCountBlowing.ToString();
-            rh.hb.C73 = indicators.C73_HeatCountOfConversion.ToString(); ;
+            rh.hb.C73 = indicators.C73_HeatCountOfConversion.ToString();
+            rh.hb.C66_persent = indicators.C67_HeatOfBurningCocks_persent.ToString();
+            rh.hb.C71_persent = indicators.C72_HeatCountBlowing_persent.ToString();
+            rh.hb.C73_persent = indicators.C74_HeatCountOfConversion_persent.ToString();
+
             rh.hb.Sum = (indicators.C66_HeatOfBurningCocks + indicators.C71_HeatCountBlowing + indicators.C73_HeatCountOfConversion).ToString();
+            rh.hb.Sum_persent = (indicators.C67_HeatOfBurningCocks_persent + indicators.C72_HeatCountBlowing_persent + indicators.C74_HeatCountOfConversion_persent).ToString(); ; 
             
 
             return rh;

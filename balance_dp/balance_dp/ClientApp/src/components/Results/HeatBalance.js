@@ -26,10 +26,10 @@ export const HeatBalance = ({result}) => {
     console.log(result);
 
     const rows_prihod = [
-        createData('Горение кокса', result.c66, result.c66_persent),
-        createData('Тепло нагретого дутья', result.c71, result.c71_persent),
-        createData('Тепло конверсии газа', result.c73, result.c73_persent),
-        createData('Итого приход тепла', result.sum, result.sum_persent),
+        createData('Горение кокса', result.HeatOfBurningCocks, result.HeatOfBurningCocks_persent),
+        createData('Тепло нагретого дутья', result.HeatCountBlowin, result.HeatCountBlowin_persent),
+        createData('Тепло конверсии газа', result.HeatCountOfConversion, result.HeatCountOfConversion_persent),
+        createData('Итого приход тепла', result.Sum, result.Sum_persent),
     ];
 
     const rows_rashod = [

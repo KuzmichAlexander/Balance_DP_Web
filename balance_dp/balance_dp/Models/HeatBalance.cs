@@ -94,16 +94,19 @@ namespace balance_dp.Models
             indicators.C78_InputHeatSumm_persent =indicators.C67_HeatOfBurningCocks_persent + indicators.C72_HeatCountBlowing_persent + indicators.C74_HeatCountOfConversion_persent + indicators.C76_HeatCountOfSlug_persent ;
 
 
-            rh.hb.C66 = indicators.C66_HeatOfBurningCocks.ToString();
-            rh.hb.C71 = indicators.C71_HeatCountBlowing.ToString();
-            rh.hb.C73 = indicators.C73_HeatCountOfConversion.ToString();
-            rh.hb.C66_persent = indicators.C67_HeatOfBurningCocks_persent.ToString();
-            rh.hb.C71_persent = indicators.C72_HeatCountBlowing_persent.ToString();
-            rh.hb.C73_persent = indicators.C74_HeatCountOfConversion_persent.ToString();
+            rh.hb.HeatOfBurningCocks = indicators.C66_HeatOfBurningCocks.ToString();
+            rh.hb.HeatCountBlowin = indicators.C71_HeatCountBlowing.ToString();
+            rh.hb.HeatCountOfConversion = indicators.C73_HeatCountOfConversion.ToString();
+            rh.hb.HeatOfBurningCocks_persent = indicators.C67_HeatOfBurningCocks_persent.ToString();
+            rh.hb.HeatCountBlowing_persent = indicators.C72_HeatCountBlowing_persent.ToString();
+            rh.hb.HeatCountOfConversion_persent = indicators.C74_HeatCountOfConversion_persent.ToString();
 
             rh.hb.Sum = (indicators.C66_HeatOfBurningCocks + indicators.C71_HeatCountBlowing + indicators.C73_HeatCountOfConversion).ToString();
-            rh.hb.Sum_persent = (indicators.C67_HeatOfBurningCocks_persent + indicators.C72_HeatCountBlowing_persent + indicators.C74_HeatCountOfConversion_persent).ToString(); ; 
-            
+            rh.hb.Sum_persent = (indicators.C67_HeatOfBurningCocks_persent + indicators.C72_HeatCountBlowing_persent + indicators.C74_HeatCountOfConversion_persent).ToString(); ;
+
+
+
+        
 
             return rh;
         }
@@ -238,12 +241,12 @@ namespace balance_dp.Models
     {
         
         //  --- ПРИХОД ТЕПЛА СТАТЬИ (: клиент :)--- //
-        public string C66 { get; set; }
-        public string C66_persent { get; set; }
-        public string C71 { get; set; }
-        public string C71_persent { get; set; }
-        public string C73 { get; set; }
-        public string C73_persent { get; set; }
+        public string HeatOfBurningCocks { get; set; }
+        public string HeatOfBurningCocks_persent { get; set; }
+        public string HeatCountBlowin { get; set; }
+        public string HeatCountBlowing_persent { get; set; }
+        public string HeatCountOfConversion { get; set; }
+        public string HeatCountOfConversion_persent { get; set; }
         public string Sum { get; set; }
         public string Sum_persent { get; set; }
 

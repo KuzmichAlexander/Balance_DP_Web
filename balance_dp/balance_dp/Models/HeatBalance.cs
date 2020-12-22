@@ -231,10 +231,6 @@ namespace balance_dp.Models
         public float С112_POGreshnostHeatBalance__persent;
         public float С112_HeatBalanceHeatLoses;
         public float С112_HeatBalanceHeatLoses__persent;
-
-
-
-
     }
 
     public class HeatBalance

@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84cf6584-b376-4e37-866b-1bfaf5813a1f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/images/factory_icon-icons.com_70151.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../images/background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../images/bg2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../images/bg3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../images/factory_icon-icons.com_70151.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAl/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAl/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Help.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Help.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Results/HeatBalance.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Results/HeatBalance.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/InputParametrsList2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/InputParametrsList2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../balance_dp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../balance_dp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/HeatBalance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/HeatBalance.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +87,7 @@
       <workItem from="1608443737828" duration="3797000" />
       <workItem from="1608550527728" duration="4421000" />
       <workItem from="1608611423458" duration="8185000" />
-      <workItem from="1608621984722" duration="3137000" />
+      <workItem from="1608621984722" duration="4305000" />
     </task>
     <servers />
   </component>

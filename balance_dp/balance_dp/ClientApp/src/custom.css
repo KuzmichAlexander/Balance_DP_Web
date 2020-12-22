@@ -36,7 +36,12 @@ h1, h2 {
 }
 
 .logo {
-    padding: 0 15px;
+    margin: 10px;
+    background-image: url("./images/factory_icon-icons.com_70151.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
 }
 
 .nav__container a {

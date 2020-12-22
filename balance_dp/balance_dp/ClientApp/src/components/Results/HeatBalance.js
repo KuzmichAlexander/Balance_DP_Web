@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -18,7 +18,7 @@ const useStyles = makeStyles({
 });
 
 function createData(name, first, second) {
-    return { name, first, second };
+    return {name, first, second};
 }
 
 export const HeatBalance = ({result}) => {
@@ -26,10 +26,10 @@ export const HeatBalance = ({result}) => {
     console.log(result);
 
     const rows_prihod = [
-        createData('Горение кокса', result.HeatOfBurningCocks, result.HeatOfBurningCocks_persent),
-        createData('Тепло нагретого дутья', result.HeatCountBlowin, result.HeatCountBlowin_persent),
-        createData('Тепло конверсии газа', result.HeatCountOfConversion, result.HeatCountOfConversion_persent),
-        createData('Итого приход тепла', result.Sum, result.Sum_persent),
+        createData('Горение кокса', result.heatOfBurningCocks, result.heatOfBurningCocks_persent),
+        createData('Тепло нагретого дутья', result.heatCountBlowin, result.heatCountBlowing_persent),
+        createData('Тепло конверсии газа', result.heatCountOfConversion, result.heatCountOfConversion_persent),
+        createData('Итого приход тепла', result.sum, result.sum_persent),
     ];
 
     const rows_rashod = [
@@ -54,7 +54,8 @@ export const HeatBalance = ({result}) => {
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            {resultRows_prihod.map((item, index) => <TableCell key={index} align={index === 0 ? "left" : 'center' }>{item}</TableCell>)}
+                            {resultRows_prihod.map((item, index) => <TableCell key={index}
+                                                                               align={index === 0 ? "left" : 'center'}>{item}</TableCell>)}
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -75,7 +76,8 @@ export const HeatBalance = ({result}) => {
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            {resultRows_rashod.map((item, index) => <TableCell key={index} align={index === 0 ? "left" : 'center' }>{item}</TableCell>)}
+                            {resultRows_rashod.map((item, index) => <TableCell key={index}
+                                                                               align={index === 0 ? "left" : 'center'}>{item}</TableCell>)}
                         </TableRow>
                     </TableHead>
                     <TableBody>

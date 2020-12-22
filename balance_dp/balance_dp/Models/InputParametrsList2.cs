@@ -8,6 +8,7 @@ namespace balance_dp.Models
     public class InputParametrsList2
     {
         public Flus flus { get; set; }
+        public MaterialConsuption materialCons { get; set; }
     }
 
     public class FlusModels

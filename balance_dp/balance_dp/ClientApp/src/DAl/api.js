@@ -7,12 +7,13 @@ export const getData = () => {
 }
 
 export const fetchData = async (params) => {
-    //const {data} = await axios.post(url, params);
-    return fdata;
+    const {data} = await axios.post(url, params);
+    console.log(data);
+    return data;
 }
 
 const fdata = {
-    hb:{
+    hb: {
         c66: "2650,0947",
         c66_persent: null,
         c71: "1427,8228",
@@ -46,9 +47,7 @@ const fdata = {
         sum: "4309,235",
         sum_persent: null,
     },
-    mb: {
-
-    }
+    mb: {}
 }
 
 const data = {
@@ -169,6 +168,23 @@ const data = {
                 list2_I33_P_Capacity: 0,
                 list2_J33_S_Capacity: 0.97,
             }
+        },
+        materialCons: {
+            A8_Fe: 57.128,
+            B8_FeO: 10.131,
+            C8_Fe2O3: 49.815,
+            D8_SiO2: 7.782,
+            E8_AlO3: 1.392,
+            F8_CaO: 8.35,
+            G8_MgO: 1.525,
+            H8_P: 0.025,
+            I8_S: 0.039,
+            J8_MnO: 0.189,
+            K8_Zn: 0.017,
+            L8_Pmpp: 0,
+            M8_H20: 0.097,
+            N8_TiO2: 0.213,
+            O8_Cr: 0.015
         }
     }
 

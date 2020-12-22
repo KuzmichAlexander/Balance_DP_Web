@@ -4,11 +4,14 @@ import {CastIron} from "./Inputs/Cast__iron";
 import {BlastFur} from "./Inputs/BlastFur";
 import {Blowing} from "./Inputs/Blowing";
 import {FurnaceGas} from "./Inputs/FurnaceGas";
+import {Slag} from "./Inputs/Slag";
+import {ResultContainer} from "./Results/ResultContainer";
 
 
 export class Calc extends React.Component {
     state = {
-        data: null
+        data: null,
+        result: null
     };
 
     componentDidMount(event) {
@@ -42,7 +45,9 @@ export class Calc extends React.Component {
     };
 
     sendData = async (e) => {
-        const data = fetchData(this.state.data);
+        const fetchedData =await fetchData(this.state.data);
+        console.log(fetchedData)
+        this.setState({result:fetchedData})
     };
 
     render() {
@@ -57,6 +62,7 @@ export class Calc extends React.Component {
                             <BlastFur name={'InputIndicators-BlastFur'} params={this.state.data.InputIndicators.BlastFur} onChangeInput={this.onInputChange} />
                             <Blowing name={'InputIndicators-blowing'} params={this.state.data.InputIndicators.blowing} onChangeInput={this.onInputChange} onSelectChange={this.onSelectChange} />
                             <FurnaceGas name={'InputIndicators-FurnaceGas'} params={this.state.data.InputIndicators.FurnaceGas} onChangeInput={this.onInputChange} />
+                            <Slag name={'InputIndicators-slag'} params={this.state.data.InputIndicators.slag} onChangeInput={this.onInputChange}  />
                         </>
                          : 'Данные подгружаются'}
                 </div>
@@ -65,6 +71,9 @@ export class Calc extends React.Component {
                 </div>
             </div>
             <input type="button" onClick={this.sendData} value={'Рассчитать'}/>
+            <br/>
+            {this.state.result ? <ResultContainer results={this.state.result} />
+            : 'Бесы опять шалят, данных пока нет'}
         </div>
         )
     }

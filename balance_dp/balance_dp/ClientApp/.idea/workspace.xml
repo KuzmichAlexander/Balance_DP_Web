@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84cf6584-b376-4e37-866b-1bfaf5813a1f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Inputs/Flus.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Inputs/MaterialConsuption.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Calc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Help.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Help.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Inputs/Blowing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Inputs/Blowing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/HeatBalance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/HeatBalance.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +90,8 @@
       <workItem from="1608443737828" duration="3797000" />
       <workItem from="1608550527728" duration="4421000" />
       <workItem from="1608611423458" duration="8185000" />
-      <workItem from="1608621984722" duration="4305000" />
+      <workItem from="1608621984722" duration="4872000" />
+      <workItem from="1608630890396" duration="7281000" />
     </task>
     <servers />
   </component>

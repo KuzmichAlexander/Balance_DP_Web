@@ -111,19 +111,41 @@ h5 {
     color: #292929;
     font-weight: 800;
     font-size: 18px;
+    margin: 20px 0 10px;
 }
 
-.DP-work__inputs{
+.DP-work__inputs {
     /*border: 2px solid red;*/
     min-width: 400px;
     width: 46%;
     margin: 0 auto;
 }
 
-.result-table h5{
+.result-table h5 {
     text-align: center;
     margin: 20px 0;
     font-size: 20px;
+}
+
+.flus-table {
+    width: 100%;
+    margin: 0;
+}
+
+.flus-table input {
+    width: 50px;
+}
+
+.send-button {
+    margin: 10px auto;
+    font-size: 20px;
+    padding: 10px;
+    display: block;
+    transition: background-color .15s ease;
+}
+
+.send-button:hover {
+    background: #e3e0e0;
 }
 
 @media (max-width: 1080px) {

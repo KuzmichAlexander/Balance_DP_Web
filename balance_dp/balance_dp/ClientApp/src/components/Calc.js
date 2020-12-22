@@ -6,6 +6,9 @@ import {Blowing} from "./Inputs/Blowing";
 import {FurnaceGas} from "./Inputs/FurnaceGas";
 import {Slag} from "./Inputs/Slag";
 import {ResultContainer} from "./Results/ResultContainer";
+import {MaterialConsuption} from "./Inputs/MaterialConsuption";
+import {Flus} from "./Inputs/Flus";
+import {light} from "@material-ui/core/styles/createPalette";
 
 
 export class Calc extends React.Component {
@@ -22,11 +25,17 @@ export class Calc extends React.Component {
         console.log(this.state)
         const value = +e.target.value;
         if(!isNaN(value)){
-            const [firstDeep, secondDeep, thirdDeep] = e.target.id.split('-');
+            const [firstDeep, secondDeep, thirdDeep, forthDeep] = e.target.id.split('-');
             if (thirdDeep === 'list1_C24_HeatLoses_ofBlastFurnace') {
                 if (value < 837 || value > 1257) {
                     alert('нельзя так много в это поле писать')
                 }
+            }
+            if (forthDeep) {
+                this.setState(() =>{
+                    this.state.data[firstDeep][secondDeep][thirdDeep][forthDeep] = value; //и за это тоже
+                })
+                this.forceUpdate(); //да простят меня боги
             } else {
                 this.setState(() =>{
                     this.state.data[firstDeep][secondDeep][thirdDeep] = value; //и за это тоже
@@ -68,9 +77,15 @@ export class Calc extends React.Component {
                 </div>
                 <div className={'DP-work__inputs'}>
                     <h3>Исходные данные (ввод составов)</h3>
+                    {this.state.data ?
+                        <>
+                            <MaterialConsuption name={'InputData2-materialCons'} params={this.state.data.InputData2.materialCons} onChangeInput={this.onInputChange} />
+                            <Flus name={'InputData2-flus'} params={this.state.data.InputData2.flus} onChangeInput={this.onInputChange} />
+                        </>
+                        : 'Данные подгружаются'}
                 </div>
             </div>
-            <input type="button" onClick={this.sendData} value={'Рассчитать'}/>
+            <input type="button" className={'send-button'} onClick={this.sendData} value={'Произвести рассчёт'}/>
             <br/>
             {this.state.result ? <ResultContainer results={this.state.result} />
             : 'Бесы опять шалят, данных пока нет'}

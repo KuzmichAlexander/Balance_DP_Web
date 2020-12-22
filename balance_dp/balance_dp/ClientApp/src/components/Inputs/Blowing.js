@@ -40,6 +40,7 @@ export const Blowing = ({name, params, onChangeInput, onSelectChange}) => {
         <div>
             <h5>Параметры дутья</h5>
             {setInputs()}
+            <hr />
             <h5>Параметры Известняка</h5>
             <OneInput discr={'м3/м3'} name={`${name}-list1_C46_limestoneWaterCapacity`} value={params.list1_C46_limestoneWaterCapacity} text={'Содержание влаги в известняке'} onChangeInput={onChangeInput} />
             <OneInput discr={'%'} name={`${name}-list1_C47_limestoneWeightLoss`} value={params.list1_C47_limestoneWeightLoss} text={'Потеря массы при прокаливании'} onChangeInput={onChangeInput} />

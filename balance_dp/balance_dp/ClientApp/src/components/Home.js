@@ -1,35 +1,12 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from "react";
 
-export class Home extends Component {
-  static displayName = Home.name;
+export const Home = () => {
 
-  componentDidMount() {
-    this.met();
-  }
-  met = async () =>{
-      const a = await axios.post('https://localhost:44379/api/CalculateDP', {a: 10, b:20});
-      console.log(a)
-  }
-
-    render () {
     return (
-      <div>
-        <h1>Hello, world!</h1>
-        <p>Welcome to your new single-page application, built with:</p>
-        <ul>
-          <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
-          <li><a href='https://facebook.github.io/react/'>React</a> for client-side code</li>
-          <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
-        </ul>
-        <p>To help you get started, we have also set up:</p>
-        <ul>
-          <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>
-          <li><strong>Development server integration</strong>. In development mode, the development server from <code>create-react-app</code> runs in the background automatically, so your client-side resources are dynamically built on demand and the page refreshes when you modify any file.</li>
-          <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and your <code>dotnet publish</code> configuration produces minified, efficiently bundled JavaScript files.</li>
-        </ul>
-        <p>The <code>ClientApp</code> subdirectory is a standard React application based on the <code>create-react-app</code> template. If you open a command prompt in that directory, you can run <code>npm</code> commands such as <code>npm test</code> or <code>npm install</code>.</p>
-      </div>
-    );
-  }
+        <div className='content'>
+            <h1>Полезная инфа о полезных заводах</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, molestias voluptas. Amet culpa delectus dolorum earum ex fugiat id illo ipsam, minima molestias neque nobis nostrum obcaecati optio repellat sapiente sequi sint sunt vel voluptatem. Autem consectetur dolor dolorem excepturi provident. Adipisci aperiam assumenda blanditiis consectetur dignissimos dolores ea eos id illo, impedit in, incidunt iste laborum libero maxime, neque obcaecati optio pariatur porro possimus quibusdam ratione reiciendis sed suscipit temporibus totam veniam voluptate! Animi autem commodi dolor, dolorem eaque, earum esse ex exercitationem ipsa iste libero magni nesciunt perspiciatis porro qui quibusdam, quisquam reiciendis repellendus vero voluptate. Animi deleniti laboriosam, libero necessitatibus officiis quam sed voluptate! Alias autem distinctio eaque reiciendis tempora. Est laudantium modi neque porro voluptatem! Dolorum eligendi et, id ipsam iste natus nemo obcaecati quam quo repellendus, totam, voluptatum. Adipisci beatae consequuntur, deleniti dolorem dolores eum libero minus molestiae mollitia nemo odio optio perferendis quas quia quo repellendus voluptatum. Alias animi blanditiis, enim labore nisi quam sit! Accusantium blanditiis corporis dicta distinctio dolorum est explicabo in ipsum iste magni maxime molestias nam nostrum obcaecati odit officia quaerat quam quas quia quis quisquam quos rerum, sapiente sequi similique sit tenetur totam velit veniam veritatis voluptate voluptates voluptatum.</p>
+            <h1>Заключение о Полезная инфа о полезных заводах</h1>
+        </div>
+    )
 }

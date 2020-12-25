@@ -49,7 +49,7 @@ export class Calc extends React.Component {
         const value = +e.target.value;
         console.log(this.state)
         this.setState(() =>{
-             this.state.data.InputData1.blowing.list1_C35_NaturalBlowingConsumption = value;
+             this.state.data.InputIndicators.blowing.list1_C35_NaturalBlowingConsumption = value;
         });
     };
 

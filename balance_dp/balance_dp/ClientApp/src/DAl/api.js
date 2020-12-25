@@ -7,19 +7,19 @@ export const getData = () => {
 }
 
 export const fetchData = async (params) => {
-    const {data} = await axios.post(url, params);
-    console.log(data);
-    return data;
+    // const {data} = await axios.post(url, params);
+    // console.log(data);
+    return fdata;
 }
 
 const fdata = {
     hb: {
-        c66: "2650,0947",
-        c66_persent: null,
-        c71: "1427,8228",
-        c71_persent: null,
-        c73: "231,31721",
-        c73_persent: null,
+        heatOfBurningCocks: "2650,0947",
+        heatOfBurningCocks_persent: null,
+        heatCountBlowin: "1427,8228",
+        heatCountBlowin_persent: null,
+        heatCountOfConversion: "231,31721",
+        heatCountOfConversion_persent: null,
         c81: null,
         c81_persent: null,
         c83: null,

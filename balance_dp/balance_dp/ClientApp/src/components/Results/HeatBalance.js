@@ -7,6 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import {Charts} from "./Charts";
 
 const resultRows_prihod = ['Статьи прихода', 'кДж/кг', '%'];
 const resultRows_rashod = ['Статьи расхода', 'кДж/кг', '%'];
@@ -23,7 +24,6 @@ function createData(name, first, second) {
 
 export const HeatBalance = ({result}) => {
     const classes = useStyles();
-    console.log(result);
 
     const rows_prihod = [
         createData('Горение кокса', result.heatOfBurningCocks, result.heatOfBurningCocks_persent),
@@ -71,6 +71,7 @@ export const HeatBalance = ({result}) => {
                     </TableBody>
                 </Table>
             </TableContainer>
+            <Charts data={[result.heatOfBurningCocks, result.heatCountBlowin, result.heatCountOfConversion]} />
             <br/>{/* {//'-----------------------------------------------'}*/}
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="simple table">

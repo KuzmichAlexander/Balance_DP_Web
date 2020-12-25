@@ -11,7 +11,7 @@ import Paper from '@material-ui/core/Paper';
 export const MaterialBalance = ({results}) => {
 
     return (
-        <div className={'DP-work__inputs'}>
+        <div className={'DP-work__inputs result-table'}>
             <h5>Материальный баланс</h5>
 
         </div>

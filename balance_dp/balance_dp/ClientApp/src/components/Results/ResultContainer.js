@@ -10,7 +10,7 @@ export const ResultContainer = ({results}) => {
             <div className={'inputs__container result'}>
 
                 <HeatBalance result={results.hb} />
-                <MaterialBalance result={results.hb} />
+                <MaterialBalance result={results.mb} />
             </div>
         </>
     )

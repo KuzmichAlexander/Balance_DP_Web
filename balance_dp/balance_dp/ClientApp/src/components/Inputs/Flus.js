@@ -21,12 +21,7 @@ const useStyles = makeStyles({
 function createData (name, first, second, third, fourth) {
     return {name, first, second, third, fourth};
 }
-// [
-//     createData('Расход, кг/т чугуна', result.heatOfBurningCocks, result.heatOfBurningCocks_persent),
-//     createData('CaO', result.heatCountBlowin, result.heatCountBlowing_persent),
-//     createData('SiO2', result.heatCountOfConversion, result.heatCountOfConversion_persent),
-//     createData('Итого приход тепла', result.sum, result.sum_persent),
-// ]
+
 function getInput (name, value, onChangeInput, key) {
     return <input key={`${name}-${key}`} id={`${name}`} type="text" value={value} onChange={onChangeInput}/>
 }
@@ -35,7 +30,6 @@ function createRows (name, params, onChangeInput) {
     const rowsArray = [];
     let counter = 0
     for (let key in params.Limestone) {
-        console.log(key)
         rowsArray.push(
             createData(columns[counter],
                 getInput(name + '-Limestone-' + key, params['Limestone'][key], onChangeInput, key ),

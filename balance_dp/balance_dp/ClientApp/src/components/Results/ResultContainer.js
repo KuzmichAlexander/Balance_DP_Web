@@ -3,6 +3,7 @@ import {HeatBalance} from "./HeatBalance";
 import {MaterialBalance} from "./MaterialBalance";
 
 export const ResultContainer = ({results}) => {
+    console.log(results)
 
     return (
         <>
@@ -14,4 +15,4 @@ export const ResultContainer = ({results}) => {
             </div>
         </>
     )
-}
+};

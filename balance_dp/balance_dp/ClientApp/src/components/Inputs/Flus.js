@@ -50,7 +50,7 @@ export const Flus = ({name, params, onChangeInput}) => {
         <div className={'DP-work__inputs flus-table'}>
             <h5>Ввод видов и составов загружаемых в печь флюсов</h5>
             <TableContainer component={Paper}>
-                <Table className={classes.table} aria-label="simple table">
+                <Table className={classes.table} aria-label="a dense table">
                     <TableHead>
                         <TableRow>
                             {resultRows.map((item, index) => <TableCell width={'20%'} key={index} align={index === 0 ? "left" : 'center'}>{item}</TableCell>)}

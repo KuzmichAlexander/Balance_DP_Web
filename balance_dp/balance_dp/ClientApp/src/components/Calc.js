@@ -28,7 +28,7 @@ export class Calc extends React.Component {
             const [firstDeep, secondDeep, thirdDeep, forthDeep] = e.target.id.split('-');
             if (thirdDeep === 'list1_C24_HeatLoses_ofBlastFurnace') {
                 if (value < 837 || value > 1257) {
-                    alert('нельзя так много в это поле писать')
+                    alert('нельзя так много в это поле писать');
                 }
             }
             if (forthDeep) {

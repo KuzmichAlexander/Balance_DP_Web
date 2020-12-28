@@ -2,16 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84cf6584-b376-4e37-866b-1bfaf5813a1f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Results/Charts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Footer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Results/Tables.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DAl/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAl/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Calc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Help.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Help.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Inputs/Flus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Inputs/Flus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Results/Charts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Results/Charts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Results/HeatBalance.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Results/HeatBalance.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Results/MaterialBalance.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Results/MaterialBalance.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Results/ResultContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Results/ResultContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/MaterialBalance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/MaterialBalance.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +99,8 @@
       <workItem from="1608621984722" duration="4872000" />
       <workItem from="1608630890396" duration="7281000" />
       <workItem from="1608642794152" duration="614000" />
-      <workItem from="1608888117453" duration="3821000" />
+      <workItem from="1608888117453" duration="4604000" />
+      <workItem from="1609139895054" duration="12971000" />
     </task>
     <servers />
   </component>

@@ -28,7 +28,7 @@ export class Calc extends React.Component {
             const [firstDeep, secondDeep, thirdDeep, forthDeep] = e.target.id.split('-');
             if (thirdDeep === 'list1_C24_HeatLoses_ofBlastFurnace') {
                 if (value < 837 || value > 1257) {
-                    alert('нельзя так много в это поле писать')
+                    alert('нельзя так много в это поле писать');
                 }
             }
             if (forthDeep) {
@@ -49,7 +49,7 @@ export class Calc extends React.Component {
         const value = +e.target.value;
         console.log(this.state)
         this.setState(() =>{
-             this.state.data.InputData1.blowing.list1_C35_NaturalBlowingConsumption = value;
+             this.state.data.InputIndicators.blowing.list1_C35_NaturalBlowingConsumption = value;
         });
     };
 

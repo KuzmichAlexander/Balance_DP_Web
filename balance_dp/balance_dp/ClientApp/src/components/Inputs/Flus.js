@@ -21,12 +21,7 @@ const useStyles = makeStyles({
 function createData (name, first, second, third, fourth) {
     return {name, first, second, third, fourth};
 }
-// [
-//     createData('Расход, кг/т чугуна', result.heatOfBurningCocks, result.heatOfBurningCocks_persent),
-//     createData('CaO', result.heatCountBlowin, result.heatCountBlowing_persent),
-//     createData('SiO2', result.heatCountOfConversion, result.heatCountOfConversion_persent),
-//     createData('Итого приход тепла', result.sum, result.sum_persent),
-// ]
+
 function getInput (name, value, onChangeInput, key) {
     return <input key={`${name}-${key}`} id={`${name}`} type="text" value={value} onChange={onChangeInput}/>
 }
@@ -35,7 +30,6 @@ function createRows (name, params, onChangeInput) {
     const rowsArray = [];
     let counter = 0
     for (let key in params.Limestone) {
-        console.log(key)
         rowsArray.push(
             createData(columns[counter],
                 getInput(name + '-Limestone-' + key, params['Limestone'][key], onChangeInput, key ),
@@ -56,7 +50,7 @@ export const Flus = ({name, params, onChangeInput}) => {
         <div className={'DP-work__inputs flus-table'}>
             <h5>Ввод видов и составов загружаемых в печь флюсов</h5>
             <TableContainer component={Paper}>
-                <Table className={classes.table} aria-label="simple table">
+                <Table className={classes.table} aria-label="a dense table">
                     <TableHead>
                         <TableRow>
                             {resultRows.map((item, index) => <TableCell width={'20%'} key={index} align={index === 0 ? "left" : 'center'}>{item}</TableCell>)}

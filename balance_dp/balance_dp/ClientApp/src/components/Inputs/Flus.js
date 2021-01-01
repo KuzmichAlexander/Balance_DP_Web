@@ -7,7 +7,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {OneInput} from "./OneInput";
 
 const resultRows = ['Название', 'Известняк', 'Платиковый шпат', 'Кварцит', 'Шлак фракц.'];
 const columns = ['Расход, кг/т чугуна', 'Cao', 'SiO2', 'Al2O3', 'MgO', 'TiO2', 'MnO', 'P', 'S']
@@ -59,7 +58,7 @@ export const Flus = ({name, params, onChangeInput}) => {
                     <TableBody>
                         {rows.map((row, index) => (
                             <TableRow key={index}>
-                                <TableCell component="th" scope="row" padding={0}>
+                                <TableCell component="th" scope="row">
                                     {row.name}
                                 </TableCell>
                                 <TableCell width={'20%'} align="center">{row.first}</TableCell>

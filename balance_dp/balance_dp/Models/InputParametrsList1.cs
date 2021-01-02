@@ -14,7 +14,7 @@ namespace balance_dp.Models
         public BlastFurnaceGas FurnaceGas { get; set; }
         public BlowingParams blowing { get; set; }
         public Slag slag { get; set; }
-        public ZHRM zhrn { get; set; }
+        public ZHRM zhrm { get; set; }
     }
   
     public class CastIronElementsPercent // Состав чугуна и его характеристики
@@ -151,6 +151,6 @@ namespace balance_dp.Models
         public float c69 { get; set; }
         public float c70 { get; set; }
         public float c71 { get; set; }
-        public float c72_waterCapacity
+        public float c72_waterCapacity { get; set; }
     }
 }

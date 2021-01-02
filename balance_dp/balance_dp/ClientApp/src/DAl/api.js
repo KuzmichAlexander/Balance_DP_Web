@@ -7,9 +7,9 @@ export const getData = () => {
 }
 
 export const fetchData = async (params) => {
-    // const {data} = await axios.post(url, params);
-    // console.log(data);
-    return fdata;
+     const {data} = await axios.post(url, params);
+    console.log(data);
+    return data;
 }
 
 const fdata = {

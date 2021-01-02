@@ -7,7 +7,7 @@ export const getData = () => {
 }
 
 export const fetchData = async (params) => {
-     const {data} = await axios.post(url, params);
+    const {data} = await axios.post(url, params);
     console.log(data);
     return data;
 }
@@ -150,6 +150,12 @@ const data = {
             list1_C56_MgO_Capacity: 7.96,
             list1_C58_TiO2_Capacity: 0.73
         },
+        zhrm: {
+            c69: 1604.30,
+            c70: 80.20,
+            c71: 1684.50,
+            c72_waterCapacity: 0
+        }
     },
     InputData2: {
         flus: {

@@ -8,6 +8,7 @@ import {Slag} from "./Inputs/Slag";
 import {ResultContainer} from "./Results/ResultContainer";
 import {MaterialConsuption} from "./Inputs/MaterialConsuption";
 import {Flus} from "./Inputs/Flus";
+import {ZRRM} from "./Inputs/ZHRM";
 
 
 export class Calc extends React.Component {
@@ -30,7 +31,6 @@ export class Calc extends React.Component {
             e.target.value = 1257;
         }
     }
-
 
     onInputChange = (e) => {
         const value = +e.target.value;
@@ -98,6 +98,9 @@ export class Calc extends React.Component {
                                                     params={this.state.data.InputData2.materialCons}
                                                     onChangeInput={this.onInputChange}/>
                                 <Flus name={'InputData2-flus'} params={this.state.data.InputData2.flus}
+                                      onChangeInput={this.onInputChange}/>
+                                <ZRRM name={'InputIndicators-zhrm'}
+                                      params={this.state.data.InputIndicators.zhrm}
                                       onChangeInput={this.onInputChange}/>
                             </>
                             : 'Данные подгружаются'}

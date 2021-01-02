@@ -13,9 +13,6 @@ namespace balance_dp.Models
 
             rh.hb = new HeatBalance();
             rh.mb = new MaterialBalance();
-
-
-
             Indicators indicators = new Indicators();
 
             indicators.list3_C7_RD_GoglibFourmula = 0.54f - 0.00214f * did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas;
@@ -141,6 +138,7 @@ namespace balance_dp.Models
             indicators.С112_HeatBalanceHeatLoses = indicators.С107_HeatLosesOnFurnaceRamm + indicators.С112_POGreshnostHeatBalance;
             indicators.С112_HeatBalanceHeatLoses__persent = indicators.С112_HeatBalanceHeatLoses / indicators.C77_InputHeatSumm;
 
+
             rh.hb.C81 = indicators.С81_HeatLosesOnRegeneratiOnFe.ToString();
             rh.hb.C81_persent = (indicators.С82_HeatLosesOnRegeneratiOnFe_persent*100).ToString();
             rh.hb.C83 = indicators.С83_HeatLosesOnRegeneratiOnCastIron.ToString();
@@ -159,6 +157,10 @@ namespace balance_dp.Models
             rh.hb.C95_persent = (indicators.С96_HeatLosesOnLime_persent*100).ToString();
             rh.hb.C97 = indicators.С97_HeatLosesOnWaterShicht.ToString();
             rh.hb.C97_persent = (indicators.С98_HeatLosesOnWaterWhicht_persent*100).ToString();
+            rh.hb.C104 = indicators.С104_HeatLosesFromBlastFurnaceGas.ToString();
+            rh.hb.C104_persent = (indicators.С105_HeatLosesFromBlastFurnaceGas_persent*100).ToString();
+            rh.hb.C107 = indicators.С107_HeatLosesOnFurnaceRamm.ToString();
+            rh.hb.C107_persent = (indicators.С108_HeatLosesOnFurnaceRamm_persent*100).ToString();
 
 
 

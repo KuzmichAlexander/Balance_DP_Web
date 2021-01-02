@@ -103,10 +103,64 @@ namespace balance_dp.Models
 
             rh.hb.Sum = (indicators.C66_HeatOfBurningCocks + indicators.C71_HeatCountBlowing + indicators.C73_HeatCountOfConversion).ToString();
             rh.hb.Sum_persent = (indicators.C67_HeatOfBurningCocks_persent + indicators.C72_HeatCountBlowing_persent + indicators.C74_HeatCountOfConversion_persent).ToString(); ;
+           
+            indicators.С81_HeatLosesOnRegeneratiOnFe = 0.01f * indicators.list3_C8_FE_CapacityInCastIron * indicators.list3_C7_RD_GoglibFourmula * 2716;
+            indicators.С83_HeatLosesOnRegeneratiOnCastIron = 0.01f * (5220 * did.InputIndicators.CastIron.list1_C10_Mn + 22600 * did.InputIndicators.CastIron.list1_C9_Si + 15490 * did.InputIndicators.CastIron.list1_C12_P + 36167 * did.InputIndicators.CastIron.list1_C13_Ti + 7982 * did.InputIndicators.CastIron.list1_C15_V);
+            indicators.С85_HeatLosesOnDeSulfurOnCastIron = 1734 * 0.00001f * did.InputIndicators.slag.list1_C49_SlagOutput * did.InputIndicators.slag.list1_C50_SulfurCapacity;
+            indicators.С87_HeatLosesOnRegeneratiFeOnH = 1731 * 0.001f * (0.00124f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm * indicators.list3_C20_Qd_BlastConsuptionCalculate + 0.01f * did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas * (2 * did.InputIndicators.blowing.list1_C39_CH4Consuption + 3 * did.InputIndicators.blowing.list1_C40_C2H6Comsuption) * indicators.list3_C36_nH_PowerHUses);
+            indicators.С89_HeatLosesOnLiquidCastIron = 1 * did.InputIndicators.CastIron.list1_C18_CastIronHeatCapacity * did.InputIndicators.CastIron.list1_C17_CastIronTemperature;
+            indicators.С91_HeatLosesOnLiquidSlug = 0.0001f * did.InputIndicators.slag.list1_C49_SlagOutput * did.InputIndicators.slag.list1_C51_HeatCapacity * (did.InputIndicators.CastIron.list1_C17_CastIronTemperature + 50);
+            indicators.С93_HeatLosesOnWaterBlowing = 1.24f * 0.000001f * indicators.list3_C20_Qd_BlastConsuptionCalculate * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm * 6912;
+            indicators.С95_HeatLosesOnLime = 4042 * 0.000001f * did.InputData2.flus.Limestone.list2_B33flusConsuption * did.InputIndicators.blowing.list1_C47_limestoneWeightLoss;
+            indicators.С97_HeatLosesOnWaterShicht = 2452 * 0.00001f * (did.InputIndicators.zhrn.c69 * did.InputIndicators.zhrn.c72_waterCapacity + did.InputData2.flus.Limestone.list2_B33flusConsuption * did.InputIndicators.blowing.list1_C46_limestoneWaterCapacity + did.InputIndicators.BlastFur.list1_C21_CockCUMsuption * did.InputIndicators.CockParam.list1_C29_WaterCOCKs);
+            indicators.С99_CO_HeatCapacityBlastFurnaceGas = 1.2938f + 0.0000895f * did.InputIndicators.FurnaceGas.list1_C61_GasTemperature;
+            indicators.С100_CO2_HeatCapacityBlastFurnaceGas = 1.6448f + 0.0007065f * did.InputIndicators.FurnaceGas.list1_C61_GasTemperature;
+            indicators.С101_H2_HeatCapacityBlastFurnaceGas =  1.3012f;
+            indicators.С102_H20_HeatCapacityBlastFurnaceGas =1.4743f + 0.0002205f* did.InputIndicators.FurnaceGas.list1_C61_GasTemperature;
+            indicators.С103_N2_HeatCapacityBlastFurnaceGas = 1.308f;
+            indicators.С104_HeatLosesFromBlastFurnaceGas = 0.00001f * ((did.InputIndicators.FurnaceGas.list1_C62_CO2_Capacity * indicators.С100_CO2_HeatCapacityBlastFurnaceGas + did.InputIndicators.FurnaceGas.list1_C63_CO_Capacity * indicators.С99_CO_HeatCapacityBlastFurnaceGas + did.InputIndicators.FurnaceGas.list1_C65_N2_Capacity * indicators.С103_N2_HeatCapacityBlastFurnaceGas + did.InputIndicators.FurnaceGas.list1_C64_H2_Capacity * indicators.С101_H2_HeatCapacityBlastFurnaceGas) * indicators.list3_C51_Vkg_BlastFurnaceGasOut + (did.InputIndicators.zhrn.c69*did.InputIndicators.zhrn.c72_waterCapacity+did.InputData2.flus.Limestone.list2_B33flusConsuption*did.InputIndicators.blowing.list1_C46_limestoneWaterCapacity+did.InputIndicators.BlastFur.list1_C21_CockCUMsuption*did.InputIndicators.CockParam.list1_C29_WaterCOCKs+ indicators.list3_C51_Vkg_BlastFurnaceGasOut*did.InputIndicators.FurnaceGas.list1_C64_H2_Capacity* indicators.list3_C36_nH_PowerHUses/(1-indicators.list3_C36_nH_PowerHUses))*indicators.С102_H20_HeatCapacityBlastFurnaceGas)*did.InputIndicators.FurnaceGas.list1_C61_GasTemperature;
+
+            indicators.С106_IntensionOfMeltingOnCocks = (did.InputIndicators.BlastFur.list1_C20_Dailyproductivity * did.InputIndicators.BlastFur.list1_C21_CockCUMsuption * 0.001f) / did.InputIndicators.BlastFur.list1_C23_EffectVolume;
+            indicators.С107_HeatLosesOnFurnaceRamm = ((did.InputIndicators.BlastFur.list1_C24_HeatLoses_ofBlastFurnace / indicators.С106_IntensionOfMeltingOnCocks) * did.InputIndicators.CockParam.CocksComposit.list2_D42_Snell )/ 100;
+            indicators.С82_HeatLosesOnRegeneratiOnFe_persent = indicators.С81_HeatLosesOnRegeneratiOnFe / indicators.C77_InputHeatSumm;
+            indicators.С84_HeatLosesOnRegeneratiOnCastIron_persent = indicators.С83_HeatLosesOnRegeneratiOnCastIron / indicators.C77_InputHeatSumm;
+            indicators.С86_HeatLosesOnDeSulfurOnCastIron_persent = indicators.С85_HeatLosesOnDeSulfurOnCastIron / indicators.C77_InputHeatSumm;
+            indicators.С88_HeatLosesOnRegeneratiFeOnH_persent = indicators.С87_HeatLosesOnRegeneratiFeOnH / indicators.C77_InputHeatSumm;
+            indicators.С90_HeatLosesOnLiquidCastIron_persent = indicators.С89_HeatLosesOnLiquidCastIron / indicators.C77_InputHeatSumm;
+            indicators.С92_HeatLosesOnLiquidSlug_persent = indicators.С91_HeatLosesOnLiquidSlug / indicators.C77_InputHeatSumm;
+            indicators.С94_HeatLosesOnWaterBlowing_persent = indicators.С93_HeatLosesOnWaterBlowing / indicators.C77_InputHeatSumm;
+            indicators.С96_HeatLosesOnLime_persent = indicators.С95_HeatLosesOnLime / indicators.C77_InputHeatSumm;
+            indicators.С98_HeatLosesOnWaterWhicht_persent = indicators.С97_HeatLosesOnWaterShicht / indicators.C77_InputHeatSumm;
+            indicators.С105_HeatLosesFromBlastFurnaceGas_persent = indicators.С104_HeatLosesFromBlastFurnaceGas / indicators.C77_InputHeatSumm;
+            indicators.С108_HeatLosesOnFurnaceRamm_persent = indicators.С107_HeatLosesOnFurnaceRamm / indicators.C77_InputHeatSumm;
+
+            indicators.С109_OutputHeatSumm = indicators.С81_HeatLosesOnRegeneratiOnFe + indicators.С83_HeatLosesOnRegeneratiOnCastIron + indicators.С85_HeatLosesOnDeSulfurOnCastIron + indicators.С87_HeatLosesOnRegeneratiFeOnH + indicators.С89_HeatLosesOnLiquidCastIron + indicators.С91_HeatLosesOnLiquidSlug + indicators.С93_HeatLosesOnWaterBlowing + indicators.С95_HeatLosesOnLime + indicators.С97_HeatLosesOnWaterShicht + indicators.С99_CO_HeatCapacityBlastFurnaceGas + indicators.С104_HeatLosesFromBlastFurnaceGas + indicators.С107_HeatLosesOnFurnaceRamm;
+            indicators.С110_OutputHeatSumm_persent = indicators.С82_HeatLosesOnRegeneratiOnFe_persent + indicators.С84_HeatLosesOnRegeneratiOnCastIron_persent + indicators.С86_HeatLosesOnDeSulfurOnCastIron_persent + indicators.С88_HeatLosesOnRegeneratiFeOnH_persent + indicators.С90_HeatLosesOnLiquidCastIron_persent + indicators.С92_HeatLosesOnLiquidSlug_persent + indicators.С94_HeatLosesOnWaterBlowing_persent + indicators.С96_HeatLosesOnLime_persent + indicators.С98_HeatLosesOnWaterWhicht_persent + indicators.С105_HeatLosesFromBlastFurnaceGas_persent + indicators.С108_HeatLosesOnFurnaceRamm_persent;
+            indicators.С112_POGreshnostHeatBalance = indicators.C77_InputHeatSumm - indicators.С109_OutputHeatSumm;
+            indicators.С112_POGreshnostHeatBalance__persent = indicators.С112_POGreshnostHeatBalance / indicators.C77_InputHeatSumm;
+            indicators.С112_HeatBalanceHeatLoses = indicators.С107_HeatLosesOnFurnaceRamm + indicators.С112_POGreshnostHeatBalance;
+            indicators.С112_HeatBalanceHeatLoses__persent = indicators.С112_HeatBalanceHeatLoses / indicators.C77_InputHeatSumm;
+
+            rh.hb.C81 = indicators.С81_HeatLosesOnRegeneratiOnFe.ToString();
+            rh.hb.C81_persent = (indicators.С82_HeatLosesOnRegeneratiOnFe_persent*100).ToString();
+            rh.hb.C83 = indicators.С83_HeatLosesOnRegeneratiOnCastIron.ToString();
+            rh.hb.C83_persent = (indicators.С84_HeatLosesOnRegeneratiOnCastIron_persent*100).ToString();
+            rh.hb.C85 = indicators.С85_HeatLosesOnDeSulfurOnCastIron.ToString();
+            rh.hb.C85_persent = (indicators.С86_HeatLosesOnDeSulfurOnCastIron_persent*100).ToString();
+            rh.hb.C87 = indicators.С87_HeatLosesOnRegeneratiFeOnH.ToString();
+            rh.hb.C87_persent = (indicators.С88_HeatLosesOnRegeneratiFeOnH_persent*100).ToString();
+            rh.hb.C89 = indicators.С89_HeatLosesOnLiquidCastIron.ToString();
+            rh.hb.C89_persent = (indicators.С90_HeatLosesOnLiquidCastIron_persent*100).ToString();
+            rh.hb.C91 = indicators.С91_HeatLosesOnLiquidSlug.ToString();
+            rh.hb.C91_persent = (indicators.С92_HeatLosesOnLiquidSlug_persent*100).ToString();
+            rh.hb.C93 = indicators.С93_HeatLosesOnWaterBlowing.ToString();
+            rh.hb.C93_persent = (indicators.С94_HeatLosesOnWaterBlowing_persent*100).ToString();
+            rh.hb.C95 = indicators.С95_HeatLosesOnLime.ToString();
+            rh.hb.C95_persent = (indicators.С96_HeatLosesOnLime_persent*100).ToString();
+            rh.hb.C97 = indicators.С97_HeatLosesOnWaterShicht.ToString();
+            rh.hb.C97_persent = (indicators.С98_HeatLosesOnWaterWhicht_persent*100).ToString();
 
 
-
-        
 
             return rh;
         }

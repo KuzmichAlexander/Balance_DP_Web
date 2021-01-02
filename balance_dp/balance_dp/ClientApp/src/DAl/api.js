@@ -86,7 +86,7 @@ const data = {
             list1_C10_Mn: 0.467,
             list1_C11_S: 0.016,
             list1_C12_P: 0.062,
-            list1_C13_Ti: 0.44,
+            list1_C13_Ti: 0.04,
             list1_C14_Cr: 0.033,
             list1_C15_V: 0,
             list1_С16_C: 4.762,
@@ -108,8 +108,8 @@ const data = {
                 list2_A46_Fe: 6.258,
                 list2_B46_Cao: 6.355,
                 list2_C46_Sio2: 50.15,
-                list2_D46_Al2O3: 24.95,
-                list2_E46_MgO: 23.94,
+                list2_D46_Al2O3: 23.95,
+                list2_E46_MgO: 2.485,
                 list2_F46_P: 0
             },
             list1_C29_WaterCOCKs: 3.5,
@@ -119,7 +119,7 @@ const data = {
             list1_C61_GasTemperature: 222,
             list1_C62_CO2_Capacity: 18.93,
             list1_C63_CO_Capacity: 25.78,
-            list1_C64_H2_Capacity: 11.68,
+            list1_C64_H2_Capacity: 11.86,
             list1_C66_DustExit: 9.1,
             list1_C67_FeO_Capacity: 12
         },

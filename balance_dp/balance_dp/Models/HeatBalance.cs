@@ -170,8 +170,10 @@ namespace balance_dp.Models
             rh.hb.C104_persent = PersentToString(indicators.С105_HeatLosesFromBlastFurnaceGas_persent);
             rh.hb.C107 = ResultToString(indicators.С107_HeatLosesOnFurnaceRamm);
             rh.hb.C107_persent = PersentToString(indicators.С108_HeatLosesOnFurnaceRamm_persent);
-
-            
+            rh.hb.C114 = ResultToString(indicators.С112_HeatBalanceHeatLoses);
+            rh.hb.C114_persent = PersentToString(indicators.С112_HeatBalanceHeatLoses__persent);
+            rh.hb.C112 = ResultToString(indicators.С112_POGreshnostHeatBalance);
+            rh.hb.C112_persent = PersentToString(indicators.С112_POGreshnostHeatBalance__persent);
 
             return rh;
         }
@@ -347,6 +349,8 @@ namespace balance_dp.Models
         public string C104_persent { get; set; }
         public string C107 { get; set; }
         public string C107_persent { get; set; }
+        public string C112 { get; set; }
+        public string C112_persent { get; set; }
         public string C114 { get; set; }
         public string C114_persent { get; set; }
     }

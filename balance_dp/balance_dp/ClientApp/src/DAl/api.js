@@ -44,6 +44,8 @@ const fdata = {
         c107_persent: null,
         c114: 321,
         c114_persent: null,
+        c112: 0,
+        c112_persent: 0,
         sum: "4309,235",
         sum_persent: null,
     },

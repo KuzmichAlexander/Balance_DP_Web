@@ -32,7 +32,7 @@ export const MaterialBalance = ({result}) => {
     return (
         <div className={'DP-work__inputs result-table'}>
             <h5>Материальный баланс</h5>
-            <Tables rows = {rows_prihod}/>
+            <Tables rows = {rows_prihod} isComming={true}/>
             <Charts
                 data = {[result.list5_C23, result.list5_C25, result.list5_C27, result.list5_C29, result.list5_C31]}
                 labels = {prihodDescription}

@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84cf6584-b376-4e37-866b-1bfaf5813a1f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Inputs/ZHRM.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAl/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAl/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Calc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Inputs/BlastFur.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Inputs/BlastFur.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Inputs/Blowing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Inputs/Blowing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Inputs/Flus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Inputs/Flus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Inputs/OneInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Inputs/OneInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/InputParametrsList1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/InputParametrsList1.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +94,7 @@
       <workItem from="1609314603369" duration="597000" />
       <workItem from="1609331515408" duration="5000" />
       <workItem from="1609503829033" duration="2331000" />
+      <workItem from="1609589797067" duration="303000" />
     </task>
     <servers />
   </component>

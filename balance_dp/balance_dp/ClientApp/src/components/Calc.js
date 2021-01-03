@@ -97,8 +97,6 @@ export class Calc extends React.Component {
                                 <MaterialConsuption name={'InputData2-materialCons'}
                                                     params={this.state.data.InputData2.materialCons}
                                                     onChangeInput={this.onInputChange}/>
-                                <Flus name={'InputData2-flus'} params={this.state.data.InputData2.flus}
-                                      onChangeInput={this.onInputChange}/>
                                 <ZRRM name={'InputIndicators-zhrm'}
                                       params={this.state.data.InputIndicators.zhrm}
                                       onChangeInput={this.onInputChange}/>
@@ -106,7 +104,14 @@ export class Calc extends React.Component {
                             : 'Данные подгружаются'}
                     </div>
                 </div>
-                <input type="button" className={'send-button'} onClick={this.sendData} value={'Произвести рассчёт'}/>
+                <div className={'flus__container'}>
+                    {this.state.data ?
+                        <Flus name={'InputData2-flus'}
+                              params={this.state.data.InputData2.flus}
+                              onChangeInput={this.onInputChange}/>
+                        : null}
+                </div>
+                <input type="button" className={'send-button'} onClick={this.sendData} value={'Произвести расчёт'}/>
                 <br/>
                 {this.state.result ? <ResultContainer results={this.state.result}/>
                     : 'Бесы опять шалят, данных пока нет'}

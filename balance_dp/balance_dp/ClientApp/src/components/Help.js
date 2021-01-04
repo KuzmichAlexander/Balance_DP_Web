@@ -15,12 +15,6 @@ const useStyles = makeStyles({
     },
 });
 
-const names = {
-    WORD: 'Word',
-    EXCEL: 'Excel'
-}
-
-
 function createData(first, second) {
     return {first, second};
 }
@@ -42,11 +36,7 @@ const rows = [createData('Январь', 1.5),
 
 export const Help = () => {
     const classes = useStyles();
-    const getFile = (e) => {
-        e.target.value === names.EXCEL ?
-            document.querySelector('.excel-link').click() :
-            document.querySelector('.word-link').click();
-    };
+   
     return (
         <div className='content'>
             <h1>Справочная информация</h1>
@@ -72,13 +62,6 @@ export const Help = () => {
                 </TableContainer>
             </div>
             <h4>Ознакомится с алгоритмом калькулятора можно скачав файлы:</h4>
-            <input type="button" value={names.EXCEL} className={'button_Excel content-help__button'} onClick={getFile}/>
-            <input type="button" value={names.WORD} className={'button_Word content-help__button'} onClick={getFile}/>
-
-            <a className={'excel-link'}
-               href="https://vk.com/docs?act=doc_preview_link&user_id=325620667&time=1609146209&oid=325620667&did=581844500&hash=d9f99b920724d178d6&dl=1"></a>
-            <a className={'word-link'}
-               href="https://vk.com/docs?act=doc_preview_link&user_id=325620667&time=1609149135&oid=6799642&did=575673535&hash=232eb392bc369070f4&dl=1"></a>
-        </div>
+             </div>
     )
 }

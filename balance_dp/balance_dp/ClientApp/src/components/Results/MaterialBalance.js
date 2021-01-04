@@ -17,7 +17,7 @@ export const MaterialBalance = ({result}) => {
         createData(prihodDescription[2], result.list5_C27, result.list5_C27_percent),
         createData(prihodDescription[3], result.list5_C29, result.list5_C29_percent),
         createData(prihodDescription[4], result.list5_C31, result.list5_C31_percent),
-        createData('Сумма приходных статей материального баланса', result.list5_C33_Sum, result.list5_C33_Sum_percent),
+        createData('Сумма приходных статей материального баланса', result.c33, result.c33_percent),
     ];
 
     const rows_rashod = [
@@ -26,7 +26,7 @@ export const MaterialBalance = ({result}) => {
         createData(rashodDescription[2], result.list5_C41, result.list5_C41_percent),
         createData(rashodDescription[3], result.list5_C43, result.list5_C43_percent),
         createData(rashodDescription[4], result.list5_C45, result.list5_C45_percent),
-        createData('Сумма расходных статей материального баланса', result.list5_C47_Sum_percent, result.list5_C47_Sum_percent),
+        createData('Сумма расходных статей материального баланса', result.c47, result.c47_persent),
     ];
 
     return (

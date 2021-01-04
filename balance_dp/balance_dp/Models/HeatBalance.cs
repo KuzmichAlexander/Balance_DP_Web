@@ -186,7 +186,7 @@ namespace balance_dp.Models
             rh.mb.list5_C27_percent = PersentToString(did.InputIndicators.BlastFur.list1_C21_CockCUMsuption / rh.mb.list5_InputMeterial);
             rh.mb.list5_C29_percent = PersentToString(rh.mb.list5_C17 / rh.mb.list5_InputMeterial);
             rh.mb.list5_C31_percent= PersentToString(rh.mb.list5_C18 / rh.mb.list5_InputMeterial);
-            rh.mb.list5_InputMaterial_percent = ((did.InputIndicators.zhrm.c71 / rh.mb.list5_InputMeterial) + (did.InputData2.flus.Limestone.list2_B33flusConsuption + did.InputData2.flus.Fluospat.list2_B33flusConsuption + did.InputData2.flus.Quartzite.list2_B33flusConsuption + did.InputData2.flus.Slug.list2_B33flusConsuption /*+ did.InputData2.flus.Reserve.list2_B33flusConsuption*/ / rh.mb.list5_InputMeterial) + (did.InputIndicators.BlastFur.list1_C21_CockCUMsuption / rh.mb.list5_InputMeterial) + (rh.mb.list5_C17 / rh.mb.list5_InputMeterial)+(rh.mb.list5_C18 / rh.mb.list5_InputMeterial));
+            rh.mb.list5_InputMaterial_percent = (did.InputIndicators.zhrm.c71 / rh.mb.list5_InputMeterial) + ((did.InputData2.flus.Limestone.list2_B33flusConsuption + did.InputData2.flus.Fluospat.list2_B33flusConsuption + did.InputData2.flus.Quartzite.list2_B33flusConsuption + did.InputData2.flus.Slug.list2_B33flusConsuption /*+ did.InputData2.flus.Reserve.list2_B33flusConsuption*/ )/ rh.mb.list5_InputMeterial) + (did.InputIndicators.BlastFur.list1_C21_CockCUMsuption / rh.mb.list5_InputMeterial) + (rh.mb.list5_C17 / rh.mb.list5_InputMeterial)+(rh.mb.list5_C18 / rh.mb.list5_InputMeterial);
             rh.mb.C33 = ResultToString(rh.mb.list5_InputMeterial);
             rh.mb.C33_percent = PersentToString(rh.mb.list5_InputMaterial_percent);
                      // ------ Расходная часть материального баланса ----- ////
@@ -200,7 +200,7 @@ namespace balance_dp.Models
             rh.mb.list5_C37_percent = PersentToString(1000 / rh.mb.list5_Output) ;
             rh.mb.list5_C39_percent = PersentToString(rh.mb.list5_C12 / rh.mb.list5_Output);
             rh.mb.list5_C41_percent = PersentToString(rh.mb.list5_C19 / rh.mb.list5_Output);
-            rh.mb.list5_C43 = PersentToString(rh.mb.list5_C16 / rh.mb.list5_Output);
+            rh.mb.list5_C43_percent = PersentToString(rh.mb.list5_C16 / rh.mb.list5_Output);
             rh.mb.list5_C45_percent = PersentToString(did.InputIndicators.FurnaceGas.list1_C66_DustExit / rh.mb.list5_Output);
             rh.mb.list5_Output_percent = (1000 / rh.mb.list5_Output)+ (rh.mb.list5_C12 / rh.mb.list5_Output)+ (rh.mb.list5_C19 / rh.mb.list5_Output)+ (rh.mb.list5_C16 / rh.mb.list5_Output)+ (did.InputIndicators.FurnaceGas.list1_C66_DustExit / rh.mb.list5_Output);
             rh.mb.C47 =ResultToString( rh.mb.list5_Output);

@@ -8,6 +8,7 @@ import {Slag} from "./Inputs/Slag";
 import {ResultContainer} from "./Results/ResultContainer";
 import {MaterialConsuption} from "./Inputs/MaterialConsuption";
 import {Flus} from "./Inputs/Flus";
+import {ZRRM} from "./Inputs/ZHRM";
 
 
 export class Calc extends React.Component {
@@ -30,7 +31,6 @@ export class Calc extends React.Component {
             e.target.value = 1257;
         }
     }
-
 
     onInputChange = (e) => {
         const value = +e.target.value;
@@ -97,13 +97,21 @@ export class Calc extends React.Component {
                                 <MaterialConsuption name={'InputData2-materialCons'}
                                                     params={this.state.data.InputData2.materialCons}
                                                     onChangeInput={this.onInputChange}/>
-                                <Flus name={'InputData2-flus'} params={this.state.data.InputData2.flus}
+                                <ZRRM name={'InputIndicators-zhrm'}
+                                      params={this.state.data.InputIndicators.zhrm}
                                       onChangeInput={this.onInputChange}/>
                             </>
                             : 'Данные подгружаются'}
                     </div>
                 </div>
-                <input type="button" className={'send-button'} onClick={this.sendData} value={'Произвести рассчёт'}/>
+                <div className={'flus__container'}>
+                    {this.state.data ?
+                        <Flus name={'InputData2-flus'}
+                              params={this.state.data.InputData2.flus}
+                              onChangeInput={this.onInputChange}/>
+                        : null}
+                </div>
+                <input type="button" className={'send-button'} onClick={this.sendData} value={'Произвести расчёт'}/>
                 <br/>
                 {this.state.result ? <ResultContainer results={this.state.result}/>
                     : 'Бесы опять шалят, данных пока нет'}

@@ -8,8 +8,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-const resultRows = ['Название', 'Известняк', 'Платиковый шпат', 'Кварцит', 'Шлак фракц.'];
-const columns = ['Расход, кг/т чугуна', 'Cao', 'SiO2', 'Al2O3', 'MgO', 'TiO2', 'MnO', 'P', 'S']
+const columns = ['Известняк', 'Платиковый шпат', 'Кварцит', 'Шлак фракц.'];
+const resultRows = ['Наименование', 'Расход, кг/т чугуна', 'Cao', 'SiO2', 'Al2O3', 'MgO', 'TiO2', 'MnO', 'P', 'S']
 
 const useStyles = makeStyles({
     table: {
@@ -17,42 +17,49 @@ const useStyles = makeStyles({
     },
 });
 
-function createData (name, first, second, third, fourth) {
-    return {name, first, second, third, fourth};
+function createData (name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth) {
+    return {name, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth};
 }
 
 function getInput (name, value, onChangeInput, key) {
     return <input key={`${name}-${key}`} id={`${name}`} type="text" value={value} onChange={onChangeInput}/>
 }
 
+function createRow () {
+    let counter = 0;
+    return function (name, param, onChangeInput, discr) {
+        const paramArray = [];
+        paramArray.push(columns[counter])
+        for (let key in param[discr]) {
+            paramArray.push(getInput(name + `-${discr}-` + key, param[discr][key], onChangeInput, key ));
+        }
+        counter++;
+        console.log(paramArray)
+        return paramArray;
+    }
+}
+
 function createRows (name, params, onChangeInput) {
     const rowsArray = [];
-    let counter = 0
-    for (let key in params.Limestone) {
-        rowsArray.push(
-            createData(columns[counter],
-                getInput(name + '-Limestone-' + key, params['Limestone'][key], onChangeInput, key ),
-                getInput(name + '-Fluospat-' + key, params['Fluospat'][key], onChangeInput, key ),
-                getInput(name + '-Quartzite-' + key, params['Quartzite'][key], onChangeInput, key ),
-                getInput(name + '-Slug-' + key, params['Slug'][key], onChangeInput, key ))
-        )
-        counter++;
-    }
+    const generator = createRow()
+    rowsArray.push(createData(...generator(name, params, onChangeInput, 'Limestone')))
+    rowsArray.push(createData(...generator(name, params, onChangeInput, 'Fluospat')))
+    rowsArray.push(createData(...generator(name, params, onChangeInput, 'Quartzite')))
+    rowsArray.push(createData(...generator(name, params, onChangeInput, 'Slug')))
     return rowsArray;
 }
 
 export const Flus = ({name, params, onChangeInput}) => {
     const classes = useStyles();
     const rows = createRows(name, params, onChangeInput);
-
     return (
         <div className={'DP-work__inputs flus-table'}>
-            <h5>Ввод видов и составов загружаемых в печь флюсов</h5>
+            <h5 style={{textAlign:'center'}}>Ввод видов и составов загружаемых в печь флюсов</h5>
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="a dense table">
                     <TableHead>
                         <TableRow>
-                            {resultRows.map((item, index) => <TableCell width={'20%'} key={index} align={index === 0 ? "left" : 'center'}>{item}</TableCell>)}
+                            {resultRows.map((item, index) => <TableCell key={index} align={index === 0 ? "left" : 'center'}>{item}</TableCell>)}
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -61,10 +68,15 @@ export const Flus = ({name, params, onChangeInput}) => {
                                 <TableCell component="th" scope="row">
                                     {row.name}
                                 </TableCell>
-                                <TableCell width={'20%'} align="center">{row.first}</TableCell>
-                                <TableCell width={'20%'} align="center">{row.second}</TableCell>
-                                <TableCell width={'20%'} align="center">{row.third}</TableCell>
-                                <TableCell width={'20%'} align="center">{row.fourth}</TableCell>
+                                <TableCell align="center">{row.first}</TableCell>
+                                <TableCell align="center">{row.second}</TableCell>
+                                <TableCell align="center">{row.third}</TableCell>
+                                <TableCell align="center">{row.fourth}</TableCell>
+                                <TableCell align="center">{row.fifth}</TableCell>
+                                <TableCell align="center">{row.sixth}</TableCell>
+                                <TableCell align="center">{row.seventh}</TableCell>
+                                <TableCell align="center">{row.eighth}</TableCell>
+                                <TableCell align="center">{row.ninth}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

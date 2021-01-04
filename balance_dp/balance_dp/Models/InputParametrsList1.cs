@@ -14,7 +14,7 @@ namespace balance_dp.Models
         public BlastFurnaceGas FurnaceGas { get; set; }
         public BlowingParams blowing { get; set; }
         public Slag slag { get; set; }
-        public ZHRM zhrn { get; set; }
+        public ZHRM zhrm { get; set; }
     }
   
     public class CastIronElementsPercent // Состав чугуна и его характеристики
@@ -96,12 +96,7 @@ namespace balance_dp.Models
         {
             get { return list1_C35_NaturalBlowingConsumption + list1_C34_BlowingMoistureTechReport; }
         } 
-
-        public float list2_D42_Snell
-        {
-
-            get { return list1_C35_NaturalBlowingConsumption + list1_C34_BlowingMoistureTechReport; }
-        }
+       
 
         public float list1_C37_PersentOxygenInBlowing { get; set; } //Содержание кислорода в дутье
         public float list1_C38_SpecificConsuptionNaturalGas { get; set; } //Удельный расход природного газа
@@ -130,7 +125,7 @@ namespace balance_dp.Models
         public float list1_C54_SiO2_Caacity { get; set; }
         public float list1_C55_Al2O3_Capacity { get; set; }
         public float list1_C56_MgO_Capacity { get; set; }
-        public float list1_C57_S_Capacity { get; set; }
+        public float list1_C57_S_Capacity => list1_C50_SulfurCapacity;
         public float list1_C58_TiO2_Capacity { get; set; }
 
         public float list1_C59_CaOSiO2_Capacity => list1_C53_CaO_Capacity / list1_C54_SiO2_Caacity;
@@ -151,6 +146,6 @@ namespace balance_dp.Models
         public float c69 { get; set; }
         public float c70 { get; set; }
         public float c71 { get; set; }
-        public float c72_waterCapacity
+        public float c72_waterCapacity { get; set; }
     }
 }

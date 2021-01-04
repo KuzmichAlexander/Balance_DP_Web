@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 const resultRows = ['Статьи расхода', 'кДж/кг', '%'];
+const resultRows_ifTrue = ['Статьи прихода', 'кДж/кг', '%'];
 
 const useStyles = makeStyles({
     table: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles({
     },
 });
 
-export const Tables = ({rows}) => {
+export const Tables = ({rows, title, isComming}) => {
     const classes = useStyles();
 
     return (
@@ -24,8 +25,13 @@ export const Tables = ({rows}) => {
                 <Table className={classes.table} size={'small'} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            {resultRows.map((item, index) => <TableCell key={index}
-                                                                               align={index === 0 ? "left" : 'center'}>{item}</TableCell>)}
+                            {title ?
+                                null :
+                                isComming ?
+                                    resultRows_ifTrue.map((item, index) => <TableCell key={index}
+                                                                               align={index === 0 ? "left" : 'center'}>{item}</TableCell>)
+                            : resultRows.map((item, index) => <TableCell key={index}
+                                                                         align={index === 0 ? "left" : 'center'}>{item}</TableCell>)}
                         </TableRow>
                     </TableHead>
                     <TableBody>

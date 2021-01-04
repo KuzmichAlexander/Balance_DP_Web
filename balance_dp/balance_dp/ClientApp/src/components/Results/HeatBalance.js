@@ -14,6 +14,7 @@ const rashodDescription = ['Прямое восстановление оксид
     'Расход тепла на разложение влаги шихты',
     'Тепло, уносимое колошниковым газом '
 ];
+const nevyazka = ['По методике А.Н. Рамма', 'По разности прихода и расхода', 'По методике А.Н. Рамма']
 
 function createData(name, first, second) {
     return {name, first, second};
@@ -27,6 +28,15 @@ export const HeatBalance = ({result}) => {
         createData(prihodDescription[2], result.heatCountOfConversion, result.heatCountOfConversion_persent),
         createData('Итого приход тепла', result.sum, result.sum_persent),
     ];
+
+    const rows_loastHeat = [
+        createData(nevyazka[0], result.c107, result.c107_persent),
+        createData(nevyazka[1], result.c114, result.c114_persent),
+    ];
+
+    const rows_nevyzka = [
+        createData(nevyazka[2], result.c112, result.c112_persent),
+    ]
 
     const rows_rashod = [
         createData(rashodDescription[0], result.c81, result.c81_persent),
@@ -45,13 +55,17 @@ export const HeatBalance = ({result}) => {
 
         <div className={'DP-work__inputs result-table'}>
             <h5>Тепловой баланс</h5>
-            <Tables rows = {rows_prihod}/>
+            <Tables rows = {rows_prihod} isComming={true}/>
             <Charts
                 data={[result.heatOfBurningCocks, result.heatCountBlowin, result.heatCountOfConversion]}
                 labels={prihodDescription}
             />
             <br/>{/* {//'-----------------------------------------------'}*/}
             <Tables rows = {rows_rashod}/>
+            <h5>Тепловые потери печи с охлаждающей водой и в окружающее пространство</h5>
+            <Tables rows={rows_loastHeat} title={true} />
+            <h5>Невязка теплового баланса (по отношению к приходу тепла в печь)</h5>
+            <Tables rows={rows_nevyzka} title={true} />
             <Charts
                 data={[result.c81, result.c83, result.c85, result.c87, result.c89, result.c91, result.c93, result.c95, result.c97, result.c104]}
                 labels={rashodDescription}

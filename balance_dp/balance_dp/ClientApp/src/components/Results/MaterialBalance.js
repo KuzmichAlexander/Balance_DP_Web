@@ -4,7 +4,7 @@ import {Tables} from "./Tables";
 
 const prihodDescription = ['Железорудный материал', 'Флюс', 'Кокс', 'Природный газ', 'Дутье'];
 const rashodDescription = ['Чугун', 'Шлак', 'Колошниковый газ', 'Масса влаги от восстановления оксидов железа водородом', 'Колошниковая пыль'];
-
+const nevyazkaDescription = ['Невязка материального баланса'];
 function createData(name, first, second) {
     return {name, first, second};
 }
@@ -29,6 +29,10 @@ export const MaterialBalance = ({result}) => {
         createData('Сумма расходных статей материального баланса', result.c47, result.c47_persent),
     ];
 
+    const rows_nevyazka = [
+        createData(nevyazkaDescription[0], result.list5_C50, result.list5_C50_percent),
+    ];
+
     return (
         <div className={'DP-work__inputs result-table'}>
             <h5>Материальный баланс</h5>
@@ -43,8 +47,10 @@ export const MaterialBalance = ({result}) => {
                 data = {[result.list5_C37, result.list5_C39, result.list5_C41, result.list5_C43, result.list5_C45]}
                 labels = {rashodDescription}
             />
+            <h5 style={{textAlign:'center'}}>Невязка материального баланса</h5>
+            <Tables rows={rows_nevyazka} title={true}/>
         </div>
     )
-}
+};
 
 

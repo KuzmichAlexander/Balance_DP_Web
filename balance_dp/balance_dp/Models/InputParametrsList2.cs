@@ -31,6 +31,8 @@ namespace balance_dp.Models
         public FlusModels Fluospat { get; set; } //!
         public FlusModels Quartzite { get; set; }
         public FlusModels Slug { get; set; }
+        public FlusModels Reserve { get; set; // ДОБАВИЛ РЕЗЕРВНЫЕ ФЛЮСЫ,НЕ ЗАБЫТЬ СКАЗАТЬ САНЕ
+        }
     }
     public class MaterialConsuption 
     {

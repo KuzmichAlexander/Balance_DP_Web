@@ -1,87 +1,21 @@
 import axios from 'axios';
 
-const url = 'https://localhost:44379/api/CalculateDP';
+const baseURL = document.location.origin;
 
-export const getData = () => {
+export const getData = async () => { //Запрос на входные параметры
+    const url = `${baseURL}/api/ThreadParams`
+    const {data} = await axios.get(url);
     return data;
 }
 
-export const fetchData = async (params) => {
+export const fetchData = async (params) => { // Отправляем входные, получаем результат
+    const url = `${baseURL}/api/CalculateDP`
     const {data} = await axios.post(url, params);
-    console.log(data);
     return data;
 }
 
-const fdata = {
-    hb: {
-        heatOfBurningCocks: "2650,0947",
-        heatOfBurningCocks_persent: null,
-        heatCountBlowin: "1427,8228",
-        heatCountBlowin_persent: null,
-        heatCountOfConversion: "231,31721",
-        heatCountOfConversion_persent: null,
-        c81: 10,
-        c81_persent: null,
-        c83: 12,
-        c83_persent: null,
-        c85: 31,
-        c85_persent: null,
-        c87: 25,
-        c87_persent: null,
-        c89: 42,
-        c89_persent: null,
-        c91: 12,
-        c91_persent: null,
-        c93: 12,
-        c93_persent: null,
-        c95: 32,
-        c95_persent: null,
-        c97: 56,
-        c97_persent: null,
-        c104: 5,
-        c104_persent: null,
-        c107: 123,
-        c107_persent: null,
-        c114: 321,
-        c114_persent: null,
-        c112: 0,
-        c112_persent: 0,
-        sum: "4309,235",
-        sum_persent: null,
-    },
-    mb: {
-        list5_C23: 10,
-        list5_C23_percent: 0,
-        list5_C25: 20,
-        list5_C25_percent: 0,
-        list5_C27: 30,
-        list5_C27_percent: 0,
-        list5_C29: 40,
-        list5_C29_percent: 0,
-        list5_C31: 50,
-        list5_C31_percent: 0,
-        list5_C33_Sum: 0,
-        list5_C33_Sum_percent: 0,
-
-        list5_C37: 10,
-        list5_C37_percent: 0,
-        list5_C39: 20,
-        list5_C39_percent: 0,
-        list5_C41: 30,
-        list5_C41_percent: 0,
-        list5_C43: 40,
-        list5_C43_percent: 0,
-        list5_C45: 50,
-        list5_C45_percent: 0,
-        list5_C47_Sum: 0,
-        list5_C47_Sum_percent: 0,
-
-        list5_C50: 0,
-        list5_C50_percent: 0,
-    }
-}
-
-const data = {
+//Для отладки фронта
+const inputParams = {
     InputIndicators: {
         CastIron: {
             list1_C9_Si: 0.521,

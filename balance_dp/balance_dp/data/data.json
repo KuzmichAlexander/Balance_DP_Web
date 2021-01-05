@@ -5,7 +5,7 @@
       "list1_C10_Mn": 0.467,
       "list1_C11_S": 0.016,
       "list1_C12_P": 0.062,
-      "list1_C13_Ti": 0.44,
+      "list1_C13_Ti": 0.04,
       "list1_C14_Cr": 0.033,
       "list1_C15_V": 0,
       "list1_Ñ16_C": 4.762,
@@ -17,7 +17,6 @@
       "list1_C23_EffectVolume": 1370,
       "list1_C24_HeatLoses_ofBlastFurnace": 1047
     },
-
     "CockParam": {
       "CocksComposit": {
         "list2_A42_AhsCocks": 11.45,
@@ -28,8 +27,8 @@
         "list2_A46_Fe": 6.258,
         "list2_B46_Cao": 6.355,
         "list2_C46_Sio2": 50.15,
-        "list2_D46_Al2O3": 24.95,
-        "list2_E46_MgO": 23.94,
+        "list2_D46_Al2O3": 23.95,
+        "list2_E46_MgO": 2.485,
         "list2_F46_P": 0
       },
       "list1_C29_WaterCOCKs": 3.5,
@@ -39,7 +38,7 @@
       "list1_C61_GasTemperature": 222,
       "list1_C62_CO2_Capacity": 18.93,
       "list1_C63_CO_Capacity": 25.78,
-      "list1_C64_H2_Capacity": 11.68,
+      "list1_C64_H2_Capacity": 11.86,
       "list1_C66_DustExit": 9.1,
       "list1_C67_FeO_Capacity": 12
     },
@@ -48,7 +47,6 @@
       "list1_C33_HotBlowingTemperature": 1240,
       "list1_C34_BlowingMoistureTechReport": 1.8,
       "list1_C35_NaturalBlowingConsumption": 11,
-
       "list1_C37_PersentOxygenInBlowing": 30.98,
       "list1_C38_SpecificConsuptionNaturalGas": 139.6,
       "list1_C39_CH4Consuption": 100,
@@ -57,9 +55,24 @@
       "list1_C42_CO2Comsuption": 0,
       "list1_C43_C_Capacity": 1,
       "list1_C44_H2_Capacity": 2,
-
       "list1_C46_limestoneWaterCapacity": 0,
       "list1_C47_limestoneWeightLoss": 44.4
+    },
+    "slag": {
+      "list1_C49_SlagOutput": 367.5,
+      "list1_C50_SulfurCapacity": 0.6,
+      "list1_C51_HeatCapacity": 1.26,
+      "list1_C53_CaO_Capacity": 38.86,
+      "list1_C54_SiO2_Caacity": 38.81,
+      "list1_C55_Al2O3_Capacity": 10.45,
+      "list1_C56_MgO_Capacity": 7.96,
+      "list1_C58_TiO2_Capacity": 0.73
+    },
+    "zhrm": {
+      "c69": 1604.3,
+      "c70": 80.2,
+      "c71": 1684.5,
+      "c72_waterCapacity": 0
     }
   },
   "InputData2": {
@@ -108,6 +121,23 @@
         "list2_I33_P_Capacity": 0,
         "list2_J33_S_Capacity": 0.97
       }
+    },
+    "materialCons": {
+      "A8_Fe": 57.128,
+      "B8_FeO": 10.131,
+      "C8_Fe2O3": 49.815,
+      "D8_SiO2": 7.782,
+      "E8_AlO3": 1.392,
+      "F8_CaO": 8.35,
+      "G8_MgO": 1.525,
+      "H8_P": 0.025,
+      "I8_S": 0.039,
+      "J8_MnO": 0.189,
+      "K8_Zn": 0.017,
+      "L8_Pmpp": 0,
+      "M8_H20": 0.097,
+      "N8_TiO2": 0.213,
+      "O8_Cr": 0.015
     }
   }
 }

@@ -10,7 +10,6 @@ const getBGColors = (count) => {
 }
 
 export const Charts = ({ data, labels }) => {
-    console.log(data)
     const pieData = data.map(item => parseFloat(item));
 
     return (

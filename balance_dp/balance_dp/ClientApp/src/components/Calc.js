@@ -17,8 +17,9 @@ export class Calc extends React.Component {
         result: null
     };
 
-    componentDidMount(event) {
-        this.setState({data: getData()});
+    async componentDidMount (event) {
+        const fetchedData = await getData();
+        this.setState({data: fetchedData});
     };
 
     onBlurFunction = (e) => {
@@ -52,7 +53,6 @@ export class Calc extends React.Component {
 
     onSelectChange = (e) => {
         const value = +e.target.value;
-        console.log(this.state)
         this.setState(() => {
             this.state.data.InputIndicators.blowing.list1_C35_NaturalBlowingConsumption = value;
         });
@@ -60,8 +60,7 @@ export class Calc extends React.Component {
 
     sendData = async (e) => {
         const fetchedData = await fetchData(this.state.data);
-        console.log(fetchedData)
-        this.setState({result: fetchedData})
+        this.setState({result: fetchedData});
     };
 
     render() {

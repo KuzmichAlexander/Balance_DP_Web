@@ -1,5 +1,5 @@
 import React from "react";
-import {fetchData, getData} from "../DAl/api";
+import {fetchData, getData, saveDataRequest} from "../DAl/api";
 import {CastIron} from "./Inputs/Cast__iron";
 import {BlastFur} from "./Inputs/BlastFur";
 import {Blowing} from "./Inputs/Blowing";
@@ -14,10 +14,11 @@ import {ZRRM} from "./Inputs/ZHRM";
 export class Calc extends React.Component {
     state = {
         data: null,
-        result: null
+        result: null,
+        save: null
     };
 
-    async componentDidMount (event) {
+    async componentDidMount(event) {
         const fetchedData = await getData();
         this.setState({data: fetchedData});
     };
@@ -61,6 +62,12 @@ export class Calc extends React.Component {
     sendData = async (e) => {
         const fetchedData = await fetchData(this.state.data);
         this.setState({result: fetchedData});
+    };
+
+    saveData = async () => {
+        const result = await saveDataRequest(this.state.data);
+        console.log(result)
+        this.setState({save: true});
     };
 
     render() {
@@ -110,7 +117,11 @@ export class Calc extends React.Component {
                               onChangeInput={this.onInputChange}/>
                         : null}
                 </div>
-                <input type="button" className={'send-button'} onClick={this.sendData} value={'Произвести расчёт'}/>
+                <div className="buttons__container">
+                    <input type="button" className={'send-button'} onClick={this.saveData}
+                           value={'Сохранить входные параметры'}/>
+                    <input type="button" className={'send-button'} onClick={this.sendData} value={'Произвести расчёт'}/>
+                </div>
                 <br/>
                 {this.state.result ? <ResultContainer results={this.state.result}/>
                     : 'Бесы опять шалят, данных пока нет'}

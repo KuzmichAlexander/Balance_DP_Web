@@ -1,10 +1,13 @@
 import axios from 'axios';
+import {withMobileDialog} from "@material-ui/core";
 
 const baseURL = document.location.origin;
 
 export const getData = async () => { //Запрос на входные параметры
-    const url = `${baseURL}/api/ThreadParams`
+    const url = `${baseURL}/api/ThreadParams`;
     const {data} = await axios.get(url);
+    console.log(data)
+    //console.log(JSON.parse(data))
     return data;
 }
 
@@ -13,6 +16,15 @@ export const fetchData = async (params) => { // Отправляем входн�
     const {data} = await axios.post(url, params);
     return data;
 }
+
+export const saveDataRequest = async (params) => {
+    const url = `${baseURL}/api/ThreadParams`;
+    const sendData = {dpi:params, name: 'data'};
+    const {data} = await axios.post(url, sendData);
+    return data;
+}
+
+
 
 //Для отладки фронта
 const inputParams = {
@@ -160,3 +172,4 @@ const inputParams = {
     }
 
 }
+//console.log(JSON.stringify(inputParams))

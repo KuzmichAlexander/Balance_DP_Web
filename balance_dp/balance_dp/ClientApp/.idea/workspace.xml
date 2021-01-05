@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84cf6584-b376-4e37-866b-1bfaf5813a1f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.config/dotnet-tools.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.config/dotnet-tools.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DAl/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAl/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Calc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Inputs/Flus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Inputs/Flus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Results/Charts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Results/Charts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Controllers/ThreadParamsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Controllers/ThreadParamsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/DPInputData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/DPInputData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/InputParametrsList2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/InputParametrsList2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../data/data.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +104,8 @@
       <workItem from="1609663136992" duration="3623000" />
       <workItem from="1609745143500" duration="666000" />
       <workItem from="1609832731268" duration="3726000" />
+      <workItem from="1609860085696" duration="3765000" />
+      <workItem from="1609864905139" duration="342000" />
     </task>
     <servers />
   </component>

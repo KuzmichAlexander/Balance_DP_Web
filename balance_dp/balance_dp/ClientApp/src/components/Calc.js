@@ -40,6 +40,8 @@ export class Calc extends React.Component {
     }
 
     onInputChange = (e) => {
+
+        console.log(this.state.data)
         const value = +e.target.value;
         if (!isNaN(value)) {
             const [firstDeep, secondDeep, thirdDeep, forthDeep] = e.target.id.split('-');
@@ -89,7 +91,6 @@ export class Calc extends React.Component {
     }
 
     saveData = async (name) => {
-        console.log(name)
         const result = await saveDataRequest(this.state.data, name);
         this.setState({save: true});
     };

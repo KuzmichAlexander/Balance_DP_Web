@@ -34,8 +34,11 @@ namespace balance_dp.Controllers
             string res = System.Text.Json.JsonSerializer.Serialize<DPInputData>(sp.dpi);
             try
             {
-                System.IO.File.Delete(path);
-                using (StreamWriter sw = new StreamWriter(path, false))
+                if (System.IO.File.Exists($"data/{sp.name}.json"))
+                {
+                    System.IO.File.Delete($"data/{sp.name}.json");
+                }
+                using (StreamWriter sw = new StreamWriter($"data/{sp.name}.json", false))
                 {
                     sw.WriteLine(res);
                 }

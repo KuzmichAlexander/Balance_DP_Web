@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84cf6584-b376-4e37-866b-1bfaf5813a1f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Modal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DAl/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAl/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Calc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Controllers/ThreadParamsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Controllers/ThreadParamsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/DPInputData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/DPInputData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/InputParametrsList2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/InputParametrsList2.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../data/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../data/data.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,6 +107,8 @@
       <workItem from="1609832731268" duration="3726000" />
       <workItem from="1609860085696" duration="3765000" />
       <workItem from="1609864905139" duration="342000" />
+      <workItem from="1609914717367" duration="1560000" />
+      <workItem from="1609916410514" duration="8105000" />
     </task>
     <servers />
   </component>

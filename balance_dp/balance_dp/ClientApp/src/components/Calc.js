@@ -1,4 +1,5 @@
 import React from "react";
+import {Link, animateScroll as scroll} from "react-scroll";
 import {fetchData, getData, saveDataRequest} from "../DAl/api";
 import {CastIron} from "./Inputs/Cast__iron";
 import {BlastFur} from "./Inputs/BlastFur";
@@ -9,13 +10,17 @@ import {ResultContainer} from "./Results/ResultContainer";
 import {MaterialConsuption} from "./Inputs/MaterialConsuption";
 import {Flus} from "./Inputs/Flus";
 import {ZRRM} from "./Inputs/ZHRM";
+import {CustomModal} from "./Modal";
+import {withMobileDialog} from "@material-ui/core";
 
 
 export class Calc extends React.Component {
     state = {
         data: null,
         result: null,
-        save: null
+        save: null,
+        modalActive: false,
+        sendButtonDisabled: false,
     };
 
     async componentDidMount(event) {
@@ -60,15 +65,39 @@ export class Calc extends React.Component {
     };
 
     sendData = async (e) => {
+        this.toggleSendButton();
         const fetchedData = await fetchData(this.state.data);
         this.setState({result: fetchedData});
+        const scrollTo = window.pageYOffset + window.innerHeight - 150;
+        setTimeout(()=>scroll.scrollTo(scrollTo), 0)
     };
 
-    saveData = async () => {
-        const result = await saveDataRequest(this.state.data);
-        console.log(result)
+    toggleSendButton = () => {
+        if (this.state.sendButtonDisabled) {
+            this.setState({sendButtonDisabled: false})
+        } else {
+            this.setState({sendButtonDisabled: true})
+        }
+    }
+
+    toggleModal = () => {
+        if (this.state.modalActive) {
+            this.setState({modalActive: false})
+        } else {
+            this.setState({modalActive: true})
+        }
+    }
+
+    saveData = async (name) => {
+        console.log(name)
+        const result = await saveDataRequest(this.state.data, name);
         this.setState({save: true});
     };
+
+    reset = () => {
+        this.setState({result: null});
+        this.toggleSendButton();
+    }
 
     render() {
         return (
@@ -118,13 +147,20 @@ export class Calc extends React.Component {
                         : null}
                 </div>
                 <div className="buttons__container">
-                    <input type="button" className={'send-button'} onClick={this.saveData}
+                    <input type="button" className={'send-button'} onClick={this.toggleModal}
                            value={'Сохранить входные параметры'}/>
-                    <input type="button" className={'send-button'} onClick={this.sendData} value={'Произвести расчёт'}/>
+                    <input type="button" className={'send-button'} onClick={this.sendData} value={'Произвести расчёт'}
+                           disabled={this.state.sendButtonDisabled}/>
                 </div>
-                <br/>
-                {this.state.result ? <ResultContainer results={this.state.result}/>
+                <br />
+                {this.state.result ?
+                    <>
+                        <ResultContainer results={this.state.result}/>
+                        <input type="button" style={{margin: '0 auto'}} className={'send-button'} onClick={this.reset}
+                               value={'Посчитать ещё раз'}/>
+                    </>
                     : 'Бесы опять шалят, данных пока нет'}
+                {this.state.modalActive ? <CustomModal onToggle={this.toggleModal} saveParams={this.saveData}/> : null}
             </div>
         )
     }

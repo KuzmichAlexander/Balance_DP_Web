@@ -4,11 +4,9 @@ import {withMobileDialog} from "@material-ui/core";
 const baseURL = document.location.origin;
 
 export const getData = async () => { //Запрос на входные параметры
-    const url = `${baseURL}/api/ThreadParams`;
-    const {data} = await axios.get(url);
-    console.log(data)
-    //console.log(JSON.parse(data))
-    return data;
+    //const url = `${baseURL}/api/ThreadParams`;
+    //const {data} = await axios.get(url);
+    return inputParams;
 }
 
 export const fetchData = async (params) => { // Отправляем входные, получаем результат
@@ -17,9 +15,9 @@ export const fetchData = async (params) => { // Отправляем входн�
     return data;
 }
 
-export const saveDataRequest = async (params) => {
+export const saveDataRequest = async (params, name) => {
     const url = `${baseURL}/api/ThreadParams`;
-    const sendData = {dpi:params, name: 'data'};
+    const sendData = {dpi:params, name: name};
     const {data} = await axios.post(url, sendData);
     return data;
 }
@@ -170,6 +168,5 @@ const inputParams = {
             O8_Cr: 0.015
         }
     }
-
 }
 //console.log(JSON.stringify(inputParams))

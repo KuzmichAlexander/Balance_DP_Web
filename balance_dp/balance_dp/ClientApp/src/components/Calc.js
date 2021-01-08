@@ -1,5 +1,5 @@
 import React from "react";
-import {Link, animateScroll as scroll} from "react-scroll";
+import {animateScroll as scroll} from "react-scroll";
 import {fetchData, getData, saveDataRequest} from "../DAl/api";
 import {CastIron} from "./Inputs/Cast__iron";
 import {BlastFur} from "./Inputs/BlastFur";
@@ -11,7 +11,6 @@ import {MaterialConsuption} from "./Inputs/MaterialConsuption";
 import {Flus} from "./Inputs/Flus";
 import {ZRRM} from "./Inputs/ZHRM";
 import {CustomModal} from "./Modal";
-import {withMobileDialog} from "@material-ui/core";
 
 
 export class Calc extends React.Component {
@@ -40,8 +39,6 @@ export class Calc extends React.Component {
     }
 
     onInputChange = (e) => {
-
-        console.log(this.state.data)
         const value = +e.target.value;
         if (!isNaN(value)) {
             const [firstDeep, secondDeep, thirdDeep, forthDeep] = e.target.id.split('-');

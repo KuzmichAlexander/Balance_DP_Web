@@ -1,12 +1,11 @@
 import axios from 'axios';
-import {withMobileDialog} from "@material-ui/core";
 
 const baseURL = document.location.origin;
 
 export const getData = async () => { //Запрос на входные параметры
-    //const url = `${baseURL}/api/ThreadParams`;
-    //const {data} = await axios.get(url);
-    return inputParams;
+    const url = `${baseURL}/api/ThreadParams`;
+    const {data} = await axios.get(url);
+    return data;
 }
 
 export const fetchData = async (params) => { // Отправляем входные, получаем результат

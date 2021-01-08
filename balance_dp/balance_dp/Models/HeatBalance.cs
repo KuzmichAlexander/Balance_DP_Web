@@ -174,19 +174,19 @@ namespace balance_dp.Models
             rh.mb.list5_C19 = 0.01f * indicators.list3_C51_Vkg_BlastFurnaceGasOut * (1 / 22.4f) * (44 * indicators.list3_C53_BlastFurnaceGasСomposition_С02_persent + 28 * indicators.list3_C55_BlastFurnaceGasСomposition_С0_persent + 16 * indicators.list3_C59_BlastFurnaceGasСomposition_CH4_persent + 2 * indicators.list3_C57_BlastFurnaceGasСomposition_H2_persent + 28 * indicators.list3_C61_BlastFurnaceGasСomposition_N2_persent);
            
             //---- Приходная часть материального ---- ////
-            rh.mb.list5_C23 = ResultToString( did.InputIndicators.zhrm.c71);        
+            rh.mb.list5_C23 = ResultToString( did.InputIndicators.zhrm.c69 + did.InputIndicators.zhrm.c70 );        
             // ------ ЗДЕСЬ ТОЖЕ РЕЗЕРВНЫЕ ФЛЮСЫ УБРАТЬ КОММИТ -- //
             rh.mb.list5_C25 = ResultToString(did.InputData2.flus.Limestone.list2_B33flusConsuption + did.InputData2.flus.Fluospat.list2_B33flusConsuption + did.InputData2.flus.Quartzite.list2_B33flusConsuption + did.InputData2.flus.Slug.list2_B33flusConsuption /*+ did.InputData2.flus.Reserve.list2_B33flusConsuption*/);
             rh.mb.list5_C27 = ResultToString(did.InputIndicators.BlastFur.list1_C21_CockCUMsuption);
             rh.mb.list5_C29 = ResultToString(rh.mb.list5_C17);
             rh.mb.list5_C31 = ResultToString(rh.mb.list5_C18);
-            rh.mb.list5_InputMeterial = did.InputIndicators.zhrm.c71 + did.InputData2.flus.Limestone.list2_B33flusConsuption + did.InputData2.flus.Fluospat.list2_B33flusConsuption + did.InputData2.flus.Quartzite.list2_B33flusConsuption + did.InputData2.flus.Slug.list2_B33flusConsuption /*+ did.InputData2.flus.Reserve.list2_B33flusConsuption*/  + did.InputIndicators.BlastFur.list1_C21_CockCUMsuption + rh.mb.list5_C17 + rh.mb.list5_C18;
-            rh.mb.list5_C23_percent = PersentToString(did.InputIndicators.zhrm.c71 / rh.mb.list5_InputMeterial);
+            rh.mb.list5_InputMeterial = (did.InputIndicators.zhrm.c69 + did.InputIndicators.zhrm.c70)  + did.InputData2.flus.Limestone.list2_B33flusConsuption + did.InputData2.flus.Fluospat.list2_B33flusConsuption + did.InputData2.flus.Quartzite.list2_B33flusConsuption + did.InputData2.flus.Slug.list2_B33flusConsuption /*+ did.InputData2.flus.Reserve.list2_B33flusConsuption*/  + did.InputIndicators.BlastFur.list1_C21_CockCUMsuption + rh.mb.list5_C17 + rh.mb.list5_C18;
+            rh.mb.list5_C23_percent = PersentToString((did.InputIndicators.zhrm.c69 + did.InputIndicators.zhrm.c70)  / rh.mb.list5_InputMeterial);
             rh.mb.list5_C25_percent = PersentToString(did.InputData2.flus.Limestone.list2_B33flusConsuption + did.InputData2.flus.Fluospat.list2_B33flusConsuption + did.InputData2.flus.Quartzite.list2_B33flusConsuption + did.InputData2.flus.Slug.list2_B33flusConsuption /*+ did.InputData2.flus.Reserve.list2_B33flusConsuption*/ / rh.mb.list5_InputMeterial);
             rh.mb.list5_C27_percent = PersentToString(did.InputIndicators.BlastFur.list1_C21_CockCUMsuption / rh.mb.list5_InputMeterial);
             rh.mb.list5_C29_percent = PersentToString(rh.mb.list5_C17 / rh.mb.list5_InputMeterial);
             rh.mb.list5_C31_percent= PersentToString(rh.mb.list5_C18 / rh.mb.list5_InputMeterial);
-            rh.mb.list5_InputMaterial_percent = (did.InputIndicators.zhrm.c71 / rh.mb.list5_InputMeterial) + ((did.InputData2.flus.Limestone.list2_B33flusConsuption + did.InputData2.flus.Fluospat.list2_B33flusConsuption + did.InputData2.flus.Quartzite.list2_B33flusConsuption + did.InputData2.flus.Slug.list2_B33flusConsuption /*+ did.InputData2.flus.Reserve.list2_B33flusConsuption*/ )/ rh.mb.list5_InputMeterial) + (did.InputIndicators.BlastFur.list1_C21_CockCUMsuption / rh.mb.list5_InputMeterial) + (rh.mb.list5_C17 / rh.mb.list5_InputMeterial)+(rh.mb.list5_C18 / rh.mb.list5_InputMeterial);
+            rh.mb.list5_InputMaterial_percent = ((did.InputIndicators.zhrm.c69 + did.InputIndicators.zhrm.c70)  / rh.mb.list5_InputMeterial) + ((did.InputData2.flus.Limestone.list2_B33flusConsuption + did.InputData2.flus.Fluospat.list2_B33flusConsuption + did.InputData2.flus.Quartzite.list2_B33flusConsuption + did.InputData2.flus.Slug.list2_B33flusConsuption /*+ did.InputData2.flus.Reserve.list2_B33flusConsuption*/ )/ rh.mb.list5_InputMeterial) + (did.InputIndicators.BlastFur.list1_C21_CockCUMsuption / rh.mb.list5_InputMeterial) + (rh.mb.list5_C17 / rh.mb.list5_InputMeterial)+(rh.mb.list5_C18 / rh.mb.list5_InputMeterial);
             rh.mb.C33 = ResultToString(rh.mb.list5_InputMeterial);
             rh.mb.C33_percent = PersentToString(rh.mb.list5_InputMaterial_percent);
                      // ------ Расходная часть материального баланса ----- ////
@@ -207,7 +207,7 @@ namespace balance_dp.Models
             rh.mb.C47_persent =  PersentToString( rh.mb.list5_Output_percent);
             rh.mb.list5_C50 = ResultToString(rh.mb.list5_InputMeterial - rh.mb.list5_Output);
             rh.mb.list5_C50_percent = PersentToString((rh.mb.list5_InputMeterial - rh.mb.list5_Output) / rh.mb.list5_InputMeterial);
-
+   
 
             return rh;
         }

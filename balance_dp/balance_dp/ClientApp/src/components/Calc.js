@@ -1,5 +1,6 @@
 import React from "react";
-import {fetchData, getData} from "../DAl/api";
+import {animateScroll as scroll} from "react-scroll";
+import {fetchData, getData, saveDataRequest} from "../DAl/api";
 import {CastIron} from "./Inputs/Cast__iron";
 import {BlastFur} from "./Inputs/BlastFur";
 import {Blowing} from "./Inputs/Blowing";
@@ -9,16 +10,21 @@ import {ResultContainer} from "./Results/ResultContainer";
 import {MaterialConsuption} from "./Inputs/MaterialConsuption";
 import {Flus} from "./Inputs/Flus";
 import {ZRRM} from "./Inputs/ZHRM";
+import {CustomModal} from "./Modal";
 
 
 export class Calc extends React.Component {
     state = {
         data: null,
-        result: null
+        result: null,
+        save: null,
+        modalActive: false,
+        sendButtonDisabled: false,
     };
 
-    componentDidMount(event) {
-        this.setState({data: getData()});
+    async componentDidMount(event) {
+        const fetchedData = await getData();
+        this.setState({data: fetchedData});
     };
 
     onBlurFunction = (e) => {
@@ -52,17 +58,44 @@ export class Calc extends React.Component {
 
     onSelectChange = (e) => {
         const value = +e.target.value;
-        console.log(this.state)
         this.setState(() => {
             this.state.data.InputIndicators.blowing.list1_C35_NaturalBlowingConsumption = value;
         });
     };
 
     sendData = async (e) => {
+        this.toggleSendButton();
         const fetchedData = await fetchData(this.state.data);
-        console.log(fetchedData)
-        this.setState({result: fetchedData})
+        this.setState({result: fetchedData});
+        const scrollTo = window.pageYOffset + window.innerHeight - 150;
+        setTimeout(()=>scroll.scrollTo(scrollTo), 0)
     };
+
+    toggleSendButton = () => {
+        if (this.state.sendButtonDisabled) {
+            this.setState({sendButtonDisabled: false})
+        } else {
+            this.setState({sendButtonDisabled: true})
+        }
+    }
+
+    toggleModal = () => {
+        if (this.state.modalActive) {
+            this.setState({modalActive: false})
+        } else {
+            this.setState({modalActive: true})
+        }
+    }
+
+    saveData = async (name) => {
+        const result = await saveDataRequest(this.state.data, name);
+        this.setState({save: true});
+    };
+
+    reset = () => {
+        this.setState({result: null});
+        this.toggleSendButton();
+    }
 
     render() {
         return (
@@ -111,10 +144,21 @@ export class Calc extends React.Component {
                               onChangeInput={this.onInputChange}/>
                         : null}
                 </div>
-                <input type="button" className={'send-button'} onClick={this.sendData} value={'Произвести расчёт'}/>
-                <br/>
-                {this.state.result ? <ResultContainer results={this.state.result}/>
+                <div className="buttons__container">
+                    <input type="button" className={'send-button'} onClick={this.toggleModal}
+                           value={'Сохранить входные параметры'}/>
+                    <input type="button" className={'send-button'} onClick={this.sendData} value={'Произвести расчёт'}
+                           disabled={this.state.sendButtonDisabled}/>
+                </div>
+                <br />
+                {this.state.result ?
+                    <>
+                        <ResultContainer results={this.state.result}/>
+                        <input type="button" style={{margin: '0 auto'}} className={'send-button'} onClick={this.reset}
+                               value={'Посчитать ещё раз'}/>
+                    </>
                     : 'Бесы опять шалят, данных пока нет'}
+                {this.state.modalActive ? <CustomModal onToggle={this.toggleModal} saveParams={this.saveData}/> : null}
             </div>
         )
     }

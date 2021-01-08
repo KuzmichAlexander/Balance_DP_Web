@@ -34,7 +34,6 @@ function createRow () {
             paramArray.push(getInput(name + `-${discr}-` + key, param[discr][key], onChangeInput, key ));
         }
         counter++;
-        console.log(paramArray)
         return paramArray;
     }
 }

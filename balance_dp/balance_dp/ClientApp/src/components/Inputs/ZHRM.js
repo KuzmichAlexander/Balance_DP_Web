@@ -1,8 +1,8 @@
 import React from "react";
 import {OneInput} from "./OneInput";
 
-const names = ['Удельный расход ЖРМ', 'Удельный расход металлодобавок', 'Удельный расход рудной части', 'Содержание влаги в ЖРМ'];
-const discr = ['кг/т чугуна', 'кг/т чугуна', 'кг/т чугуна', '% масс'];
+const names = ['Удельный расход ЖРМ', 'Удельный расход металлодобавок', 'Содержание влаги в ЖРМ'];
+const discr = ['кг/т чугуна', 'кг/т чугуна', '% масс'];
 
 export const ZRRM = ({name, params, onChangeInput}) => {
     const Inputs = [];

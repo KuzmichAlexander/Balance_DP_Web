@@ -1,10 +1,10 @@
 import React from "react";
 import {OneInput} from "./OneInput";
 
-const names = ['Si', 'Mn', 'S', 'P', 'Ti', 'Cr', 'V', 'C', 'Температура чугуна'];
-const discr = ['%', '%', '%', '%', '%', '%', '%', '%', '°С'];
+const names = ['Fe', 'Cao', 'Sio2', 'Al2O3', 'MgO', 'P'];
+const discr = ['%', '%', '%', '%', '%', '%'];
 
-export const CastIron = ({name, params, onChangeInput}) => {
+export const COCKS_tech = ({name, params, onChangeInput}) => {
     const Inputs = [];
     const setInputs = () => {
         let counter = 0;
@@ -12,12 +12,11 @@ export const CastIron = ({name, params, onChangeInput}) => {
             Inputs.push(<OneInput discr={discr[counter]} name={`${name}-${key}`} key={counter} value={params[key]} text={names[counter]} onChangeInput={onChangeInput} />);
             counter++;
         }
-        Inputs.pop();
         return Inputs;
     }
     return (
         <div>
-            <h5>Содержание элементов в чугуне</h5>
+            <h5>Состав золы кокса</h5>
             {setInputs()}
             <hr />
         </div>

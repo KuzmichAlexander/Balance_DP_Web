@@ -9,8 +9,9 @@ export const Blowing = ({name, params, onChangeInput, onSelectChange}) => {
     const setInputs = () => {
         let counter = 0;
         for (const key in params) {
+            if (key === 'list1_C36_BlowingMoistureSumm') continue;
             if (key === 'list1_C35_NaturalBlowingConsumption') {
-                Inputs.push(<div className={'input__container'}>
+                Inputs.push(<div  className={'input__container'}>
                     <p className={'input__description'}>Время года</p>
                     <select onChange={onSelectChange}>
                         <option value="1.5">Январь</option>
@@ -28,6 +29,7 @@ export const Blowing = ({name, params, onChangeInput, onSelectChange}) => {
                     </select>
                 </div> )
             }
+
             Inputs.push(<OneInput discr={discr[counter]} name={`${name}-${key}`} key={counter} value={params[key]} text={names[counter]} onChangeInput={onChangeInput} />);
             counter++;
         }

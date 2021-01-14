@@ -32,7 +32,8 @@ export class Calc extends React.Component {
         // this.setState({data: fetchedData});
     };
 
-    getDataFromServer = async (name) => {
+    getDataFromServer = async (name = 'Ознакомительный') => {
+        console.log(name)
         const data = await getData(name);
         console.log(data)
         this.setState({data: data})

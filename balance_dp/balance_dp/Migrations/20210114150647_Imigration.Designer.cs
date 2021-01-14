@@ -9,7 +9,7 @@ using balance_dp.Models;
 namespace balance_dp.Migrations
 {
     [DbContext(typeof(DPContext))]
-    [Migration("20210114075039_Imigration")]
+    [Migration("20210114150647_Imigration")]
     partial class Imigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

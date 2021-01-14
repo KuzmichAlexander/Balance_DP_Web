@@ -22,6 +22,7 @@ namespace balance_dp.Models
     public class CastIronElementsPercent // Состав чугуна и его характеристики
     {
         public int ID { get; set; }
+        
         public float list1_C9_Si { get; set; }
         public float list1_C10_Mn { get; set; }
         public float list1_C11_S { get; set; }

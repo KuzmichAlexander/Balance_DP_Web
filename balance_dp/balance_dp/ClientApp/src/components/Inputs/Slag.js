@@ -9,6 +9,8 @@ export const Slag = ({name, params, onChangeInput}) => {
     const setInputs = () => {
         let counter = 0;
         for (const key in params) {
+            if (key === 'list1_C57_S_Capacity') continue;
+            if (key === 'list1_C59_CaOSiO2_Capacity') continue;
             Inputs.push(<OneInput discr={discr[counter]} name={`${name}-${key}`} key={counter} value={params[key]} text={names[counter]} onChangeInput={onChangeInput} />);
             counter++;
         }

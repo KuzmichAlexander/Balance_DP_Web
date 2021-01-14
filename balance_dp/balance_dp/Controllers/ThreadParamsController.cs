@@ -24,19 +24,23 @@ namespace balance_dp.Controllers
         // GET: api/<ThreadParamsController>
         [HttpGet] // Контроллер для отправки входных параметров :)
         public string[] Get()
-        {
+        { 
             return DpDataBase.Inputs.Select(x=> x.NAME).ToArray() ;
         }
         [HttpPost] // Контроллер для принятия и сейва входных параметров :)
         public bool Post(SaveParams sp)
         {
-            var dataInput = new DPInputData()
+            if (DpDataBase.Inputs.Select(x => x.NAME).ToList().Contains(sp.name)) 
             {
-                NAME = sp.name,
-                InputIndicators = sp.dpi.InputIndicators,
-                InputData2 = sp.dpi.InputData2
-            };
-            DpDataBase.Inputs.Add(dataInput);
+                return false;
+            }       
+                var dataInput = new DPInputData()
+                {
+                    NAME = sp.name,
+                    InputIndicators = sp.dpi.InputIndicators,
+                    InputData2 = sp.dpi.InputData2
+                };
+                DpDataBase.Inputs.Add(dataInput);
             return true;
         }
     }

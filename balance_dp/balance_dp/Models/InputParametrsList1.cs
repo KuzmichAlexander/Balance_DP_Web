@@ -7,6 +7,7 @@ namespace balance_dp.Models
 {
     public class InputParametrsList1
     {
+        public int ID { get; set; }
         public CastIronElementsPercent CastIron { get; set; }
         public BlastFurnace BlastFur { get; set; }
         public COCKsParamsPersent CockParam { get; set; }
@@ -15,10 +16,12 @@ namespace balance_dp.Models
         public BlowingParams blowing { get; set; }
         public Slag slag { get; set; }
         public ZHRM zhrm { get; set; }
+        
     }
   
     public class CastIronElementsPercent // Состав чугуна и его характеристики
     {
+        public int ID { get; set; }
         public float list1_C9_Si { get; set; }
         public float list1_C10_Mn { get; set; }
         public float list1_C11_S { get; set; }
@@ -34,6 +37,7 @@ namespace balance_dp.Models
     }
     public class BlastFurnace // Доменная печь и её характеристики
     {
+        public int ID { get; set; }
         public float list1_C20_Dailyproductivity { get; set; } // Продуктивность печи по чугуну т/сут
         public float list1_C21_CockCUMsuption { get; set; } // Удельный расход кокса кг/ т.чугуна
         public float list1_C23_EffectVolume { get; set; } // Полезный объем печи м3
@@ -57,6 +61,7 @@ namespace balance_dp.Models
 
     public class COCKsParamsPersent
     {
+        public int ID { get; set; }
         public COCKsComposition CocksComposit { get; set; }
         public COCKsAsh CocksAsh { get; set; }
 
@@ -67,6 +72,7 @@ namespace balance_dp.Models
     }
     public class COCKsComposition
     {
+        public int ID { get; set; }
         public float list2_A42_AhsCocks { get; set; }
         public float list2_B42_SulfurCocks { get; set; }
         public float list2_C42_LiquidCocks { get; set; }
@@ -79,6 +85,7 @@ namespace balance_dp.Models
     }
     public class COCKsAsh
     {
+        public int ID { get; set; }
         public float list2_A46_Fe { get; set; }
         public float list2_B46_Cao { get; set; }
         public float list2_C46_Sio2 { get; set; }
@@ -88,6 +95,7 @@ namespace balance_dp.Models
     }
     public class BlowingParams
     {
+        public int ID { get; set; }
         public float list1_C32_BlowingConsumptionPerMinute { get; set; } //Минутный расход дутья
         public float list1_C33_HotBlowingTemperature { get; set; }
         public float list1_C34_BlowingMoistureTechReport { get; set; } //Влажность дутья (из техотчета)
@@ -117,6 +125,7 @@ namespace balance_dp.Models
 
     public class Slag
     {
+        public int ID { get; set; }
         public float list1_C49_SlagOutput { get; set; }
         public float list1_C50_SulfurCapacity { get; set; }
         public float list1_C51_HeatCapacity { get; set; }
@@ -133,6 +142,7 @@ namespace balance_dp.Models
 
     public class BlastFurnaceGas //Koloshnikovyi
     {
+        public int ID { get; set; }
         public float list1_C61_GasTemperature { get; set; }
         public float list1_C62_CO2_Capacity { get; set; }
         public float list1_C63_CO_Capacity { get; set; }
@@ -143,6 +153,7 @@ namespace balance_dp.Models
     }
     public class ZHRM
     {
+        public int ID { get; set; }
         public float c69 { get; set; }
         public float c70 { get; set; }
         public float c71 { get; set; }

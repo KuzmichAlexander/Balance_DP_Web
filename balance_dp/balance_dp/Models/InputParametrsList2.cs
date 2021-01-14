@@ -7,12 +7,14 @@ namespace balance_dp.Models
 {
     public class InputParametrsList2
     {
+        public int ID { get; set; }
         public Flus flus { get; set; }
         public MaterialConsuption materialCons { get; set; }
     }
 
     public class FlusModels
     {
+        public int ID { get; set; }
         public float list2_B33flusConsuption { get; set; }
         public float list2_C33_CaO_Capacity { get; set; }
         public float list2_D33_SiO2_Capacity { get; set; }
@@ -27,6 +29,7 @@ namespace balance_dp.Models
 
     public class Flus
     {
+        public int ID { get; set; }
         public FlusModels Limestone { get; set; }
         public FlusModels Fluospat { get; set; } //!
         public FlusModels Quartzite { get; set; }
@@ -36,6 +39,7 @@ namespace balance_dp.Models
     }
     public class MaterialConsuption 
     {
+        public int ID { get; set; }
         public float A8_Fe { get; set; }
         public float B8_FeO { get; set; }
         public float C8_Fe2O3 { get; set; }

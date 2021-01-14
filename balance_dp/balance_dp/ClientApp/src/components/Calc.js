@@ -1,6 +1,6 @@
 import React from "react";
 import {animateScroll as scroll} from "react-scroll";
-import {fetchData, getData, saveDataRequest} from "../DAl/api";
+import {fetchData, getData, getParamsNames, saveDataRequest} from "../DAl/api";
 import {CastIron} from "./Inputs/Cast__iron";
 import {BlastFur} from "./Inputs/BlastFur";
 import {Blowing} from "./Inputs/Blowing";
@@ -21,12 +21,22 @@ export class Calc extends React.Component {
         save: null,
         modalActive: false,
         sendButtonDisabled: false,
+        modalSelectActive: false,
+        nameParams: null
     };
 
     async componentDidMount(event) {
-        const fetchedData = await getData();
-        this.setState({data: fetchedData});
+        const list = await getParamsNames();
+        this.setState({nameParams:list, modalSelectActive: true})
+
+        // this.setState({data: fetchedData});
     };
+
+    getDataFromServer = async (name) => {
+        const data = await getData(name);
+        console.log(data)
+        this.setState({data: data})
+    }
 
     onBlurFunction = (e) => {
         const value = e.target.value;
@@ -163,6 +173,7 @@ export class Calc extends React.Component {
                     </>
                     : 'Бесы опять шалят, данных пока нет'}
                 {this.state.modalActive ? <CustomModal onToggle={this.toggleModal} saveParams={this.saveData}/> : null}
+                {this.state.modalSelectActive ? <CustomModal nameParams={this.state.nameParams} type={'select'} onToggle={this.toggleModal} fetch={this.getDataFromServer} saveParams={this.saveData}/>  : null}
             </div>
         )
     }

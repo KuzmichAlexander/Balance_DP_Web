@@ -25,15 +25,22 @@ namespace balance_dp.Controllers
         [HttpGet] // Контроллер для отправки входных параметров :)
         public string[] Get()
         { 
-            return DpDataBase.Inputs.Select(x=> x.NAME).ToArray() ;
+            return DpDataBase.Inputs.Select(x=> x.NAME).ToArray();
         }
+
+        [HttpGet("{id}", Name = "Get")]
+        public DPInputData Get(string id)
+        {
+            return DpDataBase.Inputs.Select(x => x).First(x=> x.NAME == id);
+        }
+
         [HttpPost] // Контроллер для принятия и сейва входных параметров :)
         public bool Post(SaveParams sp)
         {
-            if (DpDataBase.Inputs.Select(x => x.NAME).ToList().Contains(sp.name)) 
-            {
-                return false;
-            }       
+            //if (DpDataBase.Inputs.Select(x => x.NAME).ToList().Contains(sp.name)) 
+            //{
+            //    return false;
+            //}       
                 var dataInput = new DPInputData()
                 {
                     NAME = sp.name,

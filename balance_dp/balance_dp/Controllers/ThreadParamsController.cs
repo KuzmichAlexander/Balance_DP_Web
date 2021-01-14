@@ -20,39 +20,24 @@ namespace balance_dp.Controllers
     [ApiController]
     public class ThreadParamsController : ControllerBase
     {
-        private string path = @"data/data.json";
+        private DPContext DpDataBase = new DPContext();
         // GET: api/<ThreadParamsController>
         [HttpGet] // Контроллер для отправки входных параметров :)
-        public string Get()
+        public string[] Get()
         {
-            string res = System.IO.File.ReadAllText(path);
-            return res;
+            return DpDataBase.Inputs.Select(x=> x.NAME).ToArray() ;
         }
         [HttpPost] // Контроллер для принятия и сейва входных параметров :)
         public bool Post(SaveParams sp)
         {
-            string res = System.Text.Json.JsonSerializer.Serialize<DPInputData>(sp.dpi);
-            try
+            var dataInput = new DPInputData()
             {
-                if (System.IO.File.Exists($"data/{sp.name}.json"))
-                {
-                    System.IO.File.Delete($"data/{sp.name}.json");
-                }
-                using (StreamWriter sw = new StreamWriter($"data/{sp.name}.json", false))
-                {
-                    sw.WriteLine(res);
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                using (StreamWriter sw = new StreamWriter(@"log.txt", true))
-                {
-                    sw.WriteLine($"Не удалось записать входные параметры в файл \n Время получения {DateTime.Now.Date} \n По причине {ex} ");
-                }
-                return false;
-            }
-            
+                NAME = sp.name,
+                InputIndicators = sp.dpi.InputIndicators,
+                InputData2 = sp.dpi.InputData2
+            };
+            DpDataBase.Inputs.Add(dataInput);
+            return true;
         }
     }
 }

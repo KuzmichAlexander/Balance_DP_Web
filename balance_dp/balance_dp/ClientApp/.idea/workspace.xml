@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84cf6584-b376-4e37-866b-1bfaf5813a1f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Inputs/COCKS_consuption.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Inputs/COCKS_tech.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAl/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAl/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Calc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Inputs/Blowing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Inputs/Blowing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Inputs/ZHRM.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Inputs/ZHRM.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Results/ResultContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Results/ResultContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../data/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Inputs/COCKS.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Inputs/COCKS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Inputs/Cast__iron.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Inputs/Cast__iron.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Inputs/FurnaceGas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Inputs/FurnaceGas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Inputs/Slag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Inputs/Slag.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +111,7 @@
       <workItem from="1609914717367" duration="1560000" />
       <workItem from="1609916410514" duration="8462000" />
       <workItem from="1610096266920" duration="1093000" />
+      <workItem from="1610622106213" duration="4466000" />
     </task>
     <servers />
   </component>

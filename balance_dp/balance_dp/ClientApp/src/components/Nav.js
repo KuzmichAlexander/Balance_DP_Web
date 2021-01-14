@@ -6,7 +6,7 @@ export const Nav = () => {
         <div className='nav__container'>
             <nav>
                 <Link to={'/'}>Описание</Link>
-                <Link to={'/Calc'}>Рассчёт</Link>
+                <Link to={'/Calc'}>Расчёт</Link>
                 <Link to={'/Help'}>Справка</Link>
             </nav>
             <div className='logo'>

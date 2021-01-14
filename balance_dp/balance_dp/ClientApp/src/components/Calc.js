@@ -11,6 +11,7 @@ import {MaterialConsuption} from "./Inputs/MaterialConsuption";
 import {Flus} from "./Inputs/Flus";
 import {ZRRM} from "./Inputs/ZHRM";
 import {CustomModal} from "./Modal";
+import {COCKS} from "./Inputs/COCKS";
 
 
 export class Calc extends React.Component {
@@ -40,6 +41,7 @@ export class Calc extends React.Component {
 
     onInputChange = (e) => {
         const value = +e.target.value;
+        console.log(this.state.data)
         if (!isNaN(value)) {
             const [firstDeep, secondDeep, thirdDeep, forthDeep] = e.target.id.split('-');
             if (forthDeep) {
@@ -68,7 +70,7 @@ export class Calc extends React.Component {
         const fetchedData = await fetchData(this.state.data);
         this.setState({result: fetchedData});
         const scrollTo = window.pageYOffset + window.innerHeight - 150;
-        setTimeout(()=>scroll.scrollTo(scrollTo), 0)
+        setTimeout(() => scroll.scrollTo(scrollTo), 0)
     };
 
     toggleSendButton = () => {
@@ -133,6 +135,8 @@ export class Calc extends React.Component {
                                 <ZRRM name={'InputIndicators-zhrm'}
                                       params={this.state.data.InputIndicators.zhrm}
                                       onChangeInput={this.onInputChange}/>
+                                <COCKS name={'InputIndicators-CockParam'} params={this.state.data.InputIndicators.CockParam}
+                                       onChangeInput={this.onInputChange}/>
                             </>
                             : 'Данные подгружаются'}
                     </div>
@@ -150,7 +154,7 @@ export class Calc extends React.Component {
                     <input type="button" className={'send-button'} onClick={this.sendData} value={'Произвести расчёт'}
                            disabled={this.state.sendButtonDisabled}/>
                 </div>
-                <br />
+                <br/>
                 {this.state.result ?
                     <>
                         <ResultContainer results={this.state.result}/>

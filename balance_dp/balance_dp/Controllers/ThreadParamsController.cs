@@ -46,14 +46,14 @@ namespace balance_dp.Controllers
             //{
             //    return false;
             //}
-            //var dataInput = new DPInputData()
-            //{
-            //    NAME = sp.name,
-            //    InputIndicators = sp.dpi.InputIndicators,
-            //    InputData2 = sp.dpi.InputData2
-            //};
-        
-            //DpDataBase.Inputs.Add(dataInput);          
+            var dataInput = new DPInputData()
+            {
+                NAME = sp.name,
+                InputIndicators = sp.dpi.InputIndicators,
+                InputData2 = sp.dpi.InputData2
+            };
+
+            DpDataBase.Inputs.Add(dataInput);
             DpDataBase.SaveChanges();
             return true;
         }

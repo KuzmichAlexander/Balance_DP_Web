@@ -240,8 +240,11 @@ namespace balance_dp.Migrations
 
             modelBuilder.Entity("balance_dp.Models.DPInputData", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("CastID")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("InputData2ID")
@@ -253,7 +256,9 @@ namespace balance_dp.Migrations
                     b.Property<string>("NAME")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
+
+                    b.HasIndex("CastID");
 
                     b.HasIndex("InputData2ID");
 
@@ -379,7 +384,7 @@ namespace balance_dp.Migrations
 
                     b.HasIndex("zhrmID");
 
-                    b.ToTable("InputParametrsList1");
+                    b.ToTable("InputIndicators");
                 });
 
             modelBuilder.Entity("balance_dp.Models.InputParametrsList2", b =>
@@ -400,7 +405,7 @@ namespace balance_dp.Migrations
 
                     b.HasIndex("materialConsID");
 
-                    b.ToTable("InputParametrsList2");
+                    b.ToTable("InputData2");
                 });
 
             modelBuilder.Entity("balance_dp.Models.MaterialConsuption", b =>
@@ -534,6 +539,10 @@ namespace balance_dp.Migrations
 
             modelBuilder.Entity("balance_dp.Models.DPInputData", b =>
                 {
+                    b.HasOne("balance_dp.Models.CastIronElementsPercent", "Cast")
+                        .WithMany()
+                        .HasForeignKey("CastID");
+
                     b.HasOne("balance_dp.Models.InputParametrsList2", "InputData2")
                         .WithMany()
                         .HasForeignKey("InputData2ID");
@@ -541,6 +550,8 @@ namespace balance_dp.Migrations
                     b.HasOne("balance_dp.Models.InputParametrsList1", "InputIndicators")
                         .WithMany()
                         .HasForeignKey("InputIndicatorsID");
+
+                    b.Navigation("Cast");
 
                     b.Navigation("InputData2");
 

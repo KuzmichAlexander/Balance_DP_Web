@@ -2,7 +2,7 @@
 
 namespace balance_dp.Migrations
 {
-    public partial class Imigration : Migration
+    public partial class Mig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -281,7 +281,7 @@ namespace balance_dp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "InputParametrsList1",
+                name: "InputIndicators",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "INTEGER", nullable: false)
@@ -296,45 +296,45 @@ namespace balance_dp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InputParametrsList1", x => x.ID);
+                    table.PrimaryKey("PK_InputIndicators", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_InputParametrsList1_BlastFurnace_BlastFurID",
+                        name: "FK_InputIndicators_BlastFurnace_BlastFurID",
                         column: x => x.BlastFurID,
                         principalTable: "BlastFurnace",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_InputParametrsList1_BlastFurnaceGas_FurnaceGasID",
+                        name: "FK_InputIndicators_BlastFurnaceGas_FurnaceGasID",
                         column: x => x.FurnaceGasID,
                         principalTable: "BlastFurnaceGas",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_InputParametrsList1_BlowingParams_blowingID",
+                        name: "FK_InputIndicators_BlowingParams_blowingID",
                         column: x => x.blowingID,
                         principalTable: "BlowingParams",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_InputParametrsList1_CastIronElementsPercent_CastIronID",
+                        name: "FK_InputIndicators_CastIronElementsPercent_CastIronID",
                         column: x => x.CastIronID,
                         principalTable: "CastIronElementsPercent",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_InputParametrsList1_COCKsParamsPersent_CockParamID",
+                        name: "FK_InputIndicators_COCKsParamsPersent_CockParamID",
                         column: x => x.CockParamID,
                         principalTable: "COCKsParamsPersent",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_InputParametrsList1_Slag_slagID",
+                        name: "FK_InputIndicators_Slag_slagID",
                         column: x => x.slagID,
                         principalTable: "Slag",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_InputParametrsList1_ZHRM_zhrmID",
+                        name: "FK_InputIndicators_ZHRM_zhrmID",
                         column: x => x.zhrmID,
                         principalTable: "ZHRM",
                         principalColumn: "ID",
@@ -342,7 +342,7 @@ namespace balance_dp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "InputParametrsList2",
+                name: "InputData2",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "INTEGER", nullable: false)
@@ -352,15 +352,15 @@ namespace balance_dp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InputParametrsList2", x => x.ID);
+                    table.PrimaryKey("PK_InputData2", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_InputParametrsList2_Flus_flusID",
+                        name: "FK_InputData2_Flus_flusID",
                         column: x => x.flusID,
                         principalTable: "Flus",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_InputParametrsList2_MaterialConsuption_materialConsID",
+                        name: "FK_InputData2_MaterialConsuption_materialConsID",
                         column: x => x.materialConsID,
                         principalTable: "MaterialConsuption",
                         principalColumn: "ID",
@@ -371,25 +371,32 @@ namespace balance_dp.Migrations
                 name: "Inputs",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     NAME = table.Column<string>(type: "TEXT", nullable: true),
                     InputIndicatorsID = table.Column<int>(type: "INTEGER", nullable: true),
-                    InputData2ID = table.Column<int>(type: "INTEGER", nullable: true)
+                    InputData2ID = table.Column<int>(type: "INTEGER", nullable: true),
+                    CastID = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Inputs", x => x.ID);
+                    table.PrimaryKey("PK_Inputs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Inputs_InputParametrsList1_InputIndicatorsID",
-                        column: x => x.InputIndicatorsID,
-                        principalTable: "InputParametrsList1",
+                        name: "FK_Inputs_CastIronElementsPercent_CastID",
+                        column: x => x.CastID,
+                        principalTable: "CastIronElementsPercent",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Inputs_InputParametrsList2_InputData2ID",
+                        name: "FK_Inputs_InputData2_InputData2ID",
                         column: x => x.InputData2ID,
-                        principalTable: "InputParametrsList2",
+                        principalTable: "InputData2",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Inputs_InputIndicators_InputIndicatorsID",
+                        column: x => x.InputIndicatorsID,
+                        principalTable: "InputIndicators",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -430,49 +437,54 @@ namespace balance_dp.Migrations
                 column: "SlugID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InputParametrsList1_BlastFurID",
-                table: "InputParametrsList1",
-                column: "BlastFurID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_InputParametrsList1_blowingID",
-                table: "InputParametrsList1",
-                column: "blowingID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_InputParametrsList1_CastIronID",
-                table: "InputParametrsList1",
-                column: "CastIronID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_InputParametrsList1_CockParamID",
-                table: "InputParametrsList1",
-                column: "CockParamID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_InputParametrsList1_FurnaceGasID",
-                table: "InputParametrsList1",
-                column: "FurnaceGasID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_InputParametrsList1_slagID",
-                table: "InputParametrsList1",
-                column: "slagID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_InputParametrsList1_zhrmID",
-                table: "InputParametrsList1",
-                column: "zhrmID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_InputParametrsList2_flusID",
-                table: "InputParametrsList2",
+                name: "IX_InputData2_flusID",
+                table: "InputData2",
                 column: "flusID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InputParametrsList2_materialConsID",
-                table: "InputParametrsList2",
+                name: "IX_InputData2_materialConsID",
+                table: "InputData2",
                 column: "materialConsID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputIndicators_BlastFurID",
+                table: "InputIndicators",
+                column: "BlastFurID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputIndicators_blowingID",
+                table: "InputIndicators",
+                column: "blowingID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputIndicators_CastIronID",
+                table: "InputIndicators",
+                column: "CastIronID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputIndicators_CockParamID",
+                table: "InputIndicators",
+                column: "CockParamID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputIndicators_FurnaceGasID",
+                table: "InputIndicators",
+                column: "FurnaceGasID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputIndicators_slagID",
+                table: "InputIndicators",
+                column: "slagID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputIndicators_zhrmID",
+                table: "InputIndicators",
+                column: "zhrmID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Inputs_CastID",
+                table: "Inputs",
+                column: "CastID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Inputs_InputData2ID",
@@ -491,10 +503,16 @@ namespace balance_dp.Migrations
                 name: "Inputs");
 
             migrationBuilder.DropTable(
-                name: "InputParametrsList1");
+                name: "InputData2");
 
             migrationBuilder.DropTable(
-                name: "InputParametrsList2");
+                name: "InputIndicators");
+
+            migrationBuilder.DropTable(
+                name: "Flus");
+
+            migrationBuilder.DropTable(
+                name: "MaterialConsuption");
 
             migrationBuilder.DropTable(
                 name: "BlastFurnace");
@@ -518,19 +536,13 @@ namespace balance_dp.Migrations
                 name: "ZHRM");
 
             migrationBuilder.DropTable(
-                name: "Flus");
-
-            migrationBuilder.DropTable(
-                name: "MaterialConsuption");
+                name: "FlusModels");
 
             migrationBuilder.DropTable(
                 name: "COCKsAsh");
 
             migrationBuilder.DropTable(
                 name: "COCKsComposition");
-
-            migrationBuilder.DropTable(
-                name: "FlusModels");
         }
     }
 }

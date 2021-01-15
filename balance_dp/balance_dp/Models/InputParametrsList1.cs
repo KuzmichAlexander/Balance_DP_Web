@@ -7,6 +7,7 @@ namespace balance_dp.Models
 {
     public class InputParametrsList1
     {
+
         public int ID { get; set; }
         public CastIronElementsPercent CastIron { get; set; }
         public BlastFurnace BlastFur { get; set; }
@@ -21,7 +22,9 @@ namespace balance_dp.Models
   
     public class CastIronElementsPercent // Состав чугуна и его характеристики
     {
+
         public int ID { get; set; }
+  
         
         public float list1_C9_Si { get; set; }
         public float list1_C10_Mn { get; set; }

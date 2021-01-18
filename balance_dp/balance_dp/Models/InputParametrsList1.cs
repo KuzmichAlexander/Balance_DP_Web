@@ -9,13 +9,20 @@ namespace balance_dp.Models
     {
 
         public int ID { get; set; }
+        public int CastIronElementsPercentsId { get; set; }
         public CastIronElementsPercent CastIron { get; set; }
+        public int BlastFurnaceId { get; set; }
         public BlastFurnace BlastFur { get; set; }
+        public int COCKsParamsPersentId { get; set; }
         public COCKsParamsPersent CockParam { get; set; }
 
+        public int BlastFurnaceGasId { get; set; }
         public BlastFurnaceGas FurnaceGas { get; set; }
+        public int BlowingParamsId { get; set; }
         public BlowingParams blowing { get; set; }
+        public int SlagId { get; set; }
         public Slag slag { get; set; }
+        public int ZHRMId { get; set; }
         public ZHRM zhrm { get; set; }
         
     }
@@ -66,7 +73,9 @@ namespace balance_dp.Models
     public class COCKsParamsPersent
     {
         public int ID { get; set; }
+        public  int COCKsCompositionid {get;set;}
         public COCKsComposition CocksComposit { get; set; }
+        public int COCKsAshId { get; set; }
         public COCKsAsh CocksAsh { get; set; }
 
        

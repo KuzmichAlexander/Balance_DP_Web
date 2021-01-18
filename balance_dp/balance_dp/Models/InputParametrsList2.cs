@@ -8,7 +8,9 @@ namespace balance_dp.Models
     public class InputParametrsList2
     {
         public int ID { get; set; }
+        public int FlusId { get; set; }
         public Flus flus { get; set; }
+        public int MaterialConsuptionId { get; set; }
         public MaterialConsuption materialCons { get; set; }
     }
 
@@ -30,10 +32,15 @@ namespace balance_dp.Models
     public class Flus
     {
         public int ID { get; set; }
+        //public int LimestoneId { get; set; }
         public FlusModels Limestone { get; set; }
+        //public int FluospatId { get; set; }
         public FlusModels Fluospat { get; set; } //!
+        //public int QuartziteId { get; set; }
         public FlusModels Quartzite { get; set; }
+        //public int SlugId { get; set; }
         public FlusModels Slug { get; set; }
+        //public int ReserveId { get; set; }
         public FlusModels Reserve { get; set; // ДОБАВИЛ РЕЗЕРВНЫЕ ФЛЮСЫ,НЕ ЗАБЫТЬ СКАЗАТЬ САНЕ
         }
     }

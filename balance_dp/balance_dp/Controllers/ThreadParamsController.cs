@@ -32,11 +32,29 @@ namespace balance_dp.Controllers
         }
 
         [HttpGet("{id}", Name = "Get")]
-        public DPInputData Get(string id)
+        public string Get(string id)
         {
-            var a =  DpDataBase.Inputs.Include(p=> p.InputIndicators).Where(p=> p.NAME == id);
-         
-            return a.ElementAt(0);
+            var a = DpDataBase.Inputs
+                .Include(p => p.InputIndicators)
+                .ThenInclude(p => p.CastIron)
+                .Include(u => u.InputIndicators)
+                .ThenInclude(p => p.BlastFur)
+
+                .Include(p => p.InputData2)
+                .ThenInclude(p => p.flus)
+                .Include(p => p.InputData2)
+                .ThenInclude(p => p.flus)
+                .Where(p => p.NAME == id)
+            .ToList();
+
+
+            
+
+
+
+
+
+            return Json.Encode(a);
         }
 
         [HttpPost] // Контроллер для принятия и сейва входных параметров :)

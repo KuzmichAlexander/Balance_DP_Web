@@ -65,7 +65,7 @@ namespace balance_dp.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("BlastFurnaceGas");
+                    b.ToTable("BlastFurnaceGases");
                 });
 
             modelBuilder.Entity("balance_dp.Models.BlowingParams", b =>
@@ -147,7 +147,7 @@ namespace balance_dp.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("COCKsAsh");
+                    b.ToTable("COCKsAshes");
                 });
 
             modelBuilder.Entity("balance_dp.Models.COCKsComposition", b =>
@@ -167,7 +167,7 @@ namespace balance_dp.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("COCKsComposition");
+                    b.ToTable("COCKsCompositions");
                 });
 
             modelBuilder.Entity("balance_dp.Models.COCKsParamsPersent", b =>
@@ -176,10 +176,10 @@ namespace balance_dp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CocksAshID")
+                    b.Property<int>("COCKsAshId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CocksCompositID")
+                    b.Property<int>("COCKsCompositionid")
                         .HasColumnType("INTEGER");
 
                     b.Property<float>("list1_C29_WaterCOCKs")
@@ -190,11 +190,11 @@ namespace balance_dp.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("CocksAshID");
+                    b.HasIndex("COCKsAshId");
 
-                    b.HasIndex("CocksCompositID");
+                    b.HasIndex("COCKsCompositionid");
 
-                    b.ToTable("COCKsParamsPersent");
+                    b.ToTable("COCKsParamsPersents");
                 });
 
             modelBuilder.Entity("balance_dp.Models.CastIronElementsPercent", b =>
@@ -235,7 +235,7 @@ namespace balance_dp.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("CastIronElementsPercent");
+                    b.ToTable("CastIronElementsPercents");
                 });
 
             modelBuilder.Entity("balance_dp.Models.DPInputData", b =>
@@ -244,13 +244,10 @@ namespace balance_dp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CastID")
+                    b.Property<int>("InputData2Id")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("InputData2ID")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("InputIndicatorsID")
+                    b.Property<int>("InputIndicatorsId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("NAME")
@@ -258,11 +255,9 @@ namespace balance_dp.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CastID");
+                    b.HasIndex("InputData2Id");
 
-                    b.HasIndex("InputData2ID");
-
-                    b.HasIndex("InputIndicatorsID");
+                    b.HasIndex("InputIndicatorsId");
 
                     b.ToTable("Inputs");
                 });
@@ -300,7 +295,7 @@ namespace balance_dp.Migrations
 
                     b.HasIndex("SlugID");
 
-                    b.ToTable("Flus");
+                    b.ToTable("Fluses");
                 });
 
             modelBuilder.Entity("balance_dp.Models.FlusModels", b =>
@@ -347,42 +342,45 @@ namespace balance_dp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("BlastFurID")
+                    b.Property<int>("BlastFurnaceGasId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("BlastFurnaceId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("BlowingParamsId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("COCKsParamsPersentId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CastIronElementsPercentsId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("CastIronID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CockParamID")
+                    b.Property<int>("SlagId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("FurnaceGasID")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("blowingID")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("slagID")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("zhrmID")
+                    b.Property<int>("ZHRMId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("BlastFurID");
+                    b.HasIndex("BlastFurnaceGasId");
+
+                    b.HasIndex("BlastFurnaceId");
+
+                    b.HasIndex("BlowingParamsId");
+
+                    b.HasIndex("COCKsParamsPersentId");
 
                     b.HasIndex("CastIronID");
 
-                    b.HasIndex("CockParamID");
+                    b.HasIndex("SlagId");
 
-                    b.HasIndex("FurnaceGasID");
-
-                    b.HasIndex("blowingID");
-
-                    b.HasIndex("slagID");
-
-                    b.HasIndex("zhrmID");
+                    b.HasIndex("ZHRMId");
 
                     b.ToTable("InputIndicators");
                 });
@@ -393,19 +391,19 @@ namespace balance_dp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("flusID")
+                    b.Property<int>("FlusId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("materialConsID")
+                    b.Property<int>("MaterialConsuptionId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("flusID");
+                    b.HasIndex("FlusId");
 
-                    b.HasIndex("materialConsID");
+                    b.HasIndex("MaterialConsuptionId");
 
-                    b.ToTable("InputData2");
+                    b.ToTable("InputMaterials");
                 });
 
             modelBuilder.Entity("balance_dp.Models.MaterialConsuption", b =>
@@ -461,7 +459,7 @@ namespace balance_dp.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MaterialConsuption");
+                    b.ToTable("MaterialConsuptions");
                 });
 
             modelBuilder.Entity("balance_dp.Models.Slag", b =>
@@ -496,7 +494,7 @@ namespace balance_dp.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Slag");
+                    b.ToTable("Slags");
                 });
 
             modelBuilder.Entity("balance_dp.Models.ZHRM", b =>
@@ -519,18 +517,22 @@ namespace balance_dp.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("ZHRM");
+                    b.ToTable("ZHRMs");
                 });
 
             modelBuilder.Entity("balance_dp.Models.COCKsParamsPersent", b =>
                 {
                     b.HasOne("balance_dp.Models.COCKsAsh", "CocksAsh")
                         .WithMany()
-                        .HasForeignKey("CocksAshID");
+                        .HasForeignKey("COCKsAshId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("balance_dp.Models.COCKsComposition", "CocksComposit")
                         .WithMany()
-                        .HasForeignKey("CocksCompositID");
+                        .HasForeignKey("COCKsCompositionid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("CocksAsh");
 
@@ -539,19 +541,17 @@ namespace balance_dp.Migrations
 
             modelBuilder.Entity("balance_dp.Models.DPInputData", b =>
                 {
-                    b.HasOne("balance_dp.Models.CastIronElementsPercent", "Cast")
-                        .WithMany()
-                        .HasForeignKey("CastID");
-
                     b.HasOne("balance_dp.Models.InputParametrsList2", "InputData2")
                         .WithMany()
-                        .HasForeignKey("InputData2ID");
+                        .HasForeignKey("InputData2Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("balance_dp.Models.InputParametrsList1", "InputIndicators")
                         .WithMany()
-                        .HasForeignKey("InputIndicatorsID");
-
-                    b.Navigation("Cast");
+                        .HasForeignKey("InputIndicatorsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("InputData2");
 
@@ -593,33 +593,45 @@ namespace balance_dp.Migrations
 
             modelBuilder.Entity("balance_dp.Models.InputParametrsList1", b =>
                 {
+                    b.HasOne("balance_dp.Models.BlastFurnaceGas", "FurnaceGas")
+                        .WithMany()
+                        .HasForeignKey("BlastFurnaceGasId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("balance_dp.Models.BlastFurnace", "BlastFur")
                         .WithMany()
-                        .HasForeignKey("BlastFurID");
+                        .HasForeignKey("BlastFurnaceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("balance_dp.Models.BlowingParams", "blowing")
+                        .WithMany()
+                        .HasForeignKey("BlowingParamsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("balance_dp.Models.COCKsParamsPersent", "CockParam")
+                        .WithMany()
+                        .HasForeignKey("COCKsParamsPersentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("balance_dp.Models.CastIronElementsPercent", "CastIron")
                         .WithMany()
                         .HasForeignKey("CastIronID");
 
-                    b.HasOne("balance_dp.Models.COCKsParamsPersent", "CockParam")
-                        .WithMany()
-                        .HasForeignKey("CockParamID");
-
-                    b.HasOne("balance_dp.Models.BlastFurnaceGas", "FurnaceGas")
-                        .WithMany()
-                        .HasForeignKey("FurnaceGasID");
-
-                    b.HasOne("balance_dp.Models.BlowingParams", "blowing")
-                        .WithMany()
-                        .HasForeignKey("blowingID");
-
                     b.HasOne("balance_dp.Models.Slag", "slag")
                         .WithMany()
-                        .HasForeignKey("slagID");
+                        .HasForeignKey("SlagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("balance_dp.Models.ZHRM", "zhrm")
                         .WithMany()
-                        .HasForeignKey("zhrmID");
+                        .HasForeignKey("ZHRMId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("BlastFur");
 
@@ -640,11 +652,15 @@ namespace balance_dp.Migrations
                 {
                     b.HasOne("balance_dp.Models.Flus", "flus")
                         .WithMany()
-                        .HasForeignKey("flusID");
+                        .HasForeignKey("FlusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("balance_dp.Models.MaterialConsuption", "materialCons")
                         .WithMany()
-                        .HasForeignKey("materialConsID");
+                        .HasForeignKey("MaterialConsuptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("flus");
 

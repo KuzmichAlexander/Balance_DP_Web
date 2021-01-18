@@ -15,16 +15,16 @@ namespace balance_dp.Models
         public string NAME { get; set; }
 
 
-        //public int InputIndicatorsId { get; set; }
+        public int InputIndicatorsId { get; set; }
         //[ForeignKey(nameof(InputIndicatorsId))]
         public InputParametrsList1 InputIndicators { get; set; }
 
 
-        //public int InputData2Id { get; set; }
+        public int InputData2Id { get; set; }
         //[ForeignKey(nameof(InputData2))]
         public InputParametrsList2 InputData2 { get; set; }
         //public int CastID { get; set; }
         //[ForeignKey(nameof(CastID))]
-        public CastIronElementsPercent Cast  {get;set;}
+       
     }
 }

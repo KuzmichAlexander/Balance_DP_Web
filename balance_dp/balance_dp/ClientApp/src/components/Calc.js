@@ -174,7 +174,7 @@ export class Calc extends React.Component {
                     </>
                     : 'Бесы опять шалят, данных пока нет'}
                 {this.state.modalActive ? <CustomModal onToggle={this.toggleModal} saveParams={this.saveData}/> : null}
-                {/* {this.state.modalSelectActive ? <CustomModal nameParams={this.state.nameParams} type={'select'} onToggle={this.toggleModal} fetch={this.getDataFromServer} saveParams={this.saveData}/>  : null} */}
+                {this.state.modalSelectActive ? <CustomModal nameParams={this.state.nameParams} type={'select'} onToggle={this.toggleModal} fetch={this.getDataFromServer} saveParams={this.saveData}/>  : null}
             </div>
         )
     }

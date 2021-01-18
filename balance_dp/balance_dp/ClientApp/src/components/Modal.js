@@ -1,18 +1,20 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 const block = ['/', ':', '\\', '*', '?', '"', '<', '>', '|'];
 
 export const CustomModal = ({onToggle, saveParams, type, nameParams, fetch}) => {
-    console.log(type, nameParams)
     let select = null;
-    if (type) {
-        select = nameParams.map(elem => {
-            return <option value={elem}>{elem}</option>
-        })
-    }
+
     let [name, setName] = useState('');
     let [warning, setWarning] = useState(false);
-
+    useEffect(() => {
+        if(nameParams) setName(nameParams[0]);
+    }, []);
+    if (type === 'select') {
+        select = nameParams.map(elem => {
+            return <option value={elem}>{elem}</option>
+        });
+    }
     function selectChange(e) {
         setName(e.target.value);
     }
@@ -30,24 +32,40 @@ export const CustomModal = ({onToggle, saveParams, type, nameParams, fetch}) => 
         setName(e.target.value);
     }
 
-    return (
-        <div className='modal-wrapper' onClick={onToggle}>
-            <div className="modal-custom" onClick={event => event.stopPropagation()}>
-                {!type ? <><h2>Сохранение входных параметров</h2>
+    let content;
+
+    switch (type) {
+        case 'save':
+            content = <div className='modal-wrapper' onClick={onToggle}>
+                <div className="modal-custom" onClick={event => event.stopPropagation()}>
+                    <><h2>Сохранение входных параметров</h2>
                         <p>Введите имя для текущих параметров, чтобы в будущем их можно было использовать повторно:</p>
-                        <input placeholder={'Имя для схранения параметров'} className={'modal-custom__input'} type="text"
+                        <input placeholder={'Имя для схранения параметров'} className={'modal-custom__input'}
+                               type="text"
                                value={name} onChange={nameChanger}/>
                         <input value={'Сохранить'} className={'modal-custom__button'} type="button"
                                onClick={() => saveParams(name)}/>
                         {warning ? <p>Символы, запрещенные для ввода: {block.map(item => <code>{item} </code>)} </p>
-                            : null} </> :
+                            : null} </>
+                </div>
+            </div>
+            break;
+        case 'select':
+            content = <div className='modal-wrapper' onClick={onToggle}>
+                <div className="modal-custom" onClick={event => event.stopPropagation()}>
                     <>
                         <p>Выберите данные для расчёта:</p>
                         <select onChange={selectChange}>{select}</select>
                         <input value={'Выбрать'} className={'modal-custom__button'} type="button"
-                               onClick={() => fetch(name)}/>
+                               onClick={() => {
+                                   onToggle();
+                                   fetch(name);
+                               }}/>
                     </>
-                }</div>
-        </div>
-    )
+                </div>
+            </div>
+            break;
+    };
+
+    return content;
 };

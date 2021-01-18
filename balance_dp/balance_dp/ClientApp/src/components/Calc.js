@@ -27,9 +27,8 @@ export class Calc extends React.Component {
 
     async componentDidMount(event) {
         const list = await getParamsNames();
-        this.setState({nameParams:list, modalSelectActive: true})
+        this.setState({nameParams:list, modalSelectActive: true});
 
-        // this.setState({data: fetchedData});
     };
 
     getDataFromServer = async (name = 'Ознакомительный') => {
@@ -78,7 +77,7 @@ export class Calc extends React.Component {
 
     sendData = async (e) => {
         this.toggleSendButton();
-        const fetchedData = await fetchData(this.state.data); debugger
+        const fetchedData = await fetchData(this.state.data);
         this.setState({result: fetchedData});
         const scrollTo = window.pageYOffset + window.innerHeight - 150;
         setTimeout(() => scroll.scrollTo(scrollTo), 0)
@@ -92,13 +91,16 @@ export class Calc extends React.Component {
         }
     }
 
-    toggleModal = () => {
-        if (this.state.modalActive) {
-            this.setState({modalActive: false})
+    toggleModal = (isSelect) => {
+        console.log(this.state)
+        if (this.state.modalActive || this.state.modalSelectActive) {
+            this.setState({modalActive: false, modalSelectActive: false})
+        } else if (isSelect) {
+            this.setState({modalSelectActive: true})
         } else {
             this.setState({modalActive: true})
         }
-    }
+    };
 
     saveData = async (name) => {
         const result = await saveDataRequest(this.state.data, name);
@@ -164,6 +166,8 @@ export class Calc extends React.Component {
                            value={'Сохранить входные параметры'}/>
                     <input type="button" className={'send-button'} onClick={this.sendData} value={'Произвести расчёт'}
                            disabled={this.state.sendButtonDisabled}/>
+                    <input type="button" className={'send-button'} onClick={() => this.toggleModal(true)} value={'Изменить входные параметры'}
+                           />
                 </div>
                 <br/>
                 {this.state.result ?
@@ -173,7 +177,7 @@ export class Calc extends React.Component {
                                value={'Посчитать ещё раз'}/>
                     </>
                     : 'Бесы опять шалят, данных пока нет'}
-                {this.state.modalActive ? <CustomModal onToggle={this.toggleModal} saveParams={this.saveData}/> : null}
+                {this.state.modalActive ? <CustomModal onToggle={this.toggleModal} saveParams={this.saveData} type={'save'}/> : null}
                 {this.state.modalSelectActive ? <CustomModal nameParams={this.state.nameParams} type={'select'} onToggle={this.toggleModal} fetch={this.getDataFromServer} saveParams={this.saveData}/>  : null}
             </div>
         )

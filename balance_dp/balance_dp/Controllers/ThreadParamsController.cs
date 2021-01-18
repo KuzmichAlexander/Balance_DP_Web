@@ -37,15 +37,25 @@ namespace balance_dp.Controllers
             var a = DpDataBase.Inputs
                 .Include(p => p.InputIndicators)
                 .ThenInclude(p => p.CastIron)
+
+
                 .Include(u => u.InputIndicators)
                 .ThenInclude(p => p.BlastFur)
 
                 .Include(p => p.InputData2)
                 .ThenInclude(p => p.flus)
-                .Include(p => p.InputData2)
-                .ThenInclude(p => p.flus)
+
+                .Include(p => p.InputIndicators)
+                .ThenInclude(p => p.CockParam)
+                .ThenInclude(p => p.CocksAsh)
+
+                .Include(p => p.InputIndicators)
+                .ThenInclude(p => p.CockParam)
+                .ThenInclude(p => p.CocksComposit)
+
                 .Where(p => p.NAME == id)
-            .ToList();
+                .ToList();
+            
 
 
             
@@ -54,7 +64,7 @@ namespace balance_dp.Controllers
 
 
 
-            return Json.Encode(a);
+            return JsonConvert.SerializeObject(a.ElementAt(0) as DPInputData);
         }
 
         [HttpPost] // Контроллер для принятия и сейва входных параметров :)

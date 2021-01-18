@@ -24,6 +24,7 @@ namespace balance_dp.Models
         public DbSet<Flus> Fluses { get; set; }
         public DbSet<MaterialConsuption> MaterialConsuptions { get; set; }
         public DbSet<FlusModels> FlusModels { get; set; }
+        public DbSet<Flus> LimeStone { get; set; }
        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

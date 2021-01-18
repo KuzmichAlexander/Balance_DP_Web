@@ -38,9 +38,23 @@ namespace balance_dp.Controllers
                 .Include(p => p.InputIndicators)
                 .ThenInclude(p => p.CastIron)
 
+                  .Include(p => p.InputData2)
+                .ThenInclude(p => p.flus)
+                .ThenInclude(p => p.Limestone)
+                 .Include(p => p.InputData2)
+                .ThenInclude(p => p.flus)
+                .ThenInclude(p => p.Quartzite)
+                 .Include(p => p.InputData2)
+                .ThenInclude(p => p.flus)
+                .ThenInclude(p => p.Reserve)
+                 .Include(p => p.InputData2)
+                .ThenInclude(p => p.flus)
+                .ThenInclude(p => p.Slug)
+                 .Include(p => p.InputData2)
+                .ThenInclude(p => p.flus)
+                .ThenInclude(p => p.Fluospat)
 
-                .Include(u => u.InputIndicators)
-                .ThenInclude(p => p.BlastFur)
+
 
                 .Include(p => p.InputData2)
                 .ThenInclude(p => p.flus)
@@ -53,27 +67,44 @@ namespace balance_dp.Controllers
                 .ThenInclude(p => p.CockParam)
                 .ThenInclude(p => p.CocksComposit)
 
+                 .Include(p => p.InputIndicators)
+                .ThenInclude(p => p.BlastFur)
+
+                .Include(p => p.InputIndicators)
+                .ThenInclude(p => p.blowing)
+
+                 .Include(p => p.InputIndicators)
+                .ThenInclude(p => p.zhrm)
+
+                 .Include(p => p.InputIndicators)
+                .ThenInclude(p => p.slag)
+
+                 .Include(p => p.InputIndicators)
+                .ThenInclude(p => p.FurnaceGas)
+
+
+                 .Include(p => p.InputData2)
+                .ThenInclude(p => p.materialCons)
+
+
+
+
                 .Where(p => p.NAME == id)
                 .ToList();
-            
 
+            string str1 = JsonConvert.SerializeObject(a.ElementAt(0));
+            var obj1 = JsonConvert.DeserializeObject<DPFrontend>(str1);
 
-            
-
-
-
-
-
-            return JsonConvert.SerializeObject(a.ElementAt(0) as DPInputData);
+            return JsonConvert.SerializeObject(obj1);
         }
 
         [HttpPost] // Контроллер для принятия и сейва входных параметров :)
         public bool Post(SaveParams sp)
         {
-            //if (DpDataBase.Inputs.Select(x => x.NAME).ToList().Contains(sp.name))
-            //{
-            //    return false;
-            //}
+            if (DpDataBase.Inputs.Select(x => x.NAME).ToList().Contains(sp.name))
+            {
+                return false;
+            }
             var dataInput = new DPInputData()
             {
                 NAME = sp.name,
@@ -85,5 +116,20 @@ namespace balance_dp.Controllers
             DpDataBase.SaveChanges();
             return true;
         }
+        // ИЗМЕНЕНИЕ ДАННЫХ В БД 
+        //[HttpPatch]
+        //public bool Patch(SaveParams sp) 
+        //{
+
+        //    DPInputData a = DpDataBase.Inputs.First(p => p.NAME == sp.name);
+        //    a.InputIndicators = sp.dpi.InputIndicators;
+        //    a.InputData2 = sp.dpi.InputData2;
+        //    DpDataBase.SaveChanges();
+              
+           
+            
+
+        //    return true;
+        //}
     }
 }

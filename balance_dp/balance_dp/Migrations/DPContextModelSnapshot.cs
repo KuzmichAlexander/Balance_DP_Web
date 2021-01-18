@@ -295,7 +295,7 @@ namespace balance_dp.Migrations
 
                     b.HasIndex("SlugID");
 
-                    b.ToTable("Fluses");
+                    b.ToTable("Flus");
                 });
 
             modelBuilder.Entity("balance_dp.Models.FlusModels", b =>

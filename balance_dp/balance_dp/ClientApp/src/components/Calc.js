@@ -78,7 +78,7 @@ export class Calc extends React.Component {
 
     sendData = async (e) => {
         this.toggleSendButton();
-        const fetchedData = await fetchData(this.state.data);
+        const fetchedData = await fetchData(this.state.data); debugger
         this.setState({result: fetchedData});
         const scrollTo = window.pageYOffset + window.innerHeight - 150;
         setTimeout(() => scroll.scrollTo(scrollTo), 0)

@@ -9,7 +9,7 @@ using balance_dp.Models;
 namespace balance_dp.Migrations
 {
     [DbContext(typeof(DPContext))]
-    [Migration("20210118104542_Imigration")]
+    [Migration("20210118161236_Imigration")]
     partial class Imigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -297,7 +297,7 @@ namespace balance_dp.Migrations
 
                     b.HasIndex("SlugID");
 
-                    b.ToTable("Fluses");
+                    b.ToTable("Flus");
                 });
 
             modelBuilder.Entity("balance_dp.Models.FlusModels", b =>

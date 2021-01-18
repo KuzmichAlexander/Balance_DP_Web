@@ -234,7 +234,7 @@ namespace balance_dp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Fluses",
+                name: "Flus",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "INTEGER", nullable: false)
@@ -247,33 +247,33 @@ namespace balance_dp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Fluses", x => x.ID);
+                    table.PrimaryKey("PK_Flus", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Fluses_FlusModels_FluospatID",
+                        name: "FK_Flus_FlusModels_FluospatID",
                         column: x => x.FluospatID,
                         principalTable: "FlusModels",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Fluses_FlusModels_LimestoneID",
+                        name: "FK_Flus_FlusModels_LimestoneID",
                         column: x => x.LimestoneID,
                         principalTable: "FlusModels",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Fluses_FlusModels_QuartziteID",
+                        name: "FK_Flus_FlusModels_QuartziteID",
                         column: x => x.QuartziteID,
                         principalTable: "FlusModels",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Fluses_FlusModels_ReserveID",
+                        name: "FK_Flus_FlusModels_ReserveID",
                         column: x => x.ReserveID,
                         principalTable: "FlusModels",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Fluses_FlusModels_SlugID",
+                        name: "FK_Flus_FlusModels_SlugID",
                         column: x => x.SlugID,
                         principalTable: "FlusModels",
                         principalColumn: "ID",
@@ -355,9 +355,9 @@ namespace balance_dp.Migrations
                 {
                     table.PrimaryKey("PK_InputMaterials", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_InputMaterials_Fluses_FlusId",
+                        name: "FK_InputMaterials_Flus_FlusId",
                         column: x => x.FlusId,
-                        principalTable: "Fluses",
+                        principalTable: "Flus",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -406,28 +406,28 @@ namespace balance_dp.Migrations
                 column: "COCKsCompositionid");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Fluses_FluospatID",
-                table: "Fluses",
+                name: "IX_Flus_FluospatID",
+                table: "Flus",
                 column: "FluospatID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Fluses_LimestoneID",
-                table: "Fluses",
+                name: "IX_Flus_LimestoneID",
+                table: "Flus",
                 column: "LimestoneID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Fluses_QuartziteID",
-                table: "Fluses",
+                name: "IX_Flus_QuartziteID",
+                table: "Flus",
                 column: "QuartziteID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Fluses_ReserveID",
-                table: "Fluses",
+                name: "IX_Flus_ReserveID",
+                table: "Flus",
                 column: "ReserveID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Fluses_SlugID",
-                table: "Fluses",
+                name: "IX_Flus_SlugID",
+                table: "Flus",
                 column: "SlugID");
 
             migrationBuilder.CreateIndex(
@@ -519,7 +519,7 @@ namespace balance_dp.Migrations
                 name: "ZHRMs");
 
             migrationBuilder.DropTable(
-                name: "Fluses");
+                name: "Flus");
 
             migrationBuilder.DropTable(
                 name: "MaterialConsuptions");

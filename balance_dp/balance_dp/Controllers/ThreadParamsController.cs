@@ -130,5 +130,12 @@ namespace balance_dp.Controllers
             DpDataBase.SaveChanges();
             return true;
         }
+        [HttpDelete]
+        public bool Delete(string name) 
+        {
+            DPInputData a = DpDataBase.Inputs.First(p => p.NAME == name);
+            DpDataBase.Inputs.Remove(a);
+            return true;
+        }
     }
 }

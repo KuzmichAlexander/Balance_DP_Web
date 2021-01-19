@@ -18,7 +18,7 @@ export class Calc extends React.Component {
     state = {
         data: null,
         result: null,
-        save: null,
+        saveIndicator: null,
         modalActive: false,
         sendButtonDisabled: false,
         modalSelectActive: false,
@@ -55,14 +55,14 @@ export class Calc extends React.Component {
             const [firstDeep, secondDeep, thirdDeep, forthDeep] = e.target.id.split('-');
             if (forthDeep) {
                 this.setState(() => {
-                    this.state.data[firstDeep][secondDeep][thirdDeep][forthDeep] = +value; //и за это тоже
+                    this.state.data[firstDeep][secondDeep][thirdDeep][forthDeep] = +value;
                 })
-                this.forceUpdate(); //да простят меня боги
+                this.forceUpdate();
             } else {
                 this.setState(() => {
-                    this.state.data[firstDeep][secondDeep][thirdDeep] = +value; //и за это тоже
+                    this.state.data[firstDeep][secondDeep][thirdDeep] = +value;
                 })
-                this.forceUpdate(); //да простят меня боги
+                this.forceUpdate();
             }
         }
     };
@@ -92,7 +92,7 @@ export class Calc extends React.Component {
 
     toggleModal = (isSelect) => {
         if (this.state.modalActive || this.state.modalSelectActive) {
-            this.setState({modalActive: false, modalSelectActive: false})
+            this.setState({modalActive: false, modalSelectActive: false, isSimilar: false, saveIndicator: false})
         } else if (isSelect === 'openSelect') {
             this.setState({modalSelectActive: true})
         } else if (isSelect === 'openSave') {
@@ -112,7 +112,7 @@ export class Calc extends React.Component {
         if (similarFlag) {
             const result = await saveDataRequest(this.state.data, name);
             if (result) {
-                this.setState({save: true});
+                this.setState({saveIndicator: true, isSimilar: false});
             }
         }
     };
@@ -125,7 +125,7 @@ export class Calc extends React.Component {
     reWriteParams = async (name) => {
         const result = await reWriteParam(this.state.data, name);
         if (result) {
-            this.setState({save: true});
+            this.setState({saveIndicator: true, isSimilar: false});
         }
     }
 
@@ -198,7 +198,7 @@ export class Calc extends React.Component {
                     </>
                     : 'Бесы опять шалят, данных пока нет'}
                 {this.state.modalActive ?
-                    <CustomModal reWriteParams={this.reWriteParams} isSemi={this.state.isSimilar} isSave={this.state.save} onToggle={this.toggleModal} saveParams={this.saveData} type={'save'}/> : null}
+                    <CustomModal reWriteParams={this.reWriteParams} isSemi={this.state.isSimilar} isSave={this.state.saveIndicator} onToggle={this.toggleModal} saveParams={this.saveData} type={'save'}/> : null}
                 {this.state.modalSelectActive ?
                     <CustomModal nameParams={this.state.nameParams} type={'select'} onToggle={this.toggleModal}
                                  fetch={this.getDataFromServer} saveParams={this.saveData}/> : null}

@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84cf6584-b376-4e37-866b-1bfaf5813a1f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/images/Gear-0.3s-203px.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../BlastFurnace.db" beforeDir="false" afterPath="$PROJECT_DIR$/../BlastFurnace.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAl/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAl/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Calc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/bg2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/bg3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/InputParametrsList1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/InputParametrsList1.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +108,7 @@
       <workItem from="1610994143411" duration="84000" />
       <workItem from="1610994301334" duration="4049000" />
       <workItem from="1611047129199" duration="3779000" />
-      <workItem from="1611052905891" duration="1270000" />
+      <workItem from="1611052905891" duration="3096000" />
     </task>
     <servers />
   </component>

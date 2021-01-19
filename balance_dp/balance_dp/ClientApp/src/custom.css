@@ -144,6 +144,10 @@ h1, h2 {
     width: 150px;
 }
 
+.modal__select {
+    width: 70%;
+}
+
 .input__description {
     display: block;
     width: 40%;

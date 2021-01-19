@@ -1,6 +1,6 @@
 import React from "react";
 import {animateScroll as scroll} from "react-scroll";
-import {fetchData, getData, getParamsNames, saveDataRequest} from "../DAl/api";
+import {fetchData, getData, getParamsNames, reWriteParam, saveDataRequest} from "../DAl/api";
 import {CastIron} from "./Inputs/Cast__iron";
 import {BlastFur} from "./Inputs/BlastFur";
 import {Blowing} from "./Inputs/Blowing";
@@ -22,7 +22,8 @@ export class Calc extends React.Component {
         modalActive: false,
         sendButtonDisabled: false,
         modalSelectActive: false,
-        nameParams: null
+        nameParams: null,
+        isSimilar: false
     };
 
     async componentDidMount(event) {
@@ -99,13 +100,32 @@ export class Calc extends React.Component {
     }
 
     saveData = async (name) => {
-        const result = await saveDataRequest(this.state.data, name);
-        this.setState({save: true});
+        const names = [...this.state.nameParams];
+        let similarFlag = true
+        names.forEach(nameParam => {
+            if (nameParam === name) {
+                this.setState({isSimilar: true})
+                similarFlag = false
+            }
+        });
+        if (similarFlag) {
+            const result = await saveDataRequest(this.state.data, name);
+            if (result) {
+                this.setState({save: true});
+            }
+        }
     };
 
     reset = () => {
         this.setState({result: null});
         this.toggleSendButton();
+    }
+
+    reWriteParams = async (name) => {
+        const result = await reWriteParam(this.state.data, name);
+        if (result) {
+            this.setState({save: true});
+        }
     }
 
     render() {
@@ -176,7 +196,7 @@ export class Calc extends React.Component {
                     </>
                     : 'Бесы опять шалят, данных пока нет'}
                 {this.state.modalActive ?
-                    <CustomModal onToggle={this.toggleModal} saveParams={this.saveData} type={'save'}/> : null}
+                    <CustomModal reWriteParams={this.reWriteParams} isSemi={this.state.isSimilar} isSave={this.state.save} onToggle={this.toggleModal} saveParams={this.saveData} type={'save'}/> : null}
                 {this.state.modalSelectActive ?
                     <CustomModal nameParams={this.state.nameParams} type={'select'} onToggle={this.toggleModal}
                                  fetch={this.getDataFromServer} saveParams={this.saveData}/> : null}

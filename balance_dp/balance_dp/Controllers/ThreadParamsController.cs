@@ -116,20 +116,19 @@ namespace balance_dp.Controllers
             DpDataBase.SaveChanges();
             return true;
         }
-        // ИЗМЕНЕНИЕ ДАННЫХ В БД 
-        //[HttpPatch]
-        //public bool Patch(SaveParams sp) 
-        //{
+        //ИЗМЕНЕНИЕ ДАННЫХ В БД
+       [HttpPatch]
+        public bool Patch(SaveParams sp)
+        {
 
-        //    DPInputData a = DpDataBase.Inputs.First(p => p.NAME == sp.name);
-        //    a.InputIndicators = sp.dpi.InputIndicators;
-        //    a.InputData2 = sp.dpi.InputData2;
-        //    DpDataBase.SaveChanges();
-              
-           
             
-
-        //    return true;
-        //}
+            DPInputData  a = DpDataBase.Inputs.First(p => p.NAME == sp.name);
+                a.NAME = sp.name;
+                a.InputIndicators = sp.dpi.InputIndicators;
+                a.InputData2 = sp.dpi.InputData2;         
+            DpDataBase.Inputs.Attach(a);
+            DpDataBase.SaveChanges();
+            return true;
+        }
     }
 }

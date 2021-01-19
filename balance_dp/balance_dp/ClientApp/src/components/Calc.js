@@ -49,17 +49,18 @@ export class Calc extends React.Component {
 
     onInputChange = (e) => {
         let value = e.target.value;
+        console.log(this.state.data)
         if (value[0] === '0' && value[1] && value[1] !== '.') value = value.substring(1, value.length)
         if (!isNaN(value)) {
             const [firstDeep, secondDeep, thirdDeep, forthDeep] = e.target.id.split('-');
             if (forthDeep) {
                 this.setState(() => {
-                    this.state.data[firstDeep][secondDeep][thirdDeep][forthDeep] = value; //и за это тоже
+                    this.state.data[firstDeep][secondDeep][thirdDeep][forthDeep] = +value; //и за это тоже
                 })
                 this.forceUpdate(); //да простят меня боги
             } else {
                 this.setState(() => {
-                    this.state.data[firstDeep][secondDeep][thirdDeep] = value; //и за это тоже
+                    this.state.data[firstDeep][secondDeep][thirdDeep] = +value; //и за это тоже
                 })
                 this.forceUpdate(); //да простят меня боги
             }
@@ -152,7 +153,7 @@ export class Calc extends React.Component {
                                 <Slag name={'InputIndicators-slag'} params={this.state.data.InputIndicators.slag}
                                       onChangeInput={this.onInputChange}/>
                             </>
-                            : 'Данные подгружаются'}
+                            : <><p>Данные подгружаются</p><div className={'loader'}></div></>}
                     </div>
                     <div className={'DP-work__inputs'}>
                         <h3>Исходные данные (ввод составов)</h3>
@@ -168,7 +169,7 @@ export class Calc extends React.Component {
                                        params={this.state.data.InputIndicators.CockParam}
                                        onChangeInput={this.onInputChange}/>
                             </>
-                            : 'Данные подгружаются'}
+                            : <><p>Данные подгружаются</p><div className={'loader'}></div></>}
                     </div>
                 </div>
                 <div className={'flus__container'}>
@@ -178,6 +179,7 @@ export class Calc extends React.Component {
                               onChangeInput={this.onInputChange}/>
                         : null}
                 </div>
+
                 <div className="buttons__container">
                     <input type="button" className={'send-button'} onClick={() => this.toggleModal('openSave')}
                            value={'Сохранить входные параметры'}/>

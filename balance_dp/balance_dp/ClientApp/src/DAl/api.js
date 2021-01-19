@@ -28,6 +28,7 @@ export const saveDataRequest = async (params, name) => {
 };
 
 export const reWriteParam = async (params, name) => {
+    console.log(params)
     const url = `${baseURL}/api/ThreadParams`;
     const sendData = { dpi: params, name: name };
     const {data} = await axios.patch(url, sendData);

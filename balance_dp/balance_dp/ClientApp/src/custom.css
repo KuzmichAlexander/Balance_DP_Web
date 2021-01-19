@@ -240,6 +240,14 @@ footer {
     color: #4c4c4c;
 }
 
+.loader {
+    background-image: url("images/Gear-0.3s-203px.gif");
+    background-size: cover;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+}
+
 
 @media (max-width: 1080px) {
     .container {

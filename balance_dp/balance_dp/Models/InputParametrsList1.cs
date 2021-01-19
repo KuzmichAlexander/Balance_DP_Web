@@ -169,7 +169,7 @@ namespace balance_dp.Models
         public int ID { get; set; }
         public float c69 { get; set; }
         public float c70 { get; set; }
-        //public float c71 { get; set; }
+        public float c71 { get; set; }
         public float c72_waterCapacity { get; set; }
     }
 }

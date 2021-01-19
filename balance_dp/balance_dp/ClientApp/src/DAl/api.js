@@ -3,8 +3,9 @@ import axios from 'axios';
 const baseURL = document.location.origin;
 
 export const getData = async (name) => { //Запрос на входные параметры
-    const url = `${baseURL}/api/ThreadParams/Ознакомительный`;
+    const url = `${baseURL}/api/ThreadParams/${name}`;
     const {data} = await axios.get(url);
+    console.log(data)
     return data;
 }
 

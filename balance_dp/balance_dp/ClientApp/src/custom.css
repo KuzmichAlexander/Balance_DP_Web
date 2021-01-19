@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: rgba(140,103,51,0.32566530029980745);
+    background-color: rgba(82, 140, 51, .3);
 }
 
 h1, h2 {
@@ -43,13 +43,13 @@ h1, h2 {
     outline: none;
 }
 
-.modal-custom p{
+.modal-custom p {
     font-size: 14px;
 }
 
 .modal-wrapper {
     position: fixed;
-    top:0;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
@@ -59,12 +59,11 @@ h1, h2 {
 .container {
     width: 90%;
     margin: 0 auto;
-    overflow-x: hidden;
     min-height: calc(100vh - 70px)
 }
 
 .buttons__container {
-    display:flex;
+    display: flex;
     justify-content: center;
 }
 
@@ -75,12 +74,13 @@ h1, h2 {
 }
 
 .nav__container {
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, .3);
     width: 100%;
     display: flex;
     align-content: center;
     align-items: center;
     justify-content: space-between;
-    background: rgba(193,193,193,0.95);
+    background: rgba(255, 255, 255, 0.95);
     margin-bottom: 30px;
     height: 60px;
     /*overflow: hidden;*/
@@ -98,10 +98,10 @@ h1, h2 {
 
 .nav__container a {
     padding: 18px;
-    color: #000;
+    color: #323030;
     text-decoration: none;
     font-size: 18px;
-    background: rgba(242,242,242,0.55);
+    background: rgba(242, 242, 242, 0.55);
     transition: background .15s ease-in;
 }
 
@@ -111,15 +111,17 @@ h1, h2 {
 }
 
 .nav__container a:hover {
-    background: rgba(242,242,242,0.9);
+    background: rgb(190, 226, 158);
     cursor: pointer;
 }
 
 .content {
     width: 100%;
     padding: 20px;
-    background-color: rgba(255,255,255,0.95);
+    background-color: rgba(255, 255, 255, 0.95);
     border-radius: 5px;
+    border: 1px solid #a09292;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, .3);
 }
 
 .inputs__container {
@@ -188,10 +190,9 @@ h5 {
 }
 
 .send-button {
-    margin: 10px;
-    font-size: 20px;
-    padding: 10px;
-    display: block;
+    margin: 7px;
+    font-size: 18px;
+    padding: 7px;
     transition: background-color .15s ease;
 }
 
@@ -230,7 +231,7 @@ footer {
     position: relative;
     padding: 10px;
     height: 40px;
-    background-color: rgba(255,255,255,0.95);
+    background-color: rgba(255, 255, 255, 0.95);
     margin-top: 30px;
     color: #4c4c4c;
 }
@@ -240,12 +241,28 @@ footer {
     .container {
         width: 90% !important;
     }
+
     .DP-work__inputs {
         width: 80%;
         margin: 0 auto;
         align-content: center;
     }
+
     p {
         font-size: 12px;
+    }
+
+    .buttons__container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .send-button {
+        margin: 5px;
+        padding: 3px;
+        width: 50%;
     }
 }

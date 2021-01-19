@@ -4,7 +4,6 @@ import {COCKS_tech} from "./COCKS_tech";
 import {OneInput} from "./OneInput";
 
 export const COCKS = ({name, params, onChangeInput}) => {
-    console.log(params)
     return (
         <div>
             <COCKS_consuption name={`${name}-CocksComposit`} params={params.CocksComposit}

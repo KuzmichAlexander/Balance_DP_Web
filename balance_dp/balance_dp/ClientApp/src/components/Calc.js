@@ -27,14 +27,11 @@ export class Calc extends React.Component {
 
     async componentDidMount(event) {
         const list = await getParamsNames();
-        this.setState({nameParams:list, modalSelectActive: true});
-
+        this.setState({nameParams: list, modalSelectActive: true});
     };
 
     getDataFromServer = async (name = 'Ознакомительный') => {
-        console.log(name)
         const data = await getData(name);
-        console.log(data)
         this.setState({data: data})
     }
 
@@ -50,8 +47,8 @@ export class Calc extends React.Component {
     }
 
     onInputChange = (e) => {
-        const value = +e.target.value;
-        console.log(this.state.data)
+        let value = e.target.value;
+        if (value[0] === '0' && value[1] && value[1] !== '.') value = value.substring(1, value.length)
         if (!isNaN(value)) {
             const [firstDeep, secondDeep, thirdDeep, forthDeep] = e.target.id.split('-');
             if (forthDeep) {
@@ -92,15 +89,14 @@ export class Calc extends React.Component {
     }
 
     toggleModal = (isSelect) => {
-        console.log(this.state)
         if (this.state.modalActive || this.state.modalSelectActive) {
             this.setState({modalActive: false, modalSelectActive: false})
-        } else if (isSelect) {
+        } else if (isSelect === 'openSelect') {
             this.setState({modalSelectActive: true})
-        } else {
+        } else if (isSelect === 'openSave') {
             this.setState({modalActive: true})
         }
-    };
+    }
 
     saveData = async (name) => {
         const result = await saveDataRequest(this.state.data, name);
@@ -148,7 +144,8 @@ export class Calc extends React.Component {
                                 <ZRRM name={'InputIndicators-zhrm'}
                                       params={this.state.data.InputIndicators.zhrm}
                                       onChangeInput={this.onInputChange}/>
-                                <COCKS name={'InputIndicators-CockParam'} params={this.state.data.InputIndicators.CockParam}
+                                <COCKS name={'InputIndicators-CockParam'}
+                                       params={this.state.data.InputIndicators.CockParam}
                                        onChangeInput={this.onInputChange}/>
                             </>
                             : 'Данные подгружаются'}
@@ -162,12 +159,13 @@ export class Calc extends React.Component {
                         : null}
                 </div>
                 <div className="buttons__container">
-                    <input type="button" className={'send-button'} onClick={this.toggleModal}
+                    <input type="button" className={'send-button'} onClick={() => this.toggleModal('openSave')}
                            value={'Сохранить входные параметры'}/>
                     <input type="button" className={'send-button'} onClick={this.sendData} value={'Произвести расчёт'}
                            disabled={this.state.sendButtonDisabled}/>
-                    <input type="button" className={'send-button'} onClick={() => this.toggleModal(true)} value={'Изменить входные параметры'}
-                           />
+                    <input type="button" className={'send-button'} onClick={() => this.toggleModal('openSelect')}
+                           value={'Изменить входные параметры'}
+                    />
                 </div>
                 <br/>
                 {this.state.result ?
@@ -177,8 +175,11 @@ export class Calc extends React.Component {
                                value={'Посчитать ещё раз'}/>
                     </>
                     : 'Бесы опять шалят, данных пока нет'}
-                {this.state.modalActive ? <CustomModal onToggle={this.toggleModal} saveParams={this.saveData} type={'save'}/> : null}
-                {this.state.modalSelectActive ? <CustomModal nameParams={this.state.nameParams} type={'select'} onToggle={this.toggleModal} fetch={this.getDataFromServer} saveParams={this.saveData}/>  : null}
+                {this.state.modalActive ?
+                    <CustomModal onToggle={this.toggleModal} saveParams={this.saveData} type={'save'}/> : null}
+                {this.state.modalSelectActive ?
+                    <CustomModal nameParams={this.state.nameParams} type={'select'} onToggle={this.toggleModal}
+                                 fetch={this.getDataFromServer} saveParams={this.saveData}/> : null}
             </div>
         )
     }

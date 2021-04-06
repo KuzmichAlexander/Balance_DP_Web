@@ -196,7 +196,7 @@ export class Calc extends React.Component {
                         <input type="button" style={{margin: '0 auto'}} className={'send-button'} onClick={this.reset}
                                value={'Посчитать ещё раз'}/>
                     </>
-                    : 'Бесы опять шалят, данных пока нет'}
+                    : 'Данных пока нет'}
                 {this.state.modalActive ?
                     <CustomModal reWriteParams={this.reWriteParams} isSemi={this.state.isSimilar} isSave={this.state.saveIndicator} onToggle={this.toggleModal} saveParams={this.saveData} type={'save'}/> : null}
                 {this.state.modalSelectActive ?

@@ -8,11 +8,11 @@ export const CustomModal = ({onToggle, saveParams, type, nameParams, fetch, isSa
     let [name, setName] = useState('');
     let [warning, setWarning] = useState(false);
     useEffect(() => {
-        if (nameParams) setName(nameParams[0]);
-    }, []);
+        setName(nameParams[0]);
+    }, [nameParams]);
     if (type === 'select') {
         select = nameParams.map(elem => {
-            return <option value={elem}>{elem}</option>
+            return <option key={Date.now()} value={elem}>{elem}</option>
         });
     }
 
@@ -58,7 +58,7 @@ export const CustomModal = ({onToggle, saveParams, type, nameParams, fetch, isSa
                 </div>
             </div>
             break;
-        case 'select':
+        default:
             content = <div className='modal-wrapper' onClick={onToggle}>
                 <div className="modal-custom" onClick={event => event.stopPropagation()}>
                     <>
@@ -76,7 +76,5 @@ export const CustomModal = ({onToggle, saveParams, type, nameParams, fetch, isSa
             </div>
             break;
     }
-    ;
-
     return content;
 };

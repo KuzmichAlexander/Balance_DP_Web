@@ -154,6 +154,7 @@
             <e p="App.js" t="Include" />
             <e p="App.test.js" t="Include" />
             <e p="components" t="Include">
+              <e p="AuthModal.js" t="Include" />
               <e p="Calc.js" t="Include" />
               <e p="Footer.js" t="Include" />
               <e p="Help.js" t="Include" />
@@ -174,6 +175,7 @@
               </e>
               <e p="Modal.js" t="Include" />
               <e p="Nav.js" t="Include" />
+              <e p="RegistrationView.js" t="Include" />
               <e p="Results" t="Include">
                 <e p="Charts.js" t="Include" />
                 <e p="HeatBalance.js" t="Include" />
@@ -187,17 +189,17 @@
               <e p="api.js" t="Include" />
             </e>
             <e p="images" t="Include">
-              <e p="background.jpg" t="Include" />
-              <e p="bg2.jpg" t="Include" />
-              <e p="bg3.jpg" t="Include" />
               <e p="factory_icon-icons.com_70151.svg" t="Include" />
+              <e p="Gear-0.3s-203px.gif" t="Include" />
             </e>
             <e p="index.js" t="Include" />
             <e p="registerServiceWorker.js" t="Include" />
           </e>
         </e>
         <e p="Controllers" t="Include">
+          <e p="AuthController.cs" t="Include" />
           <e p="CalculateDP.cs" t="Include" />
+          <e p="Register.cs" t="Include" />
           <e p="ThreadParamsController.cs" t="Include" />
         </e>
         <e p="data" t="Include">
@@ -211,8 +213,8 @@
           <e p="factory_icon-icons.com_70151.svg" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20210118161236_Imigration.cs" t="Include" />
-          <e p="20210118161236_Imigration.Designer.cs" t="Include" />
+          <e p="20210416163206_auth.cs" t="Include" />
+          <e p="20210416163206_auth.Designer.cs" t="Include" />
           <e p="DPContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
@@ -224,6 +226,9 @@
           <e p="InputParametrsList2.cs" t="Include" />
           <e p="MaterialBalance.cs" t="Include" />
           <e p="SaveParams.cs" t="Include" />
+          <e p="SecurityMethods.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+          <e p="UserAuth.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

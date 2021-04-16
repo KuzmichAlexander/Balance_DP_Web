@@ -9,8 +9,8 @@ using balance_dp.Models;
 namespace balance_dp.Migrations
 {
     [DbContext(typeof(DPContext))]
-    [Migration("20210118161236_Imigration")]
-    partial class Imigration
+    [Migration("20210416163206_auth")]
+    partial class auth
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -255,6 +255,9 @@ namespace balance_dp.Migrations
                     b.Property<string>("NAME")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.HasIndex("InputData2Id");
@@ -462,6 +465,29 @@ namespace balance_dp.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("MaterialConsuptions");
+                });
+
+            modelBuilder.Entity("balance_dp.Models.RegistrationData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Login")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Token")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("balance_dp.Models.Slag", b =>

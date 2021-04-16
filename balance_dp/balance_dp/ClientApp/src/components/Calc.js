@@ -27,7 +27,8 @@ export class Calc extends React.Component {
     };
 
     async componentDidMount(event) {
-        const list = await getParamsNames();
+        const token = localStorage.getItem('token');
+        const list = await getParamsNames(token);
         this.setState({nameParams: list, modalSelectActive: true});
     };
 
@@ -110,7 +111,7 @@ export class Calc extends React.Component {
             }
         });
         if (similarFlag) {
-            const result = await saveDataRequest(this.state.data, name);
+            const result = await saveDataRequest(this.state.data, name, localStorage.getItem('token'));
             if (result) {
                 this.setState({saveIndicator: true, isSimilar: false});
             }

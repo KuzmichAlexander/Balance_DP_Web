@@ -4,7 +4,7 @@ import {OneInput} from "./OneInput";
 const names = ['Зола', 'Сера', 'Летучие'];
 const discr = ['%', '%', '%'];
 
-export const COCKS_consuption = ({name, params, onChangeInput}) => {
+export const CocksConsuption = ({name, params, onChangeInput}) => {
     const Inputs = [];
     const setInputs = () => {
         let counter = 0;

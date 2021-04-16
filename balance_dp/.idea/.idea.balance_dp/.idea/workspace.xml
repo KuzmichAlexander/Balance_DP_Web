@@ -22,7 +22,31 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95f22efd-cbfb-4133-845a-91e6d6645011" name="Default Changelist" comment="" />
+    <list default="true" id="95f22efd-cbfb-4133-845a-91e6d6645011" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/balance_dp/ClientApp/src/components/AuthModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/balance_dp/ClientApp/src/components/RegistrationView.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/balance_dp/Controllers/AuthController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/balance_dp/Controllers/Register.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/balance_dp/Models/SecurityMethods.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/balance_dp/Models/User.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/balance_dp/Models/UserAuth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.balance_dp/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.balance_dp/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.balance_dp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.balance_dp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/balance_dp/BlastFurnace.db" beforeDir="false" afterPath="$PROJECT_DIR$/balance_dp/BlastFurnace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/balance_dp/ClientApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/balance_dp/ClientApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/balance_dp/ClientApp/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/balance_dp/ClientApp/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/balance_dp/ClientApp/src/DAl/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/balance_dp/ClientApp/src/DAl/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/balance_dp/ClientApp/src/components/Calc.js" beforeDir="false" afterPath="$PROJECT_DIR$/balance_dp/ClientApp/src/components/Calc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/balance_dp/ClientApp/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/balance_dp/ClientApp/src/components/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/balance_dp/ClientApp/src/components/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/balance_dp/ClientApp/src/components/Nav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/balance_dp/ClientApp/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/balance_dp/ClientApp/src/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/balance_dp/Controllers/ThreadParamsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/balance_dp/Controllers/ThreadParamsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/balance_dp/Migrations/20210118161236_Imigration.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/balance_dp/Migrations/20210118161236_Imigration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/balance_dp/Migrations/DPContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/balance_dp/Migrations/DPContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/balance_dp/Models/DPContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/balance_dp/Models/DPContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/balance_dp/Models/DPInputData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/balance_dp/Models/DPInputData.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,13 +55,30 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/balance_dp/Models/UserAuth.cs" />
+        <option value="$PROJECT_DIR$/balance_dp/Models/DPContext.cs" />
+        <option value="$PROJECT_DIR$/balance_dp/Models/User.cs" />
+        <option value="$PROJECT_DIR$/balance_dp/Controllers/Register.cs" />
+        <option value="$PROJECT_DIR$/balance_dp/Models/SecurityMethods.cs" />
+        <option value="$PROJECT_DIR$/balance_dp/Controllers/ThreadParamsController.cs" />
+        <option value="$PROJECT_DIR$/balance_dp/Controllers/AuthController.cs" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1nHQh3LBpLmjQdtlq6vYn59G6uT" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34965035" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.3006993" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -48,7 +89,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.balance_dp">
+  <component name="RunManager" selected=".NET Launch Settings Profile.balance_dp: IIS Express">
     <configuration name="balance_dp" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/balance_dp/balance_dp.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.1" />
@@ -89,6 +130,10 @@
       <option name="presentableId" value="Default" />
       <updated>1611044654626</updated>
       <workItem from="1611044668061" duration="1031000" />
+      <workItem from="1618467019469" duration="54000" />
+      <workItem from="1618467198379" duration="98000" />
+      <workItem from="1618581836224" duration="5970000" />
+      <workItem from="1618593246285" duration="2753000" />
     </task>
     <servers />
   </component>
@@ -105,26 +150,95 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1611047012920">
+    <state width="475" height="464" key="DebuggerActiveHint" timestamp="1618595656649">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611047012920" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1611047012920">
+    <state width="475" height="464" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1618595656649" />
+    <state width="746" height="214" key="GridCell.Tab.0.bottom" timestamp="1618595790766">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611047012920" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1611047012920">
+    <state width="746" height="214" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1618595790766" />
+    <state width="746" height="214" key="GridCell.Tab.0.center" timestamp="1618595790766">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611047012920" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1611047012920">
+    <state width="746" height="214" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1618595790766" />
+    <state width="746" height="214" key="GridCell.Tab.0.left" timestamp="1618595790766">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611047012920" />
+    <state width="746" height="214" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1618595790766" />
+    <state width="746" height="214" key="GridCell.Tab.0.right" timestamp="1618595790766">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="214" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1618595790766" />
+    <state width="746" height="214" key="GridCell.Tab.1.bottom" timestamp="1618595812597">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="214" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1618595812597" />
+    <state width="746" height="214" key="GridCell.Tab.1.center" timestamp="1618595812596">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="214" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1618595812596" />
+    <state width="746" height="214" key="GridCell.Tab.1.left" timestamp="1618595812596">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="214" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1618595812596" />
+    <state width="746" height="214" key="GridCell.Tab.1.right" timestamp="1618595812597">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="214" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1618595812597" />
+    <state width="746" height="214" key="GridCell.Tab.2.bottom" timestamp="1618595790519">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="214" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1618595790519" />
+    <state width="746" height="214" key="GridCell.Tab.2.center" timestamp="1618595790519">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="214" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1618595790519" />
+    <state width="746" height="214" key="GridCell.Tab.2.left" timestamp="1618595790519">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="214" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1618595790519" />
+    <state width="746" height="214" key="GridCell.Tab.2.right" timestamp="1618595790519">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="214" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1618595790519" />
+    <state width="746" height="214" key="GridCell.Tab.3.bottom" timestamp="1618595790520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="214" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1618595790520" />
+    <state width="746" height="214" key="GridCell.Tab.3.center" timestamp="1618595790520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="214" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1618595790520" />
+    <state width="746" height="214" key="GridCell.Tab.3.left" timestamp="1618595790520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="214" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1618595790520" />
+    <state width="746" height="214" key="GridCell.Tab.3.right" timestamp="1618595790520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="214" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1618595790520" />
+    <state width="746" height="214" key="GridCell.Tab.4.bottom" timestamp="1618595790520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="214" key="GridCell.Tab.4.bottom/0.0.1536.824@0.0.1536.824" timestamp="1618595790520" />
+    <state width="746" height="214" key="GridCell.Tab.4.center" timestamp="1618595790520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="214" key="GridCell.Tab.4.center/0.0.1536.824@0.0.1536.824" timestamp="1618595790520" />
+    <state width="746" height="214" key="GridCell.Tab.4.left" timestamp="1618595790520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="214" key="GridCell.Tab.4.left/0.0.1536.824@0.0.1536.824" timestamp="1618595790520" />
+    <state width="746" height="214" key="GridCell.Tab.4.right" timestamp="1618595790520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="214" key="GridCell.Tab.4.right/0.0.1536.824@0.0.1536.824" timestamp="1618595790520" />
   </component>
 </project>

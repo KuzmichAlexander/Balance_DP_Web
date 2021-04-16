@@ -13,7 +13,7 @@ namespace balance_dp.Models
         //[Key]
         public int Id { get; set; }
         public string NAME { get; set; }
-
+        public int UserId { get; set; }
 
         public int InputIndicatorsId { get; set; }
         //[ForeignKey(nameof(InputIndicatorsId))]

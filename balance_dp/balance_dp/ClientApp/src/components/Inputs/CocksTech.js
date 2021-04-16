@@ -4,7 +4,7 @@ import {OneInput} from "./OneInput";
 const names = ['Fe', 'Cao', 'Sio2', 'Al2O3', 'MgO', 'P'];
 const discr = ['%', '%', '%', '%', '%', '%'];
 
-export const COCKS_tech = ({name, params, onChangeInput}) => {
+export const CocksTech = ({name, params, onChangeInput}) => {
     const Inputs = [];
     const setInputs = () => {
         let counter = 0;

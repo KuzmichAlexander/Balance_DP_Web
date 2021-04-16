@@ -2,7 +2,7 @@
 
 namespace balance_dp.Migrations
 {
-    public partial class Imigration : Migration
+    public partial class auth : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -187,6 +187,22 @@ namespace balance_dp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Slags", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    Login = table.Column<string>(type: "TEXT", nullable: true),
+                    Password = table.Column<string>(type: "TEXT", nullable: true),
+                    Token = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -375,6 +391,7 @@ namespace balance_dp.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     NAME = table.Column<string>(type: "TEXT", nullable: true),
+                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
                     InputIndicatorsId = table.Column<int>(type: "INTEGER", nullable: false),
                     InputData2Id = table.Column<int>(type: "INTEGER", nullable: false)
                 },
@@ -490,6 +507,9 @@ namespace balance_dp.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Inputs");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "InputIndicators");

@@ -22,13 +22,17 @@ namespace balance_dp.Controllers
     public class ThreadParamsController : ControllerBase
     {
         private DPContext DpDataBase = new DPContext();
-        // GET: api/<ThreadParamsController>
         [HttpGet] // Контроллер для отправки входных параметров :)
         public string[] Get()
-        { 
+        {
+            string token = Request.Headers["Authorization"];
+            int id = ParseToken(token);
+            if (id < 0)
+            {
+                return DpDataBase.Inputs.Where(p => p.Id == 1).Select(x => x.NAME).ToArray();
+            }
 
-            
-            return DpDataBase.Inputs.Select(x=> x.NAME).ToArray();
+            return DpDataBase.Inputs.Where(p => p.UserId == id || p.Id == 1).Select(x=> x.NAME).ToArray();
         }
 
         [HttpGet("{id}", Name = "Get")]
@@ -88,7 +92,6 @@ namespace balance_dp.Controllers
 
 
 
-
                 .Where(p => p.NAME == id)
                 .ToList();
 
@@ -101,12 +104,17 @@ namespace balance_dp.Controllers
         [HttpPost] // Контроллер для принятия и сейва входных параметров :)
         public bool Post(SaveParams sp)
         {
+
             if (DpDataBase.Inputs.Select(x => x.NAME).ToList().Contains(sp.name))
             {
                 return false;
             }
+            string token = Request.Headers["Authorization"];
+            int userid = ParseToken(token);
+
             var dataInput = new DPInputData()
             {
+                UserId = userid,
                 NAME = sp.name,
                 InputIndicators = sp.dpi.InputIndicators,
                 InputData2 = sp.dpi.InputData2
@@ -119,9 +127,7 @@ namespace balance_dp.Controllers
         //ИЗМЕНЕНИЕ ДАННЫХ В БД
        [HttpPatch]
         public bool Patch(SaveParams sp)
-        {
-
-            
+        { 
             DPInputData  a = DpDataBase.Inputs.First(p => p.NAME == sp.name);
                 a.NAME = sp.name;
                 a.InputIndicators = sp.dpi.InputIndicators;
@@ -137,5 +143,19 @@ namespace balance_dp.Controllers
             DpDataBase.Inputs.Remove(a);
             return true;
         }
+
+        [NonAction]
+        public int ParseToken(string token)
+        {
+            var trueUser = DpDataBase.Users.FirstOrDefault(user => user.Token == token);
+
+            if (trueUser == null)
+            {
+                return -1;
+            }
+
+            return trueUser.Id;
+        }
+
     }
 }

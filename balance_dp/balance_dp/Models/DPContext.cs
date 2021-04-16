@@ -8,6 +8,8 @@ namespace balance_dp.Models
 {
     public class DPContext : DbContext
     {
+        public DbSet<RegistrationData> Users { get; set; }
+
         public DbSet<DPInputData> Inputs { get; set; }
 
         public DbSet<InputParametrsList1> InputIndicators { get; set; }

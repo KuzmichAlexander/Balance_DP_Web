@@ -11,21 +11,21 @@ export const Blowing = ({name, params, onChangeInput, onSelectChange}) => {
         for (const key in params) {
             if (key === 'list1_C36_BlowingMoistureSumm') continue;
             if (key === 'list1_C35_NaturalBlowingConsumption') {
-                Inputs.push(<div  className={'input__container'}>
+                Inputs.push(<div key={'react-<dd2'} className={'input__container'}>
                     <p className={'input__description'}>Время года</p>
                     <select onChange={onSelectChange}>
-                        <option value="1.5">Январь</option>
-                        <option value="1.5">Февраль</option>
-                        <option value="2">Март</option>
-                        <option value="3.5">Апрель</option>
-                        <option value="7">Май</option>
-                        <option value="11">Июнь</option>
-                        <option value="11">Июль</option>
-                        <option value="11">Август</option>
-                        <option value="7">Сентярбрь</option>
-                        <option value="5.5">Октябрь</option>
-                        <option value="3">Ноябрь</option>
-                        <option value="2">Декабрь</option>
+                        <option key={'1'} value="1.5">Январь</option>
+                        <option key={'2рь'}value="1.5">Февраль</option>
+                        <option key={'3'} value="2">Март</option>
+                        <option key={'4'} value="3.5">Апрель</option>
+                        <option key={'5'} value="7">Май</option>
+                        <option key={'67'} value="11">Июнь</option>
+                        <option key={'33'} value="11">Июль</option>
+                        <option key={'44'} value="11">Август</option>
+                        <option key={'24'} value="7">Сентярбрь</option>
+                        <option key={'2323'} value="5.5">Октябрь</option>
+                        <option key={'Янв32ар3ь'} value="3">Ноябрь</option>
+                        <option key={'233'} value="2">Декабрь</option>
                     </select>
                 </div> )
             }

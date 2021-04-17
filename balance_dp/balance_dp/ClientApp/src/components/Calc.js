@@ -124,13 +124,15 @@ export class Calc extends React.Component {
     }
 
     reWriteParams = async (name) => {
-        const result = await reWriteParam(this.state.data, name);
+        const result = await reWriteParam(this.state.data, name, localStorage.getItem('token'));
         if (result) {
             this.setState({saveIndicator: true, isSimilar: false});
         }
     }
 
     render() {
+        console.log(this.props)
+
         return (
             <div className='content'>
                 <div className='inputs__container'>
@@ -182,14 +184,15 @@ export class Calc extends React.Component {
                 </div>
 
                 <div className="buttons__container">
-                    <input type="button" className={'send-button'} onClick={() => this.toggleModal('openSave')}
-                           value={'Сохранить входные параметры'}/>
+                    {this.props.auth ? <input type="button" className={'send-button'} onClick={() => this.toggleModal('openSave')}
+                                              value={'Сохранить входные параметры'}/> : null}
                     <input type="button" className={'send-button'} onClick={this.sendData} value={'Произвести расчёт'}
                            disabled={this.state.sendButtonDisabled}/>
-                    <input type="button" className={'send-button'} onClick={() => this.toggleModal('openSelect')}
-                           value={'Изменить входные параметры'}
-                    />
+                    {this.props.auth ? <input type="button" className={'send-button'} onClick={() => this.toggleModal('openSelect')}
+                           value={'Изменить входные параметры'}  /> : null}
                 </div>
+                {this.props.auth ? null : <h5 style={{textAlign:'center'}}>Для сохранения своих параметров, авторизуйтесь</h5>}
+
                 <br/>
                 {this.state.result ?
                     <>
@@ -197,7 +200,7 @@ export class Calc extends React.Component {
                         <input type="button" style={{margin: '0 auto'}} className={'send-button'} onClick={this.reset}
                                value={'Посчитать ещё раз'}/>
                     </>
-                    : 'Данных пока нет'}
+                    : 'Здесь могли быть ваши рассчеты'}
                 {this.state.modalActive ?
                     <CustomModal reWriteParams={this.reWriteParams} isSemi={this.state.isSimilar} isSave={this.state.saveIndicator} onToggle={this.toggleModal} saveParams={this.saveData} type={'save'}/> : null}
                 {this.state.modalSelectActive ?

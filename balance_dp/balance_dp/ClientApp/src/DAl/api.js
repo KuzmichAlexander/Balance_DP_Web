@@ -27,10 +27,10 @@ export const saveDataRequest = async (params, name, token) => {
     return data;
 };
 
-export const reWriteParam = async (params, name) => {
+export const reWriteParam = async (params, name, token) => {
     const url = `${baseURL}/api/ThreadParams`;
     const sendData = { dpi: params, name: name };
-    const {data} = await axios.patch(url, sendData);
+    const {data} = await axios.patch(url, sendData, {headers: {Authorization: token}});
     return data; // true | false
 };
 

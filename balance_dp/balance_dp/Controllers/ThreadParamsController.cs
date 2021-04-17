@@ -104,14 +104,14 @@ namespace balance_dp.Controllers
         [HttpPost] // Контроллер для принятия и сейва входных параметров :)
         public bool Post(SaveParams sp)
         {
-
-            if (DpDataBase.Inputs.Select(x => x.NAME).ToList().Contains(sp.name))
+            string token = Request.Headers["Authorization"];
+            int userid = ParseToken(token);
+            
+            if (DpDataBase.Inputs.Where(p => p.UserId == userid).Select(x => x.NAME).ToList().Contains(sp.name))
             {
                 return false;
             }
-            string token = Request.Headers["Authorization"];
-            int userid = ParseToken(token);
-
+            
             var dataInput = new DPInputData()
             {
                 UserId = userid,
@@ -128,7 +128,10 @@ namespace balance_dp.Controllers
        [HttpPatch]
         public bool Patch(SaveParams sp)
         {
-            DPInputData  a = DpDataBase.Inputs.First(p => p.NAME == sp.name);
+            string token = Request.Headers["Authorization"];
+            int userid = ParseToken(token);
+            
+            DPInputData  a = DpDataBase.Inputs.First(p => p.NAME == sp.name && p.UserId == userid);
                 a.NAME = sp.name;
                 a.InputIndicators = sp.dpi.InputIndicators;
                 a.InputData2 = sp.dpi.InputData2;         

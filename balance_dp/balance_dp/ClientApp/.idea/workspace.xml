@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84cf6584-b376-4e37-866b-1bfaf5813a1f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.idea/.idea.balance_dp/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/.idea.balance_dp/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.idea/.idea.balance_dp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/.idea.balance_dp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BlastFurnace.db" beforeDir="false" afterPath="$PROJECT_DIR$/../BlastFurnace.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAl/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAl/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Calc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Controllers/ThreadParamsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Controllers/ThreadParamsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/DPFrontend.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/DPFrontend.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

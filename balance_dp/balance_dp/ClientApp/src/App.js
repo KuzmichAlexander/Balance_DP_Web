@@ -26,6 +26,8 @@ export default class App extends Component {
         this.setState({name: newName})
     }
 
+
+
     render() {
         return (
             <>
@@ -34,7 +36,7 @@ export default class App extends Component {
                         <Nav name={this.state.name} setName={this.setName}/>
                         <section className='content__container'>
                             <Route exact path='/' component={Home}/>
-                            <Route exact path='/Calc' component={Calc}/>
+                            <Route exact path='/Calc' ><Calc auth={this.state.name ? true : false}/></Route>
                             <Route exact path='/Help' component={Help}/>
                             <Route exact path='/Reg' component={RegistrationView}/>
                         </section>

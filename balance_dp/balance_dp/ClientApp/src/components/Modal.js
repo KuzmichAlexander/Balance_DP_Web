@@ -1,21 +1,16 @@
 import React, {useState, useEffect} from "react";
+import {withMobileDialog} from "@material-ui/core";
 
 const block = ['/', ':', '\\', '*', '?', '"', '<', '>', '|'];
 
 export const CustomModal = ({onToggle, saveParams, type, nameParams, fetch, isSave, isSemi, reWriteParams}) => {
     let select = null;
-
-    let [name, setName] = useState('');
-    let [warning, setWarning] = useState(false);
+    const [name, setName] = useState('');
+    const [warning, setWarning] = useState(false);
     useEffect(() => {
-        setName(nameParams[0]);
+        if (nameParams)
+            setName(nameParams[0] || 'сервер не отвечает');
     }, []);
-    if (type === 'select') {
-        console.log(nameParams)
-        select = nameParams.map(elem => {
-            return <option key={Date.now()} value={elem}>{elem}</option>
-        });
-    }
 
     function selectChange(e) {
         setName(e.target.value);
@@ -38,7 +33,7 @@ export const CustomModal = ({onToggle, saveParams, type, nameParams, fetch, isSa
 
     switch (type) {
         case 'save':
-            content = <div className='modal-wrapper' onClick={onToggle}>
+            return ( <div className='modal-wrapper' onClick={onToggle}>
                 <div className="modal-custom" onClick={event => event.stopPropagation()}>
                     <><h2>Сохранение входных параметров</h2>
                         <p>Введите имя для текущих параметров, чтобы в будущем их можно было использовать повторно:</p>
@@ -57,16 +52,17 @@ export const CustomModal = ({onToggle, saveParams, type, nameParams, fetch, isSa
                         </> : null}
                     </>
                 </div>
-            </div>
-            break;
+            </div> )
         default:
-            content = <div className='modal-wrapper' onClick={onToggle}>
+            return ( <div className='modal-wrapper' onClick={onToggle}>
                 <div className="modal-custom" onClick={event => event.stopPropagation()}>
                     <>
                         <h2>Загрузка исходных данных</h2>
                         <p>Выберите данные для расчёта. Если вы впервые пользуетесь программой, рекомендуем использовать
                             "Ознакомительный"</p>
-                        <select onChange={selectChange} className={'modal__select'}>{select}</select>
+                        <select onChange={selectChange} value={name} className={'modal__select'}>{nameParams.map(elem => {
+                            return <option key={elem + Math.random() * 42} value={elem}>{elem}</option>
+                        })}</select>
                         <input value={'Выбрать'} className={'modal-custom__button'} type="button"
                                onClick={() => {
                                    onToggle();
@@ -74,8 +70,6 @@ export const CustomModal = ({onToggle, saveParams, type, nameParams, fetch, isSa
                                }}/>
                     </>
                 </div>
-            </div>
-            break;
+            </div>)
     }
-    return content;
 };

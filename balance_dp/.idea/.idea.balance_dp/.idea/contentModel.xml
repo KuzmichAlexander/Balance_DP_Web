@@ -164,8 +164,8 @@
                 <e p="Blowing.js" t="Include" />
                 <e p="Cast__iron.js" t="Include" />
                 <e p="COCKS.js" t="Include" />
-                <e p="COCKS_consuption.js" t="Include" />
-                <e p="COCKS_tech.js" t="Include" />
+                <e p="CocksConsuption.js" t="Include" />
+                <e p="CocksTech.js" t="Include" />
                 <e p="Flus.js" t="Include" />
                 <e p="FurnaceGas.js" t="Include" />
                 <e p="MaterialConsuption.js" t="Include" />

@@ -2,31 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84cf6584-b376-4e37-866b-1bfaf5813a1f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/AuthModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/RegistrationView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Controllers/AuthController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Controllers/Register.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Models/SecurityMethods.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Models/User.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Models/UserAuth.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.idea/.idea.balance_dp/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/.idea.balance_dp/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.idea/.idea.balance_dp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/.idea.balance_dp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlastFurnace.db" beforeDir="false" afterPath="$PROJECT_DIR$/../BlastFurnace.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAl/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAl/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Calc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Inputs/Blowing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Inputs/Blowing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Controllers/ThreadParamsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Controllers/ThreadParamsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Migrations/20210118161236_Imigration.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Migrations/20210118161236_Imigration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Migrations/DPContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Migrations/DPContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/DPContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/DPContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/DPInputData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/DPInputData.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +123,7 @@
       <workItem from="1618467565414" duration="5304000" />
       <workItem from="1618583255587" duration="6947000" />
       <workItem from="1618592657322" duration="4165000" />
+      <workItem from="1618676699136" duration="748000" />
     </task>
     <servers />
   </component>

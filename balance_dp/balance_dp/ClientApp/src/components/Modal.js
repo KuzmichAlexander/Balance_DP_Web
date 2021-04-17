@@ -9,8 +9,9 @@ export const CustomModal = ({onToggle, saveParams, type, nameParams, fetch, isSa
     let [warning, setWarning] = useState(false);
     useEffect(() => {
         setName(nameParams[0]);
-    }, [nameParams]);
+    }, []);
     if (type === 'select') {
+        console.log(nameParams)
         select = nameParams.map(elem => {
             return <option key={Date.now()} value={elem}>{elem}</option>
         });

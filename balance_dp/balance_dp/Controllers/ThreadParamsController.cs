@@ -127,7 +127,7 @@ namespace balance_dp.Controllers
         //ИЗМЕНЕНИЕ ДАННЫХ В БД
        [HttpPatch]
         public bool Patch(SaveParams sp)
-        { 
+        {
             DPInputData  a = DpDataBase.Inputs.First(p => p.NAME == sp.name);
                 a.NAME = sp.name;
                 a.InputIndicators = sp.dpi.InputIndicators;

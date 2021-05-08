@@ -261,9 +261,25 @@ h5 {
 
 .DP-work__inputs {
     min-width: 400px;
-    width: 46%;
     margin: 0 auto;
 }
+
+.result-table {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.title {
+    margin: 10px;
+}
+
+.result-row {
+    width: 40%;
+    flex: 1;
+    margin: 0 10px;
+}
+
 
 .result-table h5 {
     text-align: center;
@@ -333,6 +349,33 @@ footer {
     margin: 0 auto;
     width: 100px;
     height: 100px;
+}
+
+.chart-modal {
+    border-radius: 5px;
+    width: 1020px !important;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid grey;
+}
+
+.chart-header span {
+    transform: scaleX(1.2);
+    cursor: pointer;
+    transition: .15s color linear;
+}
+
+.chart-header span:hover {
+    color: #4c4c4c;
+}
+
+.chart-title {
+    text-align: left;
+    font-size: 24px;
 }
 
 

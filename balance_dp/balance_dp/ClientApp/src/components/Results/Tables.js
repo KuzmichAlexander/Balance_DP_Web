@@ -7,9 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
-const resultRows = ['Статьи расхода', 'кДж/кг', '%'];
-const resultRows_ifTrue = ['Статьи прихода', 'кДж/кг', '%'];
+import {resultRows_prihod, resultRows_rashod} from "../../utils/consts";
 
 const useStyles = makeStyles({
     table: {
@@ -28,9 +26,9 @@ export const Tables = ({rows, title, isComming}) => {
                             {title ?
                                 null :
                                 isComming ?
-                                    resultRows_ifTrue.map((item, index) => <TableCell key={index}
+                                    resultRows_prihod.map((item, index) => <TableCell key={index}
                                                                                align={index === 0 ? "left" : 'center'}>{item}</TableCell>)
-                            : resultRows.map((item, index) => <TableCell key={index}
+                            : resultRows_rashod.map((item, index) => <TableCell key={index}
                                                                          align={index === 0 ? "left" : 'center'}>{item}</TableCell>)}
                         </TableRow>
                     </TableHead>

@@ -177,6 +177,7 @@
               <e p="Nav.js" t="Include" />
               <e p="RegistrationView.js" t="Include" />
               <e p="Results" t="Include">
+                <e p="ChartModal.jsx" t="Include" />
                 <e p="Charts.js" t="Include" />
                 <e p="HeatBalance.js" t="Include" />
                 <e p="MaterialBalance.js" t="Include" />
@@ -194,6 +195,11 @@
             </e>
             <e p="index.js" t="Include" />
             <e p="registerServiceWorker.js" t="Include" />
+            <e p="utils" t="Include">
+              <e p="consts.js" t="Include" />
+              <e p="HeatBalance.js" t="Include" />
+              <e p="MaterialBalance.js" t="Include" />
+            </e>
           </e>
         </e>
         <e p="Controllers" t="Include">

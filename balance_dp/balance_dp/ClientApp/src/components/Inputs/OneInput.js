@@ -8,7 +8,6 @@ export const OneInput = ({discr, name, text, value, onChangeInput, onBlurFunctio
                 <input id={name} type="text" value={value} onChange={onChangeInput} onBlur={onBlurFunction}/> :
                 <input autoComplete='off' id={name} type="text" value={value} onChange={onChangeInput}/>
             }
-
             <p className={'input__value-tag'}>{discr}</p>
         </div>
     )

@@ -6,9 +6,9 @@ export const ResultContainer = ({results}) => {
 
     return (
         <>
-            <h2>Результаты расчёта</h2>
-            <div className={'inputs__container result'}>
-
+            <h1 className={'chart-title'}>Результаты расчёта</h1>
+            <hr/>
+            <div>
                 <HeatBalance result={results.hb} />
                 <MaterialBalance result={results.mb} />
             </div>

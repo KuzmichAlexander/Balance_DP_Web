@@ -13,7 +13,6 @@ import {ZRRM} from "./Inputs/ZHRM";
 import {CustomModal} from "./Modal";
 import {COCKS} from "./Inputs/COCKS";
 
-
 export class Calc extends React.Component {
     state = {
         data: null,
@@ -131,8 +130,6 @@ export class Calc extends React.Component {
     }
 
     render() {
-        console.log(this.props)
-
         return (
             <div className='content'>
                 <div className='inputs__container'>

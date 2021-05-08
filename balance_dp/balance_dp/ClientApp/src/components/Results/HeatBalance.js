@@ -1,26 +1,14 @@
-import React from "react";
-import {Charts} from "./Charts";
+import React, {useState} from "react";
 import {Tables} from "./Tables";
-
-const prihodDescription = ['Горение кокса', 'Тепло нагретого дутья', 'Тепло конверсии газа'];
-const rashodDescription = ['Прямое восстановление оксидов железа',
-    'Прямое восстановление примесей чугуна',
-    'Расход тепла на десульфурацию чугуна',
-    'Восстановление оксидов железа водородом',
-    'Тепло, уносимое чугуном',
-    'Тепло, уносимое шлаком',
-    'Разложение влаги дутья',
-    'Расход тепла на разложение известняка',
-    'Расход тепла на разложение влаги шихты',
-    'Тепло, уносимое колошниковым газом '
-];
-const nevyazka = ['По методике А.Н. Рамма', 'По разности прихода и расхода', 'По методике А.Н. Рамма']
-
-function createData(name, first, second) {
-    return {name, first, second};
-}
+import {ChartModal} from "./ChartModal";
+import {createData, prihod, rashod} from "../../utils/consts";
+import {nevyazka, prihodDescription, rashodDescription} from "../../utils/heatBalance";
 
 export const HeatBalance = ({result}) => {
+    const [activeModal, setActiveModal] = useState(false);
+    const [chartLabels, setChartLabels] = useState([]);
+    const [chartData, setChartData] = useState([]);
+    const [chartTitle, setChartTitle] = useState('');
 
     const rows_prihod = [
         createData(prihodDescription[0], result.heatOfBurningCocks, result.heatOfBurningCocks_persent),
@@ -51,26 +39,42 @@ export const HeatBalance = ({result}) => {
         createData(rashodDescription[9], result.c104, result.c104_persent),
     ];
 
-    return (
+    const toggleModal = (e) => {
+        setActiveModal(prev => !prev);
+        switch (e.target.name) {
+            case prihod:
+                setChartData([result.heatOfBurningCocks, result.heatCountBlowin, result.heatCountOfConversion]);
+                setChartLabels(prihodDescription);
+                setChartTitle('Диаграмма прихода');
+                break;
+            case rashod:
+                setChartData([result.c81, result.c83, result.c85, result.c87, result.c89, result.c91, result.c93, result.c95, result.c97, result.c104]);
+                setChartLabels(rashodDescription);
+                setChartTitle('Диаграмма расхода');
+                break;
+            default: break;
+        }
+    }
 
-        <div className={'DP-work__inputs result-table'}>
-            <h5>Тепловой баланс</h5>
-            <Tables rows = {rows_prihod} isComming={true}/>
-            <Charts
-                data={[result.heatOfBurningCocks, result.heatCountBlowin, result.heatCountOfConversion]}
-                labels={prihodDescription}
-            />
-            <br/>{/* {//'-----------------------------------------------'}*/}
-            <Tables rows = {rows_rashod}/>
-            <h5>Тепловые потери печи с охлаждающей водой и в окружающее пространство</h5>
-            <Tables rows={rows_loastHeat} title={true} />
-            <h5>Невязка теплового баланса (по отношению к приходу тепла в печь)</h5>
-            <Tables rows={rows_nevyzka} title={true} />
-            <Charts
-                data={[result.c81, result.c83, result.c85, result.c87, result.c89, result.c91, result.c93, result.c95, result.c97, result.c104]}
-                labels={rashodDescription}
-            />
-        </div>
+    return (
+        <>
+            <h1 className={'title'}>Тепловой баланс</h1>
+            <div className={'result-table'}>
+                <div className={'result-row'}>
+                    <Tables rows = {rows_prihod} isComming={true}/>
+                    <button name={prihod} className={'send-button'} onClick={toggleModal}>Диаграмма прихода</button>
+                </div>
+                <div className={'result-row'}>
+                    <Tables rows = {rows_rashod}/>
+                    <button name={rashod} className={'send-button'} onClick={toggleModal}>Диаграмма расхода</button>
+                    <h5>Тепловые потери печи с охлаждающей водой и в окружающее пространство</h5>
+                    <Tables rows={rows_loastHeat} title={true} />
+                    <h5>Невязка теплового баланса (по отношению к приходу тепла в печь)</h5>
+                    <Tables rows={rows_nevyzka} title={true} />
+                </div>
+            </div>
+            {activeModal ? <ChartModal title={chartTitle} onToggle={toggleModal} data={chartData} labels={chartLabels} /> : null}
+        </>
     )
 }
 

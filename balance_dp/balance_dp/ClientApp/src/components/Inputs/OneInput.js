@@ -6,7 +6,7 @@ export const OneInput = ({discr, name, text, value, onChangeInput, onBlurFunctio
             <p className={'input__description'}>{text}</p>
             {onBlurFunction ?
                 <input id={name} type="text" value={value} onChange={onChangeInput} onBlur={onBlurFunction}/> :
-                <input id={name} type="text" value={value} onChange={onChangeInput}/>
+                <input autoComplete='off' id={name} type="text" value={value} onChange={onChangeInput}/>
             }
 
             <p className={'input__value-tag'}>{discr}</p>

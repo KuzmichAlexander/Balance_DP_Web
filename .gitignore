@@ -30,7 +30,7 @@ _ReSharper*/
 .vs/
 #Nuget packages folder
 packages/
-/БалансыДоменнойПечи.pptx
 balance_dp/balance_dp/ClientApp/.idea
 balance_dp/.idea
-/balance_dp/.idea/.idea.balance_dp/.idea/workspace.xml
+balance_dp/.idea/
+/balance_dp/balance_dp/BlastFurnace.db

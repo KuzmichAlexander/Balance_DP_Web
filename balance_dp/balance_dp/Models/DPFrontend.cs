@@ -159,6 +159,7 @@ namespace balance_dp.Models
         {
             public Flus flus { get; set; }
             public MaterialConsuption materialCons { get; set; }
+            public InputZRM InputZRHMs { get; set; }
         }
 
         public class FlusModels

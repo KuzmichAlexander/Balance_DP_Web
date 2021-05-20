@@ -90,6 +90,41 @@ namespace balance_dp.Controllers
                  .Include(p => p.InputData2)
                 .ThenInclude(p => p.materialCons)
 
+                .Include(p => p.InputData2.InputZRHMs)
+                 .ThenInclude(p => p.A9_Aglomerat2)
+                .Include(p => p.InputData2.InputZRHMs)
+                 .ThenInclude(p => p.A10_Aglomerat3)
+                  
+
+                 .Include(p => p.InputData2.InputZRHMs)
+                 .ThenInclude(p => p.A11_Aglomerat4)
+                 .Include(p => p.InputData2.InputZRHMs)
+                 .ThenInclude(p => p.A12_Aglomerat5)
+                 .Include(p => p.InputData2.InputZRHMs)
+                 .ThenInclude(p => p.A13_AglomeratNotCleared)
+                 .Include(p => p.InputData2.InputZRHMs)
+                 .ThenInclude(p => p.A14_AglomeratYama)
+                . Include(p => p.InputData2.InputZRHMs)
+                 .ThenInclude(p => p.A15_Okat_Sokolov)
+                 .Include(p => p.InputData2.InputZRHMs)
+                 .ThenInclude(p => p.A16_Okat_Lebed)
+                 .Include(p => p.InputData2.InputZRHMs)
+                 .ThenInclude(p => p.A17_Okat_Kachkan)
+                 .Include(p => p.InputData2.InputZRHMs)
+                 .ThenInclude(p => p.A18_Okat_Mikhay)
+                 .Include(p => p.InputData2.InputZRHMs)
+                 .ThenInclude(p => p.A19_Welding_slag)
+                 .Include(p => p.InputData2.InputZRHMs)
+                 .ThenInclude(p => p.A20_Korolek)
+                .Include(p => p.InputData2.InputZRHMs)
+                 .ThenInclude(p => p.A21_Domen_prisad)
+                 .Include(p => p.InputData2.InputZRHMs)
+                 .ThenInclude(p => p.A22_Ruda_Mn_Nizgul)
+
+                 .Include(p => p.InputData2.InputZRHMs)
+                 .ThenInclude(p => p.A23_Ruda_Mn_Jairem)
+                 
+
 
 
                 .Where(p => p.NAME == id)

@@ -109,7 +109,5 @@ namespace balance_dp.Models
         public InputZRModels A21_Domen_prisad { get; set; }
         public InputZRModels A22_Ruda_Mn_Nizgul{ get; set; }
         public InputZRModels A23_Ruda_Mn_Jairem { get; set; }
-        public InputZRModels A24_Aglomeran_screening{ get; set; }
-        public InputZRModels A25_Reserve { get; set; }
     }
 }

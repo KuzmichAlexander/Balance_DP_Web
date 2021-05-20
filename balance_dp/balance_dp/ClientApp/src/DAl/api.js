@@ -4,8 +4,9 @@ const baseURL = document.location.origin;
 
 export const getData = async (name) => { //Запрос на входные параметры
     const url = `${baseURL}/api/ThreadParams/${name}`;
-    console.log(123)
      const {data} = await axios.get(url);
+    console.log(data)
+
     return data;
 };
 
@@ -199,7 +200,7 @@ const inputParams = {
             N8_TiO2: 0.213,
             O8_Cr: 0.015
         },
-        inputZRHMs:
+        InputZRHMs:
             {
                 A9_Aglomerat2: {
                     B9_CastIronConsuption: 0,

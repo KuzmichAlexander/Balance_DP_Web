@@ -182,8 +182,8 @@ export class Calc extends React.Component {
                 </div>
                 <div className={'flus__container'}>
                     {this.state.data ?
-                        <InputSostavov name={'InputData2-inputZRHMs'}
-                              params={this.state.data.InputData2.inputZRHMs}
+                        <InputSostavov name={'InputData2-inputZRMs'}
+                              params={this.state.data.InputData2.InputZRHMs}
                               onChangeInput={this.onInputChange}/>
                         : null}
                 </div>

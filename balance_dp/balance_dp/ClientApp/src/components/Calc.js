@@ -12,6 +12,7 @@ import {Flus} from "./Inputs/Flus";
 import {ZRRM} from "./Inputs/ZHRM";
 import {CustomModal} from "./Modal";
 import {COCKS} from "./Inputs/COCKS";
+import {InputSostavov} from "./Inputs/Input_Sostavov";
 
 export class Calc extends React.Component {
     state = {
@@ -109,7 +110,7 @@ export class Calc extends React.Component {
                 similarFlag = false
             }
         });
-        if (similarFlag) {
+       if (similarFlag) {
             const result = await saveDataRequest(this.state.data, name, localStorage.getItem('token'));
             if (result) {
                 this.setState({saveIndicator: true, isSimilar: false});
@@ -176,6 +177,13 @@ export class Calc extends React.Component {
                     {this.state.data ?
                         <Flus name={'InputData2-flus'}
                               params={this.state.data.InputData2.flus}
+                              onChangeInput={this.onInputChange}/>
+                        : null}
+                </div>
+                <div className={'flus__container'}>
+                    {this.state.data ?
+                        <InputSostavov name={'InputData2-inputZRHMs'}
+                              params={this.state.data.InputData2.inputZRHMs}
                               onChangeInput={this.onInputChange}/>
                         : null}
                 </div>

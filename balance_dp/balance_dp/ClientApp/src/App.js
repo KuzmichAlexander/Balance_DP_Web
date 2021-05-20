@@ -26,8 +26,6 @@ export default class App extends Component {
         this.setState({name: newName})
     }
 
-
-
     render() {
         return (
             <>
@@ -42,9 +40,7 @@ export default class App extends Component {
                         </section>
                     </div>
                     <Footer/>
-
                 </div>
-
             </>
         );
     };

@@ -168,6 +168,7 @@
                 <e p="CocksTech.js" t="Include" />
                 <e p="Flus.js" t="Include" />
                 <e p="FurnaceGas.js" t="Include" />
+                <e p="Input_Sostavov.js" t="Include" />
                 <e p="MaterialConsuption.js" t="Include" />
                 <e p="OneInput.js" t="Include" />
                 <e p="Slag.js" t="Include" />
@@ -219,8 +220,8 @@
           <e p="factory_icon-icons.com_70151.svg" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20210416163206_auth.cs" t="Include" />
-          <e p="20210416163206_auth.Designer.cs" t="Include" />
+          <e p="20210520053303_Imigration.cs" t="Include" />
+          <e p="20210520053303_Imigration.Designer.cs" t="Include" />
           <e p="DPContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">

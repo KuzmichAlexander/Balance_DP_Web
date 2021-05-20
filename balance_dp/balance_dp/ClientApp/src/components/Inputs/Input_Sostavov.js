@@ -37,6 +37,7 @@ function createRow () {
         return paramArray;
     }
 }
+
 function createRows (name, params, onChangeInput) {
     const rowsArray = [];
     const generator = createRow()
@@ -59,6 +60,7 @@ function createRows (name, params, onChangeInput) {
 }
 
 export const InputSostavov = ({name, params, onChangeInput}) => {
+    console.log(name, params)
     const classes = useStyles();
     const rows = createRows(name, params, onChangeInput);
     return (

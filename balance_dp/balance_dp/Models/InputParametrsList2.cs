@@ -12,6 +12,8 @@ namespace balance_dp.Models
         public Flus flus { get; set; }
         public int MaterialConsuptionId { get; set; }
         public MaterialConsuption materialCons { get; set; }
+        public InputZRM InputZRHMs { get; set; }
+
     }
 
     public class FlusModels
@@ -62,5 +64,52 @@ namespace balance_dp.Models
         public float M8_H20 { get; set; }
         public float N8_TiO2 { get; set; }
         public float O8_Cr { get; set; }
+    }
+    public class InputZRModels
+    {
+        public int ID { get; set; }
+        public float B9_CastIronConsuption { get; set; }
+        public float C9_FE { get; set; }
+        public float D9_Fe0 { get; set; }
+        public float E9_Fe2O3 { get; set; }
+        public float F9_SiO2 { get; set; }
+        public float G9_Al203 { get; set; }
+        public float H9_CaO { get; set; }
+        public float I9_Mgo{ get; set; }
+        public float J9_P { get; set; }
+        public float K9_S{ get; set; }
+        public float L9_MnO { get; set; }
+        public float M9_Zn { get; set; }
+        public float N9_Pmpp { get; set; }
+        public float O9_H20 { get; set; }
+        public float P9_TiO2 { get; set; }
+        public float Q9_Cr{ get; set; }
+        public float R9_basicity
+
+        {
+            get { return F9_SiO2 != 0 ? H9_CaO / F9_SiO2 : 0; }
+        }
+
+    }
+    public class InputZRM
+    {
+        public int ID { get; set; }
+        public InputZRModels A9_Aglomerat2 { get; set; }
+        public InputZRModels A10_Aglomerat3 { get; set; }
+        public InputZRModels A11_Aglomerat4 { get; set; }
+        public InputZRModels A12_Aglomerat5 { get; set; }
+        public InputZRModels A13_AglomeratNotCleared { get; set; }
+        public InputZRModels A14_AglomeratYama { get; set; }
+        public InputZRModels A15_Okat_Sokolov { get; set; }
+        public InputZRModels A16_Okat_Lebed { get; set; }
+        public InputZRModels A17_Okat_Kachkan { get; set; }
+        public InputZRModels A18_Okat_Mikhay { get; set; }
+        public InputZRModels A19_Welding_slag { get; set; }
+        public InputZRModels A20_Korolek{ get; set; }
+        public InputZRModels A21_Domen_prisad { get; set; }
+        public InputZRModels A22_Ruda_Mn_Nizgul{ get; set; }
+        public InputZRModels A23_Ruda_Mn_Jairem { get; set; }
+        public InputZRModels A24_Aglomeran_screening{ get; set; }
+        public InputZRModels A25_Reserve { get; set; }
     }
 }

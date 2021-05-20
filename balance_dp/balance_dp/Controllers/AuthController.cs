@@ -39,8 +39,6 @@ namespace balance_dp.Controllers
         {
             string token = Request.Headers["Authorization"];
             var trueuser = db.Users.First(dbUser => dbUser.Token == token);
-            
-
             return new FrontUser(trueuser);
         }
     }

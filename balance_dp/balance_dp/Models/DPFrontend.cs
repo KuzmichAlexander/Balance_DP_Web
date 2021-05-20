@@ -187,6 +187,24 @@ namespace balance_dp.Models
                 get; set; // ДОБАВИЛ РЕЗЕРВНЫЕ ФЛЮСЫ,НЕ ЗАБЫТЬ СКАЗАТЬ САНЕ
             }
         }
+        public class InputZRM
+        {
+            public InputZRModels A9_Aglomerat2 { get; set; }
+            public InputZRModels A10_Aglomerat3 { get; set; }
+            public InputZRModels A11_Aglomerat4 { get; set; }
+            public InputZRModels A12_Aglomerat5 { get; set; }
+            public InputZRModels A13_AglomeratNotCleared { get; set; }
+            public InputZRModels A14_AglomeratYama { get; set; }
+            public InputZRModels A15_Okat_Sokolov { get; set; }
+            public InputZRModels A16_Okat_Lebed { get; set; }
+            public InputZRModels A17_Okat_Kachkan { get; set; }
+            public InputZRModels A18_Okat_Mikhay { get; set; }
+            public InputZRModels A19_Welding_slag { get; set; }
+            public InputZRModels A20_Korolek { get; set; }
+            public InputZRModels A21_Domen_prisad { get; set; }
+            public InputZRModels A22_Ruda_Mn_Nizgul { get; set; }
+            public InputZRModels A23_Ruda_Mn_Jairem { get; set; }
+        }
         public class MaterialConsuption
         {
             public float A8_Fe { get; set; }

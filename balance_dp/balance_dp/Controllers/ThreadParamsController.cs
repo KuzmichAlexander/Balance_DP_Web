@@ -92,6 +92,7 @@ namespace balance_dp.Controllers
 
                 .Include(p => p.InputData2.InputZRHMs)
                  .ThenInclude(p => p.A9_Aglomerat2)
+
                 .Include(p => p.InputData2.InputZRHMs)
                  .ThenInclude(p => p.A10_Aglomerat3)
                   

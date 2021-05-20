@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace balance_dp.Models
 {
-    public static class Calculate 
+    public static class Calculate
     {
         public static ResultHeat Calculator(DPInputData did)
         {
@@ -13,8 +13,8 @@ namespace balance_dp.Models
             rh.hb = new HeatBalance();
             rh.mb = new MaterialBalance();
             Indicators indicators = new Indicators();
-                // ----------- ТЕПЛОВОЙ БАЛАНС ПОШЕЛ ----------- //
-                    // -------- ПРИХОД ТЕПЛОВОГО -------- //
+            // ----------- ТЕПЛОВОЙ БАЛАНС ПОШЕЛ ----------- //
+            // -------- ПРИХОД ТЕПЛОВОГО -------- //
             indicators.list3_C7_RD_GoglibFourmula = 0.54f - 0.00214f * did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas;
             indicators.list3_C8_FE_CapacityInCastIron = 100 - did.InputIndicators.CastIron.list1_C9_Si - did.InputIndicators.CastIron.list1_C10_Mn - did.InputIndicators.CastIron.list1_C11_S - did.InputIndicators.CastIron.list1_C12_P - did.InputIndicators.CastIron.list1_C13_Ti - did.InputIndicators.CastIron.list1_C14_Cr - did.InputIndicators.CastIron.list1_C15_V - did.InputIndicators.CastIron.list1_С16_C;
             indicators.list3_C9_Spr_CarbonConsuptionOnFe = indicators.list3_C8_FE_CapacityInCastIron * 10 * indicators.list3_C7_RD_GoglibFourmula * 12 / 56;
@@ -27,38 +27,38 @@ namespace balance_dp.Models
             // Да пускай боги смилосердятся. о великий рандо.
             indicators.list3_C15_Sf_CarbonBurnInFurma = indicators.list3_C12_Sprish_CarbonInFurnaceWithCocks - (indicators.list3_C14_Sch_CarbonDissolutionInCastIron + indicators.list3_C9_Spr_CarbonConsuptionOnFe + indicators.list3_C10_Sprim_CarbonConsuptionOnElements + indicators.list3_C13_SCH4_CarbonOnMetan);
             indicators.list3_C16_Vd1_BlastConsuptionFor1Cocks = 0.9333f / ((0.01f * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing) + (0.00062f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm));
-            indicators.list3_C17_Vd2_BlastConsuptionForGas = 0.5f / (0.01f*did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing + (0.00062f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm));
+            indicators.list3_C17_Vd2_BlastConsuptionForGas = 0.5f / (0.01f * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing + (0.00062f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm));
             indicators.list3_C18_GasConsuptionFor1Cocks = did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / indicators.list3_C15_Sf_CarbonBurnInFurma;
-            indicators.list3_C19_BlastConsuptiomSumm = indicators.list3_C16_Vd1_BlastConsuptionFor1Cocks + indicators.list3_C17_Vd2_BlastConsuptionForGas * indicators.list3_C18_GasConsuptionFor1Cocks;          
-            indicators.list3_C20_Qd_BlastConsuptionCalculate = indicators.list3_C19_BlastConsuptiomSumm * indicators.list3_C15_Sf_CarbonBurnInFurma;            
-            indicators.list3_C21_O2BlastConsuptionCalculate = indicators.list3_C20_Qd_BlastConsuptionCalculate * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing*0.01f;
-            indicators.list3_C22_N2BlastConsuptionCalculate =  (indicators.list3_C20_Qd_BlastConsuptionCalculate *(100 - did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing)*0.01f);
-            indicators.list3_C23_BlastConsuptionForMinute = indicators.list3_C20_Qd_BlastConsuptionCalculate* did.InputIndicators.BlastFur.list1_C20_Dailyproductivity/ 1440;
-            indicators.list3_C24_Vg1_FurmaGasOutputFor1Cocks =1.8667f+ indicators.list3_C16_Vd1_BlastConsuptionFor1Cocks*(1 - 0.1f* did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing + 0.00124f* did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm) ;
-            indicators.list3_C25_Vg2_FurmaGasOutputForConversion  =  3+ indicators.list3_C17_Vd2_BlastConsuptionForGas* (1- 0.1f* did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing+ 0.00124f *did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm) ;
-            indicators.list3_C26_Vgg_FurmaGasOutputSumm = indicators.list3_C24_Vg1_FurmaGasOutputFor1Cocks + did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas /( indicators.list3_C15_Sf_CarbonBurnInFurma* indicators.list3_C25_Vg2_FurmaGasOutputForConversion);
-            indicators.list3_C27_Qgg_FurmaGasOutput =indicators.list3_C15_Sf_CarbonBurnInFurma * indicators.list3_C26_Vgg_FurmaGasOutputSumm ;
-            indicators.list3_C28_Vco_FurmaGasCOCapacity = 1.8667f + did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / (indicators.list3_C15_Sf_CarbonBurnInFurma* did.InputIndicators.blowing.list1_C43_C_Capacity);            
-            indicators.list3_C29_Vh2_FurmaGasH2Capacity = (0.9333f + 0.5f * did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / indicators.list3_C15_Sf_CarbonBurnInFurma ) / (0.01f * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing + 0.00124f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm) * 0.00124f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm + did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / indicators.list3_C15_Sf_CarbonBurnInFurma * did.InputIndicators.blowing.list1_C44_H2_Capacity;           
-            indicators.list3_C30_Vn2_FurmaGasN2Capacity =  (0.9333f +0.5f * did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas/ indicators.list3_C15_Sf_CarbonBurnInFurma*1)/(0.01f * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing +    0.00124f* did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm)*(1- 0.01f* did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing);         
+            indicators.list3_C19_BlastConsuptiomSumm = indicators.list3_C16_Vd1_BlastConsuptionFor1Cocks + indicators.list3_C17_Vd2_BlastConsuptionForGas * indicators.list3_C18_GasConsuptionFor1Cocks;
+            indicators.list3_C20_Qd_BlastConsuptionCalculate = indicators.list3_C19_BlastConsuptiomSumm * indicators.list3_C15_Sf_CarbonBurnInFurma;
+            indicators.list3_C21_O2BlastConsuptionCalculate = indicators.list3_C20_Qd_BlastConsuptionCalculate * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing * 0.01f;
+            indicators.list3_C22_N2BlastConsuptionCalculate = (indicators.list3_C20_Qd_BlastConsuptionCalculate * (100 - did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing) * 0.01f);
+            indicators.list3_C23_BlastConsuptionForMinute = indicators.list3_C20_Qd_BlastConsuptionCalculate * did.InputIndicators.BlastFur.list1_C20_Dailyproductivity / 1440;
+            indicators.list3_C24_Vg1_FurmaGasOutputFor1Cocks = 1.8667f + indicators.list3_C16_Vd1_BlastConsuptionFor1Cocks * (1 - 0.1f * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing + 0.00124f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm);
+            indicators.list3_C25_Vg2_FurmaGasOutputForConversion = 3 + indicators.list3_C17_Vd2_BlastConsuptionForGas * (1 - 0.1f * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing + 0.00124f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm);
+            indicators.list3_C26_Vgg_FurmaGasOutputSumm = indicators.list3_C24_Vg1_FurmaGasOutputFor1Cocks + did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / (indicators.list3_C15_Sf_CarbonBurnInFurma * indicators.list3_C25_Vg2_FurmaGasOutputForConversion);
+            indicators.list3_C27_Qgg_FurmaGasOutput = indicators.list3_C15_Sf_CarbonBurnInFurma * indicators.list3_C26_Vgg_FurmaGasOutputSumm;
+            indicators.list3_C28_Vco_FurmaGasCOCapacity = 1.8667f + did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / (indicators.list3_C15_Sf_CarbonBurnInFurma * did.InputIndicators.blowing.list1_C43_C_Capacity);
+            indicators.list3_C29_Vh2_FurmaGasH2Capacity = (0.9333f + 0.5f * did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / indicators.list3_C15_Sf_CarbonBurnInFurma) / (0.01f * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing + 0.00124f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm) * 0.00124f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm + did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / indicators.list3_C15_Sf_CarbonBurnInFurma * did.InputIndicators.blowing.list1_C44_H2_Capacity;
+            indicators.list3_C30_Vn2_FurmaGasN2Capacity = (0.9333f + 0.5f * did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas / indicators.list3_C15_Sf_CarbonBurnInFurma * 1) / (0.01f * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing + 0.00124f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm) * (1 - 0.01f * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing);
             indicators.list3_C31_CO_FurmaGasCOElementCapacity = indicators.list3_C28_Vco_FurmaGasCOCapacity / (indicators.list3_C28_Vco_FurmaGasCOCapacity + indicators.list3_C29_Vh2_FurmaGasH2Capacity + indicators.list3_C30_Vn2_FurmaGasN2Capacity);
             indicators.list3_C32_H2_FurmaGasH2ElementCapacity = indicators.list3_C29_Vh2_FurmaGasH2Capacity / (indicators.list3_C28_Vco_FurmaGasCOCapacity + indicators.list3_C29_Vh2_FurmaGasH2Capacity + indicators.list3_C30_Vn2_FurmaGasN2Capacity); ;
             indicators.list3_C33_N2_FurmaGasN2ElementCapacity = 1 - (indicators.list3_C31_CO_FurmaGasCOElementCapacity + indicators.list3_C32_H2_FurmaGasH2ElementCapacity);
-            indicators.list3_C34_Vpv_CO2ForOxids = 10 * 22.4f*(indicators.list3_C8_FE_CapacityInCastIron* (indicators.list3_C7_RD_GoglibFourmula/56)+ (did.InputIndicators.CastIron.list1_C10_Mn/55) +2* (did.InputIndicators.CastIron.list1_C9_Si/ 28) +( did.InputIndicators.slag.list1_C50_SulfurCapacity/32));
-            indicators.list3_C35_nCO_PowerCoUses = did.InputIndicators.FurnaceGas.list1_C62_CO2_Capacity/ (did.InputIndicators.FurnaceGas.list1_C62_CO2_Capacity + did.InputIndicators.FurnaceGas.list1_C63_CO_Capacity);
-            indicators.list3_C36_nH_PowerHUses = 0.88f*indicators.list3_C35_nCO_PowerCoUses + 0.1f;
+            indicators.list3_C34_Vpv_CO2ForOxids = 10 * 22.4f * (indicators.list3_C8_FE_CapacityInCastIron * (indicators.list3_C7_RD_GoglibFourmula / 56) + (did.InputIndicators.CastIron.list1_C10_Mn / 55) + 2 * (did.InputIndicators.CastIron.list1_C9_Si / 28) + (did.InputIndicators.slag.list1_C50_SulfurCapacity / 32));
+            indicators.list3_C35_nCO_PowerCoUses = did.InputIndicators.FurnaceGas.list1_C62_CO2_Capacity / (did.InputIndicators.FurnaceGas.list1_C62_CO2_Capacity + did.InputIndicators.FurnaceGas.list1_C63_CO_Capacity);
+            indicators.list3_C36_nH_PowerHUses = 0.88f * indicators.list3_C35_nCO_PowerCoUses + 0.1f;
             indicators.list3_C37_Vt1000CO_VolumeCOon1000 = indicators.list3_C28_Vco_FurmaGasCOCapacity * indicators.list3_C15_Sf_CarbonBurnInFurma + indicators.list3_C34_Vpv_CO2ForOxids;
-            indicators.list3_C38_Vt1000H2_VolumeH2on1000 = indicators.list3_C29_Vh2_FurmaGasH2Capacity * indicators.list3_C15_Sf_CarbonBurnInFurma*(1 - indicators.list3_C36_nH_PowerHUses) ;
+            indicators.list3_C38_Vt1000H2_VolumeH2on1000 = indicators.list3_C29_Vh2_FurmaGasH2Capacity * indicators.list3_C15_Sf_CarbonBurnInFurma * (1 - indicators.list3_C36_nH_PowerHUses);
             indicators.list3_C39_Vt1000N2_VolumeN2on1000 = indicators.list3_C30_Vn2_FurmaGasN2Capacity * indicators.list3_C15_Sf_CarbonBurnInFurma;
-            indicators.list3_C40_Vgas_VolumeGason1000 = indicators.list3_C37_Vt1000CO_VolumeCOon1000+ indicators.list3_C38_Vt1000H2_VolumeH2on1000 + indicators.list3_C39_Vt1000N2_VolumeN2on1000;
-            indicators.list3_C41_Co_1000_COCapacityOn1000 = indicators.list3_C37_Vt1000CO_VolumeCOon1000/ indicators.list3_C40_Vgas_VolumeGason1000;
+            indicators.list3_C40_Vgas_VolumeGason1000 = indicators.list3_C37_Vt1000CO_VolumeCOon1000 + indicators.list3_C38_Vt1000H2_VolumeH2on1000 + indicators.list3_C39_Vt1000N2_VolumeN2on1000;
+            indicators.list3_C41_Co_1000_COCapacityOn1000 = indicators.list3_C37_Vt1000CO_VolumeCOon1000 / indicators.list3_C40_Vgas_VolumeGason1000;
             indicators.list3_C42_h2_1000_H2CapacityOn1000 = indicators.list3_C38_Vt1000H2_VolumeH2on1000 / indicators.list3_C40_Vgas_VolumeGason1000;
             indicators.list3_C43_N2_1000_N2CapacityOn1000 = indicators.list3_C39_Vt1000N2_VolumeN2on1000 / indicators.list3_C40_Vgas_VolumeGason1000;
-            indicators.list3_C44_ViCO2_VolumeCO2OnLime = 0.01f * did.InputData2.flus.Limestone.list2_B33flusConsuption* (22.4f/44) * did.InputIndicators.blowing.list1_C47_limestoneWeightLoss;
+            indicators.list3_C44_ViCO2_VolumeCO2OnLime = 0.01f * did.InputData2.flus.Limestone.list2_B33flusConsuption * (22.4f / 44) * did.InputIndicators.blowing.list1_C47_limestoneWeightLoss;
             indicators.list3_C45_VkvCO2_VolumeCO2OnFe = indicators.list3_C37_Vt1000CO_VolumeCOon1000 * indicators.list3_C35_nCO_PowerCoUses;
-            indicators.list3_C46_VkgCO2_VolumeCO2onBlastFurnaceGas =indicators.list3_C45_VkvCO2_VolumeCO2OnFe + indicators.list3_C44_ViCO2_VolumeCO2OnLime ;
+            indicators.list3_C46_VkgCO2_VolumeCO2onBlastFurnaceGas = indicators.list3_C45_VkvCO2_VolumeCO2OnFe + indicators.list3_C44_ViCO2_VolumeCO2OnLime;
             indicators.list3_C47_VkgCO_VolumeCOonBlastFurnaceGas = indicators.list3_C37_Vt1000CO_VolumeCOon1000 - indicators.list3_C45_VkvCO2_VolumeCO2OnFe;
-            indicators.list3_C48_VkgCH4_VolumeCH4onBlastFurnaceGas = indicators.list3_C13_SCH4_CarbonOnMetan* (22.4f/12);
+            indicators.list3_C48_VkgCH4_VolumeCH4onBlastFurnaceGas = indicators.list3_C13_SCH4_CarbonOnMetan * (22.4f / 12);
             indicators.list3_C49_VkgH2_VolumeH2onBlastFurnaceGas = indicators.list3_C39_Vt1000N2_VolumeN2on1000;
             indicators.list3_C50_VkgN2_VolumeN2onBlastFurnaceGas = indicators.list3_C38_Vt1000H2_VolumeH2on1000;
             indicators.list3_C51_Vkg_BlastFurnaceGasOut = indicators.list3_C46_VkgCO2_VolumeCO2onBlastFurnaceGas + indicators.list3_C47_VkgCO_VolumeCOonBlastFurnaceGas + indicators.list3_C48_VkgCH4_VolumeCH4onBlastFurnaceGas + indicators.list3_C49_VkgH2_VolumeH2onBlastFurnaceGas + indicators.list3_C50_VkgN2_VolumeN2onBlastFurnaceGas;
@@ -66,41 +66,59 @@ namespace balance_dp.Models
             indicators.list3_C53_BlastFurnaceGasСomposition_С02_persent = indicators.list3_C52_BlastFurnaceGasСomposition_С02 * 100;
             indicators.list3_C54_BlastFurnaceGasСomposition_С0 = indicators.list3_C47_VkgCO_VolumeCOonBlastFurnaceGas / indicators.list3_C51_Vkg_BlastFurnaceGasOut;
             indicators.list3_C55_BlastFurnaceGasСomposition_С0_persent = indicators.list3_C54_BlastFurnaceGasСomposition_С0 * 100;
-            indicators.list3_C56_BlastFurnaceGasСomposition_H2 = indicators.list3_C50_VkgN2_VolumeN2onBlastFurnaceGas / indicators.list3_C51_Vkg_BlastFurnaceGasOut ; 
-            indicators.list3_C57_BlastFurnaceGasСomposition_H2_persent = indicators.list3_C56_BlastFurnaceGasСomposition_H2 *100;
+            indicators.list3_C56_BlastFurnaceGasСomposition_H2 = indicators.list3_C50_VkgN2_VolumeN2onBlastFurnaceGas / indicators.list3_C51_Vkg_BlastFurnaceGasOut;
+            indicators.list3_C57_BlastFurnaceGasСomposition_H2_persent = indicators.list3_C56_BlastFurnaceGasСomposition_H2 * 100;
             indicators.list3_C58_BlastFurnaceGasСomposition_CH4 = indicators.list3_C48_VkgCH4_VolumeCH4onBlastFurnaceGas / indicators.list3_C51_Vkg_BlastFurnaceGasOut;
             indicators.list3_C59_BlastFurnaceGasСomposition_CH4_persent = indicators.list3_C58_BlastFurnaceGasСomposition_CH4 * 100;
-            indicators.list3_C60_BlastFurnaceGasСomposition_N2 = 1- (indicators.list3_C52_BlastFurnaceGasСomposition_С02+ indicators.list3_C54_BlastFurnaceGasСomposition_С0 + indicators.list3_C56_BlastFurnaceGasСomposition_H2 + indicators.list3_C58_BlastFurnaceGasСomposition_CH4);
+            indicators.list3_C60_BlastFurnaceGasСomposition_N2 = 1 - (indicators.list3_C52_BlastFurnaceGasСomposition_С02 + indicators.list3_C54_BlastFurnaceGasСomposition_С0 + indicators.list3_C56_BlastFurnaceGasСomposition_H2 + indicators.list3_C58_BlastFurnaceGasСomposition_CH4);
             indicators.list3_C61_BlastFurnaceGasСomposition_N2_persent = indicators.list3_C60_BlastFurnaceGasСomposition_N2 * 100;
-            indicators.list3_C62_BlastFurnaceGasDencity =(44/22.4f * indicators.list3_C52_BlastFurnaceGasСomposition_С02) + (28/22.4f * indicators.list3_C54_BlastFurnaceGasСomposition_С0) + (2/22.4f * indicators.list3_C58_BlastFurnaceGasСomposition_CH4) + (28 / 22.4f* indicators.list3_C60_BlastFurnaceGasСomposition_N2) ; 
-            indicators.list3_C63_BlastFurnaceGasForSeconds = (indicators.list3_C51_Vkg_BlastFurnaceGasOut*did.InputIndicators.BlastFur.list1_C20_Dailyproductivity) / (24*60*60);
-            indicators.C66_HeatOfBurningCocks =indicators.list3_C15_Sf_CarbonBurnInFurma*9800 * 0.001f ;
+            indicators.list3_C62_BlastFurnaceGasDencity = (44 / 22.4f * indicators.list3_C52_BlastFurnaceGasСomposition_С02) + (28 / 22.4f * indicators.list3_C54_BlastFurnaceGasСomposition_С0) + (2 / 22.4f * indicators.list3_C58_BlastFurnaceGasСomposition_CH4) + (28 / 22.4f * indicators.list3_C60_BlastFurnaceGasСomposition_N2);
+            indicators.list3_C63_BlastFurnaceGasForSeconds = (indicators.list3_C51_Vkg_BlastFurnaceGasOut * did.InputIndicators.BlastFur.list1_C20_Dailyproductivity) / (24 * 60 * 60);
+            indicators.C66_HeatOfBurningCocks = indicators.list3_C15_Sf_CarbonBurnInFurma * 9800 * 0.001f;
             indicators.C68_02_HeatCapacity = 1.2897f + 0.000121f * did.InputIndicators.blowing.list1_C33_HotBlowingTemperature;
             indicators.C69_N2_HeatCapacity = 1.2897f + 0.000121f * did.InputIndicators.blowing.list1_C33_HotBlowingTemperature;
-            indicators.C70_H20_HeatCapacity = 1.456f + 0.000282f* did.InputIndicators.blowing.list1_C33_HotBlowingTemperature;  
-            indicators.C71_HeatCountBlowing = 0.001f*indicators.list3_C20_Qd_BlastConsuptionCalculate*((0.01f* did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing*indicators.C68_02_HeatCapacity+(1-0.01f*did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing)*indicators.C69_N2_HeatCapacity)*(1- 0.00124f*did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm)+0.00124f*did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm * indicators.C70_H20_HeatCapacity)*did.InputIndicators.blowing.list1_C33_HotBlowingTemperature;
+            indicators.C70_H20_HeatCapacity = 1.456f + 0.000282f * did.InputIndicators.blowing.list1_C33_HotBlowingTemperature;
+            indicators.C71_HeatCountBlowing = 0.001f * indicators.list3_C20_Qd_BlastConsuptionCalculate * ((0.01f * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing * indicators.C68_02_HeatCapacity + (1 - 0.01f * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing) * indicators.C69_N2_HeatCapacity) * (1 - 0.00124f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm) + 0.00124f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm * indicators.C70_H20_HeatCapacity) * did.InputIndicators.blowing.list1_C33_HotBlowingTemperature;
             indicators.C73_HeatCountOfConversion = 0.001f * did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas * (0.01f * (1657f * did.InputIndicators.blowing.list1_C39_CH4Consuption + 6046 * did.InputIndicators.blowing.list1_C40_C2H6Comsuption - 12644 * did.InputIndicators.blowing.list1_C42_CO2Comsuption));
             indicators.C75_HeatCountOfSlug = 1128 * 0.00001f * did.InputData2.flus.Limestone.list2_B33flusConsuption * did.InputIndicators.blowing.list1_C47_limestoneWeightLoss;
-            indicators.C77_InputHeatSumm = indicators.C66_HeatOfBurningCocks+ indicators.C71_HeatCountBlowing + indicators.C73_HeatCountOfConversion + indicators.C75_HeatCountOfSlug;
-            indicators.C67_HeatOfBurningCocks_persent =indicators.C66_HeatOfBurningCocks / indicators.C77_InputHeatSumm ;
-            indicators.C72_HeatCountBlowing_persent =indicators.C71_HeatCountBlowing/ indicators.C77_InputHeatSumm ;
+            indicators.C77_InputHeatSumm = indicators.C66_HeatOfBurningCocks + indicators.C71_HeatCountBlowing + indicators.C73_HeatCountOfConversion + indicators.C75_HeatCountOfSlug;
+            indicators.C67_HeatOfBurningCocks_persent = indicators.C66_HeatOfBurningCocks / indicators.C77_InputHeatSumm;
+            indicators.C72_HeatCountBlowing_persent = indicators.C71_HeatCountBlowing / indicators.C77_InputHeatSumm;
             indicators.C74_HeatCountOfConversion_persent = indicators.C73_HeatCountOfConversion / indicators.C77_InputHeatSumm;
             indicators.C76_HeatCountOfSlug_persent = indicators.C75_HeatCountOfSlug / indicators.C77_InputHeatSumm;
-            indicators.C78_InputHeatSumm_persent =indicators.C67_HeatOfBurningCocks_persent + indicators.C72_HeatCountBlowing_persent + indicators.C74_HeatCountOfConversion_persent + indicators.C76_HeatCountOfSlug_persent ;
+            indicators.C78_InputHeatSumm_persent = indicators.C67_HeatOfBurningCocks_persent + indicators.C72_HeatCountBlowing_persent + indicators.C74_HeatCountOfConversion_persent + indicators.C76_HeatCountOfSlug_persent;
 
 
             ///------- ЖРМ ПОШЛИ СЧИТАТЬ ----- ///
             indicators.B27_SUMMZHRM_Simple = (did.InputData2.InputZRHMs.A9_Aglomerat2.B9_CastIronConsuption + did.InputData2.InputZRHMs.A10_Aglomerat3.B9_CastIronConsuption + did.InputData2.InputZRHMs.A11_Aglomerat4.B9_CastIronConsuption + did.InputData2.InputZRHMs.A12_Aglomerat5.B9_CastIronConsuption + did.InputData2.InputZRHMs.A13_AglomeratNotCleared.B9_CastIronConsuption + did.InputData2.InputZRHMs.A14_AglomeratYama.B9_CastIronConsuption + did.InputData2.InputZRHMs.A15_Okat_Sokolov.B9_CastIronConsuption + did.InputData2.InputZRHMs.A16_Okat_Lebed.B9_CastIronConsuption + did.InputData2.InputZRHMs.A17_Okat_Kachkan.B9_CastIronConsuption + did.InputData2.InputZRHMs.A18_Okat_Mikhay.B9_CastIronConsuption);
             indicators.B28_MetalAdd_Simple = (did.InputData2.InputZRHMs.A19_Welding_slag.B9_CastIronConsuption + did.InputData2.InputZRHMs.A20_Korolek.B9_CastIronConsuption + did.InputData2.InputZRHMs.A21_Domen_prisad.B9_CastIronConsuption + did.InputData2.InputZRHMs.A22_Ruda_Mn_Nizgul.B9_CastIronConsuption + did.InputData2.InputZRHMs.A23_Ruda_Mn_Jairem.B9_CastIronConsuption);
             indicators.B29_SUMM_Ruda_Simple = (indicators.B27_SUMMZHRM_Simple + indicators.B28_MetalAdd_Simple);
+          
             indicators.C27_SUMMZHRM_Fe = (did.InputData2.InputZRHMs.A9_Aglomerat2.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple * did.InputData2.InputZRHMs.A9_Aglomerat2.C9_FE + (did.InputData2.InputZRHMs.A10_Aglomerat3.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A10_Aglomerat3.C9_FE + (did.InputData2.InputZRHMs.A11_Aglomerat4.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A11_Aglomerat4.C9_FE + (did.InputData2.InputZRHMs.A12_Aglomerat5.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A12_Aglomerat5.C9_FE + (did.InputData2.InputZRHMs.A13_AglomeratNotCleared.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A13_AglomeratNotCleared.C9_FE + (did.InputData2.InputZRHMs.A14_AglomeratYama.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A14_AglomeratYama.C9_FE + (did.InputData2.InputZRHMs.A15_Okat_Sokolov.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A15_Okat_Sokolov.C9_FE + (did.InputData2.InputZRHMs.A16_Okat_Lebed.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A16_Okat_Lebed.C9_FE + (did.InputData2.InputZRHMs.A17_Okat_Kachkan.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A17_Okat_Kachkan.C9_FE + (did.InputData2.InputZRHMs.A18_Okat_Mikhay.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A18_Okat_Mikhay.C9_FE);
             indicators.C28_MetalAdd_Fe = (did.InputData2.InputZRHMs.A19_Welding_slag.B9_CastIronConsuption / indicators.B28_MetalAdd_Simple * did.InputData2.InputZRHMs.A19_Welding_slag.C9_FE + (did.InputData2.InputZRHMs.A20_Korolek.B9_CastIronConsuption / indicators.B28_MetalAdd_Simple) * did.InputData2.InputZRHMs.A20_Korolek.C9_FE + (did.InputData2.InputZRHMs.A21_Domen_prisad.B9_CastIronConsuption / indicators.B28_MetalAdd_Simple) * did.InputData2.InputZRHMs.A21_Domen_prisad.C9_FE + (did.InputData2.InputZRHMs.A22_Ruda_Mn_Nizgul.B9_CastIronConsuption / indicators.B28_MetalAdd_Simple) * did.InputData2.InputZRHMs.A22_Ruda_Mn_Nizgul.C9_FE + (did.InputData2.InputZRHMs.A23_Ruda_Mn_Jairem.B9_CastIronConsuption / indicators.B28_MetalAdd_Simple) * did.InputData2.InputZRHMs.A23_Ruda_Mn_Jairem.C9_FE);
-            indicators.C29_SUMM_Ruda_Fe = (did.InputData2.InputZRHMs.A9_Aglomerat2.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple * did.InputData2.InputZRHMs.A9_Aglomerat2.C9_FE + (did.InputData2.InputZRHMs.A10_Aglomerat3.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A10_Aglomerat3.C9_FE + (did.InputData2.InputZRHMs.A11_Aglomerat4.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A11_Aglomerat4.C9_FE + (did.InputData2.InputZRHMs.A12_Aglomerat5.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A12_Aglomerat5.C9_FE + (did.InputData2.InputZRHMs.A13_AglomeratNotCleared.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A13_AglomeratNotCleared.C9_FE + (did.InputData2.InputZRHMs.A14_AglomeratYama.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A14_AglomeratYama.C9_FE + (did.InputData2.InputZRHMs.A15_Okat_Sokolov.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A15_Okat_Sokolov.C9_FE + (did.InputData2.InputZRHMs.A16_Okat_Lebed.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A16_Okat_Lebed.C9_FE + (did.InputData2.InputZRHMs.A17_Okat_Kachkan.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A17_Okat_Kachkan.C9_FE + (did.InputData2.InputZRHMs.A18_Okat_Mikhay.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A18_Okat_Mikhay.C9_FE + (did.InputData2.InputZRHMs.A19_Welding_slag.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple * did.InputData2.InputZRHMs.A19_Welding_slag.C9_FE + (did.InputData2.InputZRHMs.A20_Korolek.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A20_Korolek.C9_FE + (did.InputData2.InputZRHMs.A21_Domen_prisad.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A21_Domen_prisad.C9_FE + (did.InputData2.InputZRHMs.A22_Ruda_Mn_Nizgul.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A22_Ruda_Mn_Nizgul.C9_FE + (did.InputData2.InputZRHMs.A23_Ruda_Mn_Jairem.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A23_Ruda_Mn_Jairem.C9_FE ));
-           
+            indicators.C29_SUMM_Ruda_Fe = (did.InputData2.InputZRHMs.A9_Aglomerat2.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple * did.InputData2.InputZRHMs.A9_Aglomerat2.C9_FE + (did.InputData2.InputZRHMs.A10_Aglomerat3.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A10_Aglomerat3.C9_FE + (did.InputData2.InputZRHMs.A11_Aglomerat4.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A11_Aglomerat4.C9_FE + (did.InputData2.InputZRHMs.A12_Aglomerat5.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A12_Aglomerat5.C9_FE + (did.InputData2.InputZRHMs.A13_AglomeratNotCleared.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A13_AglomeratNotCleared.C9_FE + (did.InputData2.InputZRHMs.A14_AglomeratYama.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A14_AglomeratYama.C9_FE + (did.InputData2.InputZRHMs.A15_Okat_Sokolov.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A15_Okat_Sokolov.C9_FE + (did.InputData2.InputZRHMs.A16_Okat_Lebed.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A16_Okat_Lebed.C9_FE + (did.InputData2.InputZRHMs.A17_Okat_Kachkan.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A17_Okat_Kachkan.C9_FE + (did.InputData2.InputZRHMs.A18_Okat_Mikhay.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A18_Okat_Mikhay.C9_FE + (did.InputData2.InputZRHMs.A19_Welding_slag.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple * did.InputData2.InputZRHMs.A19_Welding_slag.C9_FE + (did.InputData2.InputZRHMs.A20_Korolek.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A20_Korolek.C9_FE + (did.InputData2.InputZRHMs.A21_Domen_prisad.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A21_Domen_prisad.C9_FE + (did.InputData2.InputZRHMs.A22_Ruda_Mn_Nizgul.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A22_Ruda_Mn_Nizgul.C9_FE + (did.InputData2.InputZRHMs.A23_Ruda_Mn_Jairem.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A23_Ruda_Mn_Jairem.C9_FE));
+
             indicators.D27_SUMMZHRM_FeO = (did.InputData2.InputZRHMs.A9_Aglomerat2.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple * did.InputData2.InputZRHMs.A9_Aglomerat2.D9_Fe0 + (did.InputData2.InputZRHMs.A10_Aglomerat3.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A10_Aglomerat3.D9_Fe0 + (did.InputData2.InputZRHMs.A11_Aglomerat4.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A11_Aglomerat4.D9_Fe0 + (did.InputData2.InputZRHMs.A12_Aglomerat5.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A12_Aglomerat5.D9_Fe0 + (did.InputData2.InputZRHMs.A13_AglomeratNotCleared.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A13_AglomeratNotCleared.D9_Fe0 + (did.InputData2.InputZRHMs.A14_AglomeratYama.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A14_AglomeratYama.D9_Fe0 + (did.InputData2.InputZRHMs.A15_Okat_Sokolov.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A15_Okat_Sokolov.D9_Fe0 + (did.InputData2.InputZRHMs.A16_Okat_Lebed.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A16_Okat_Lebed.D9_Fe0 + (did.InputData2.InputZRHMs.A17_Okat_Kachkan.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A17_Okat_Kachkan.D9_Fe0 + (did.InputData2.InputZRHMs.A18_Okat_Mikhay.B9_CastIronConsuption / indicators.B27_SUMMZHRM_Simple) * did.InputData2.InputZRHMs.A18_Okat_Mikhay.D9_Fe0);
-            indicators.D28_MetalAdd_FeO = (did.InputData2.InputZRHMs.A19_Welding_slag.B9_CastIronConsuption / indicators.B28_MetalAdd_Simple * did.InputData2.InputZRHMs.A19_Welding_slag.C9_FE + (did.InputData2.InputZRHMs.A20_Korolek.B9_CastIronConsuption / indicators.B28_MetalAdd_Simple) * did.InputData2.InputZRHMs.A20_Korolek.C9_FE + (did.InputData2.InputZRHMs.A21_Domen_prisad.B9_CastIronConsuption / indicators.B28_MetalAdd_Simple) * did.InputData2.InputZRHMs.A21_Domen_prisad.C9_FE + (did.InputData2.InputZRHMs.A22_Ruda_Mn_Nizgul.B9_CastIronConsuption / indicators.B28_MetalAdd_Simple) * did.InputData2.InputZRHMs.A22_Ruda_Mn_Nizgul.C9_FE + (did.InputData2.InputZRHMs.A23_Ruda_Mn_Jairem.B9_CastIronConsuption / indicators.B28_MetalAdd_Simple) * did.InputData2.InputZRHMs.A23_Ruda_Mn_Jairem.C9_FE);
-            indicators.D29_SUMM_Ruda_FeO = (did.InputData2.InputZRHMs.A9_Aglomerat2.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple * did.InputData2.InputZRHMs.A9_Aglomerat2.C9_FE + (did.InputData2.InputZRHMs.A10_Aglomerat3.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A10_Aglomerat3.C9_FE + (did.InputData2.InputZRHMs.A11_Aglomerat4.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A11_Aglomerat4.C9_FE + (did.InputData2.InputZRHMs.A12_Aglomerat5.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A12_Aglomerat5.C9_FE + (did.InputData2.InputZRHMs.A13_AglomeratNotCleared.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A13_AglomeratNotCleared.C9_FE + (did.InputData2.InputZRHMs.A14_AglomeratYama.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A14_AglomeratYama.C9_FE + (did.InputData2.InputZRHMs.A15_Okat_Sokolov.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A15_Okat_Sokolov.C9_FE + (did.InputData2.InputZRHMs.A16_Okat_Lebed.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A16_Okat_Lebed.C9_FE + (did.InputData2.InputZRHMs.A17_Okat_Kachkan.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A17_Okat_Kachkan.C9_FE + (did.InputData2.InputZRHMs.A18_Okat_Mikhay.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A18_Okat_Mikhay.C9_FE + (did.InputData2.InputZRHMs.A19_Welding_slag.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple * did.InputData2.InputZRHMs.A19_Welding_slag.C9_FE + (did.InputData2.InputZRHMs.A20_Korolek.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A20_Korolek.C9_FE + (did.InputData2.InputZRHMs.A21_Domen_prisad.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A21_Domen_prisad.C9_FE + (did.InputData2.InputZRHMs.A22_Ruda_Mn_Nizgul.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A22_Ruda_Mn_Nizgul.C9_FE + (did.InputData2.InputZRHMs.A23_Ruda_Mn_Jairem.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A23_Ruda_Mn_Jairem.C9_FE ));
-       
+            indicators.D28_MetalAdd_FeO = (did.InputData2.InputZRHMs.A19_Welding_slag.B9_CastIronConsuption / indicators.B28_MetalAdd_Simple * did.InputData2.InputZRHMs.A19_Welding_slag.D9_Fe0 + (did.InputData2.InputZRHMs.A20_Korolek.B9_CastIronConsuption / indicators.B28_MetalAdd_Simple) * did.InputData2.InputZRHMs.A20_Korolek.D9_Fe0 + (did.InputData2.InputZRHMs.A21_Domen_prisad.B9_CastIronConsuption / indicators.B28_MetalAdd_Simple) * did.InputData2.InputZRHMs.A21_Domen_prisad.D9_Fe0 + (did.InputData2.InputZRHMs.A22_Ruda_Mn_Nizgul.B9_CastIronConsuption / indicators.B28_MetalAdd_Simple) * did.InputData2.InputZRHMs.A22_Ruda_Mn_Nizgul.D9_Fe0 + (did.InputData2.InputZRHMs.A23_Ruda_Mn_Jairem.B9_CastIronConsuption / indicators.B28_MetalAdd_Simple) * did.InputData2.InputZRHMs.A23_Ruda_Mn_Jairem.D9_Fe0);
+            indicators.D29_SUMM_Ruda_FeO = (did.InputData2.InputZRHMs.A9_Aglomerat2.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple * did.InputData2.InputZRHMs.A9_Aglomerat2.D9_Fe0 + (did.InputData2.InputZRHMs.A10_Aglomerat3.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A10_Aglomerat3.D9_Fe0 + (did.InputData2.InputZRHMs.A11_Aglomerat4.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A11_Aglomerat4.D9_Fe0 + (did.InputData2.InputZRHMs.A12_Aglomerat5.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A12_Aglomerat5.D9_Fe0 + (did.InputData2.InputZRHMs.A13_AglomeratNotCleared.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A13_AglomeratNotCleared.D9_Fe0 + (did.InputData2.InputZRHMs.A14_AglomeratYama.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A14_AglomeratYama.D9_Fe0 + (did.InputData2.InputZRHMs.A15_Okat_Sokolov.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A15_Okat_Sokolov.D9_Fe0 + (did.InputData2.InputZRHMs.A16_Okat_Lebed.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A16_Okat_Lebed.D9_Fe0 + (did.InputData2.InputZRHMs.A17_Okat_Kachkan.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A17_Okat_Kachkan.D9_Fe0 + (did.InputData2.InputZRHMs.A18_Okat_Mikhay.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A18_Okat_Mikhay.D9_Fe0 + (did.InputData2.InputZRHMs.A19_Welding_slag.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple * did.InputData2.InputZRHMs.A19_Welding_slag.D9_Fe0 + (did.InputData2.InputZRHMs.A20_Korolek.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A20_Korolek.D9_Fe0 + (did.InputData2.InputZRHMs.A21_Domen_prisad.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A21_Domen_prisad.D9_Fe0 + (did.InputData2.InputZRHMs.A22_Ruda_Mn_Nizgul.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A22_Ruda_Mn_Nizgul.D9_Fe0 + (did.InputData2.InputZRHMs.A23_Ruda_Mn_Jairem.B9_CastIronConsuption / indicators.B29_SUMM_Ruda_Simple) * did.InputData2.InputZRHMs.A23_Ruda_Mn_Jairem.D9_Fe0));
+
+            indicators.S9_basicity = did.InputData2.InputZRHMs.A9_Aglomerat2.B9_CastIronConsuption * did.InputData2.InputZRHMs.A9_Aglomerat2.C9_FE;
+            indicators.S10_basicity = did.InputData2.InputZRHMs.A10_Aglomerat3.B9_CastIronConsuption * did.InputData2.InputZRHMs.A10_Aglomerat3.C9_FE;
+            indicators.S11_basicity = did.InputData2.InputZRHMs.A11_Aglomerat4.B9_CastIronConsuption * did.InputData2.InputZRHMs.A11_Aglomerat4.C9_FE;
+            indicators.S12_basicity = did.InputData2.InputZRHMs.A12_Aglomerat5.B9_CastIronConsuption * did.InputData2.InputZRHMs.A12_Aglomerat5.C9_FE;
+            indicators.S13_basicity = did.InputData2.InputZRHMs.A13_AglomeratNotCleared.B9_CastIronConsuption * did.InputData2.InputZRHMs.A13_AglomeratNotCleared.C9_FE;
+            indicators.S14_basicity = did.InputData2.InputZRHMs.A14_AglomeratYama.B9_CastIronConsuption * did.InputData2.InputZRHMs.A14_AglomeratYama.C9_FE;
+            indicators.S15_basicity = did.InputData2.InputZRHMs.A15_Okat_Sokolov.B9_CastIronConsuption * did.InputData2.InputZRHMs.A12_Aglomerat5.C9_FE;
+            indicators.S16_basicity = did.InputData2.InputZRHMs.A16_Okat_Lebed.B9_CastIronConsuption * did.InputData2.InputZRHMs.A16_Okat_Lebed.C9_FE;
+            indicators.S17_basicity = did.InputData2.InputZRHMs.A17_Okat_Kachkan.B9_CastIronConsuption * did.InputData2.InputZRHMs.A17_Okat_Kachkan.C9_FE;
+            indicators.S18_basicity = did.InputData2.InputZRHMs.A18_Okat_Mikhay.B9_CastIronConsuption * did.InputData2.InputZRHMs.A18_Okat_Mikhay.C9_FE;
+            indicators.S19_basicity = did.InputData2.InputZRHMs.A19_Welding_slag.B9_CastIronConsuption * did.InputData2.InputZRHMs.A19_Welding_slag.C9_FE;
+            indicators.S20_basicity = did.InputData2.InputZRHMs.A20_Korolek.B9_CastIronConsuption * did.InputData2.InputZRHMs.A20_Korolek.C9_FE;
+            indicators.S21_basicity = did.InputData2.InputZRHMs.A21_Domen_prisad.B9_CastIronConsuption * did.InputData2.InputZRHMs.A21_Domen_prisad.C9_FE;
+            indicators.S22_basicity = did.InputData2.InputZRHMs.A22_Ruda_Mn_Nizgul.B9_CastIronConsuption * did.InputData2.InputZRHMs.A22_Ruda_Mn_Nizgul.C9_FE;
+            indicators.S23_basicity = did.InputData2.InputZRHMs.A23_Ruda_Mn_Jairem.B9_CastIronConsuption * did.InputData2.InputZRHMs.A23_Ruda_Mn_Jairem.C9_FE;
+            indicators.basicity_summ = (indicators.S9_basicity + indicators.S10_basicity + indicators.S11_basicity + indicators.S12_basicity + indicators.S13_basicity + indicators.S14_basicity + indicators.S15_basicity + indicators.S16_basicity + indicators.S17_basicity + indicators.S18_basicity + indicators.S19_basicity + indicators.S20_basicity + indicators.S21_basicity + indicators.S22_basicity + indicators.S23_basicity)/indicators.B29_SUMM_Ruda_Simple;
+
 
 
 
@@ -113,24 +131,24 @@ namespace balance_dp.Models
             rh.hb.HeatCountOfConversion_persent = PersentToString(indicators.C74_HeatCountOfConversion_persent);
             rh.hb.Sum = ResultToString(indicators.C66_HeatOfBurningCocks + indicators.C71_HeatCountBlowing + indicators.C73_HeatCountOfConversion);
             rh.hb.Sum_persent = PersentToString(indicators.C67_HeatOfBurningCocks_persent + indicators.C72_HeatCountBlowing_persent + indicators.C74_HeatCountOfConversion_persent);
-                     // --- РАСХОД ТЕПЛОВОГО ---- ////
+            // --- РАСХОД ТЕПЛОВОГО ---- ////
             indicators.С81_HeatLosesOnRegeneratiOnFe = 0.01f * indicators.list3_C8_FE_CapacityInCastIron * indicators.list3_C7_RD_GoglibFourmula * 2716;
             indicators.С83_HeatLosesOnRegeneratiOnCastIron = 0.01f * (5220 * did.InputIndicators.CastIron.list1_C10_Mn + 22600 * did.InputIndicators.CastIron.list1_C9_Si + 15490 * did.InputIndicators.CastIron.list1_C12_P + 36167 * did.InputIndicators.CastIron.list1_C13_Ti + 7982 * did.InputIndicators.CastIron.list1_C15_V);
             indicators.С85_HeatLosesOnDeSulfurOnCastIron = 1734 * 0.00001f * did.InputIndicators.slag.list1_C49_SlagOutput * did.InputIndicators.slag.list1_C50_SulfurCapacity;
             indicators.С87_HeatLosesOnRegeneratiFeOnH = 1731 * 0.001f * (0.00124f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm * indicators.list3_C20_Qd_BlastConsuptionCalculate + 0.01f * did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas * (2 * did.InputIndicators.blowing.list1_C39_CH4Consuption + 3 * did.InputIndicators.blowing.list1_C40_C2H6Comsuption)) * indicators.list3_C36_nH_PowerHUses;
             indicators.С89_HeatLosesOnLiquidCastIron = 1 * did.InputIndicators.CastIron.list1_C18_CastIronHeatCapacity * did.InputIndicators.CastIron.list1_C17_CastIronTemperature;
             indicators.С91_HeatLosesOnLiquidSlug = 0.001f * did.InputIndicators.slag.list1_C49_SlagOutput * did.InputIndicators.slag.list1_C51_HeatCapacity * (did.InputIndicators.CastIron.list1_C17_CastIronTemperature + 50);
-            indicators.С93_HeatLosesOnWaterBlowing = 1.24f * 0.000001f * indicators.list3_C20_Qd_BlastConsuptionCalculate * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm * 6912;         
+            indicators.С93_HeatLosesOnWaterBlowing = 1.24f * 0.000001f * indicators.list3_C20_Qd_BlastConsuptionCalculate * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm * 6912;
             indicators.С95_HeatLosesOnLime = 4042 * 0.000001f * did.InputData2.flus.Limestone.list2_B33flusConsuption * did.InputIndicators.blowing.list1_C47_limestoneWeightLoss;
-            indicators.С97_HeatLosesOnWaterShicht = 2452 * 0.00001f * (did.InputIndicators.zhrm.c69 * did.InputIndicators.zhrm.c72_waterCapacity + did.InputData2.flus.Limestone.list2_B33flusConsuption * did.InputIndicators.blowing.list1_C46_limestoneWaterCapacity + did.InputIndicators.BlastFur.list1_C21_CockCUMsuption * did.InputIndicators.CockParam.list1_C29_WaterCOCKs);
+            indicators.С97_HeatLosesOnWaterShicht = 2452 * 0.00001f * ( indicators.B27_SUMMZHRM_Simple * did.InputIndicators.zhrm.c72_waterCapacity + did.InputData2.flus.Limestone.list2_B33flusConsuption * did.InputIndicators.blowing.list1_C46_limestoneWaterCapacity + did.InputIndicators.BlastFur.list1_C21_CockCUMsuption * did.InputIndicators.CockParam.list1_C29_WaterCOCKs);
             indicators.С99_CO_HeatCapacityBlastFurnaceGas = 1.2938f + 0.0000895f * did.InputIndicators.FurnaceGas.list1_C61_GasTemperature;
             indicators.С100_CO2_HeatCapacityBlastFurnaceGas = 1.6448f + 0.0007065f * did.InputIndicators.FurnaceGas.list1_C61_GasTemperature;
-            indicators.С101_H2_HeatCapacityBlastFurnaceGas =  1.3012f;
-            indicators.С102_H20_HeatCapacityBlastFurnaceGas =1.4743f + 0.0002205f* did.InputIndicators.FurnaceGas.list1_C61_GasTemperature;
+            indicators.С101_H2_HeatCapacityBlastFurnaceGas = 1.3012f;
+            indicators.С102_H20_HeatCapacityBlastFurnaceGas = 1.4743f + 0.0002205f * did.InputIndicators.FurnaceGas.list1_C61_GasTemperature;
             indicators.С103_N2_HeatCapacityBlastFurnaceGas = 1.308f;
-            indicators.С104_HeatLosesFromBlastFurnaceGas = 0.00001f * ((did.InputIndicators.FurnaceGas.list1_C62_CO2_Capacity * indicators.С100_CO2_HeatCapacityBlastFurnaceGas + did.InputIndicators.FurnaceGas.list1_C63_CO_Capacity * indicators.С99_CO_HeatCapacityBlastFurnaceGas + did.InputIndicators.FurnaceGas.list1_C65_N2_Capacity * indicators.С103_N2_HeatCapacityBlastFurnaceGas + did.InputIndicators.FurnaceGas.list1_C64_H2_Capacity * indicators.С101_H2_HeatCapacityBlastFurnaceGas) * indicators.list3_C51_Vkg_BlastFurnaceGasOut + (did.InputIndicators.zhrm.c69*did.InputIndicators.zhrm.c72_waterCapacity+did.InputData2.flus.Limestone.list2_B33flusConsuption*did.InputIndicators.blowing.list1_C46_limestoneWaterCapacity+did.InputIndicators.BlastFur.list1_C21_CockCUMsuption*did.InputIndicators.CockParam.list1_C29_WaterCOCKs+ indicators.list3_C51_Vkg_BlastFurnaceGasOut*did.InputIndicators.FurnaceGas.list1_C64_H2_Capacity* indicators.list3_C36_nH_PowerHUses/(1-indicators.list3_C36_nH_PowerHUses))*indicators.С102_H20_HeatCapacityBlastFurnaceGas)*did.InputIndicators.FurnaceGas.list1_C61_GasTemperature;
+            indicators.С104_HeatLosesFromBlastFurnaceGas = 0.00001f * ((did.InputIndicators.FurnaceGas.list1_C62_CO2_Capacity * indicators.С100_CO2_HeatCapacityBlastFurnaceGas + did.InputIndicators.FurnaceGas.list1_C63_CO_Capacity * indicators.С99_CO_HeatCapacityBlastFurnaceGas + did.InputIndicators.FurnaceGas.list1_C65_N2_Capacity * indicators.С103_N2_HeatCapacityBlastFurnaceGas + did.InputIndicators.FurnaceGas.list1_C64_H2_Capacity * indicators.С101_H2_HeatCapacityBlastFurnaceGas) * indicators.list3_C51_Vkg_BlastFurnaceGasOut + ( indicators.B27_SUMMZHRM_Simple * did.InputIndicators.zhrm.c72_waterCapacity + did.InputData2.flus.Limestone.list2_B33flusConsuption * did.InputIndicators.blowing.list1_C46_limestoneWaterCapacity + did.InputIndicators.BlastFur.list1_C21_CockCUMsuption * did.InputIndicators.CockParam.list1_C29_WaterCOCKs + indicators.list3_C51_Vkg_BlastFurnaceGasOut * did.InputIndicators.FurnaceGas.list1_C64_H2_Capacity * indicators.list3_C36_nH_PowerHUses / (1 - indicators.list3_C36_nH_PowerHUses)) * indicators.С102_H20_HeatCapacityBlastFurnaceGas) * did.InputIndicators.FurnaceGas.list1_C61_GasTemperature;
             indicators.С106_IntensionOfMeltingOnCocks = (did.InputIndicators.BlastFur.list1_C20_Dailyproductivity * did.InputIndicators.BlastFur.list1_C21_CockCUMsuption * 0.001f) / did.InputIndicators.BlastFur.list1_C23_EffectVolume;
-            indicators.С107_HeatLosesOnFurnaceRamm = ((did.InputIndicators.BlastFur.list1_C24_HeatLoses_ofBlastFurnace / indicators.С106_IntensionOfMeltingOnCocks) * did.InputIndicators.CockParam.CocksComposit.list2_D42_Snell )/ 100;
+            indicators.С107_HeatLosesOnFurnaceRamm = ((did.InputIndicators.BlastFur.list1_C24_HeatLoses_ofBlastFurnace / indicators.С106_IntensionOfMeltingOnCocks) * did.InputIndicators.CockParam.CocksComposit.list2_D42_Snell) / 100;
             indicators.С82_HeatLosesOnRegeneratiOnFe_persent = indicators.С81_HeatLosesOnRegeneratiOnFe / indicators.C77_InputHeatSumm;
             indicators.С84_HeatLosesOnRegeneratiOnCastIron_persent = indicators.С83_HeatLosesOnRegeneratiOnCastIron / indicators.C77_InputHeatSumm;
             indicators.С86_HeatLosesOnDeSulfurOnCastIron_persent = indicators.С85_HeatLosesOnDeSulfurOnCastIron / indicators.C77_InputHeatSumm;
@@ -142,7 +160,7 @@ namespace balance_dp.Models
             indicators.С98_HeatLosesOnWaterWhicht_persent = indicators.С97_HeatLosesOnWaterShicht / indicators.C77_InputHeatSumm;
             indicators.С105_HeatLosesFromBlastFurnaceGas_persent = indicators.С104_HeatLosesFromBlastFurnaceGas / indicators.C77_InputHeatSumm;
             indicators.С108_HeatLosesOnFurnaceRamm_persent = indicators.С107_HeatLosesOnFurnaceRamm / indicators.C77_InputHeatSumm;
-            indicators.С109_OutputHeatSumm = indicators.С81_HeatLosesOnRegeneratiOnFe + indicators.С83_HeatLosesOnRegeneratiOnCastIron + indicators.С85_HeatLosesOnDeSulfurOnCastIron + indicators.С87_HeatLosesOnRegeneratiFeOnH + indicators.С89_HeatLosesOnLiquidCastIron + indicators.С91_HeatLosesOnLiquidSlug + indicators.С93_HeatLosesOnWaterBlowing + indicators.С95_HeatLosesOnLime + indicators.С97_HeatLosesOnWaterShicht  + indicators.С104_HeatLosesFromBlastFurnaceGas + indicators.С107_HeatLosesOnFurnaceRamm;
+            indicators.С109_OutputHeatSumm = indicators.С81_HeatLosesOnRegeneratiOnFe + indicators.С83_HeatLosesOnRegeneratiOnCastIron + indicators.С85_HeatLosesOnDeSulfurOnCastIron + indicators.С87_HeatLosesOnRegeneratiFeOnH + indicators.С89_HeatLosesOnLiquidCastIron + indicators.С91_HeatLosesOnLiquidSlug + indicators.С93_HeatLosesOnWaterBlowing + indicators.С95_HeatLosesOnLime + indicators.С97_HeatLosesOnWaterShicht + indicators.С104_HeatLosesFromBlastFurnaceGas + indicators.С107_HeatLosesOnFurnaceRamm;
             indicators.С110_OutputHeatSumm_persent = indicators.С82_HeatLosesOnRegeneratiOnFe_persent + indicators.С84_HeatLosesOnRegeneratiOnCastIron_persent + indicators.С86_HeatLosesOnDeSulfurOnCastIron_persent + indicators.С88_HeatLosesOnRegeneratiFeOnH_persent + indicators.С90_HeatLosesOnLiquidCastIron_persent + indicators.С92_HeatLosesOnLiquidSlug_persent + indicators.С94_HeatLosesOnWaterBlowing_persent + indicators.С96_HeatLosesOnLime_persent + indicators.С98_HeatLosesOnWaterWhicht_persent + indicators.С105_HeatLosesFromBlastFurnaceGas_persent + indicators.С108_HeatLosesOnFurnaceRamm_persent;
             indicators.С112_POGreshnostHeatBalance = indicators.C77_InputHeatSumm - indicators.С109_OutputHeatSumm;
             indicators.С112_POGreshnostHeatBalance__persent = indicators.С112_POGreshnostHeatBalance / indicators.C77_InputHeatSumm;
@@ -176,55 +194,55 @@ namespace balance_dp.Models
             rh.hb.C112 = ResultToString(indicators.С112_POGreshnostHeatBalance);
             rh.hb.C112_persent = PersentToString(indicators.С112_POGreshnostHeatBalance__persent);
 
-                         // --------------- МАТЕРИАЛЬНЫЙ БАЛАНС ПОШЕЛ ------------ //
+            // --------------- МАТЕРИАЛЬНЫЙ БАЛАНС ПОШЕЛ ------------ //
             rh.mb.list5_C11 = 94 * 1000 / did.InputData2.materialCons.A8_Fe;
             // ------- ЗДЕСЬ ПОСЛЕ ДОБАВЛЕНИЯ РЕЗЕРВНЫХ ФЛЮСОВ НАДО СНЯТЬ КОММЕНТАРИЙ ----////
-            rh.mb.list5_C12 = (rh.mb.list5_C11 * did.InputData2.materialCons.F8_CaO + 0.01f * did.InputIndicators.BlastFur.list1_C21_CockCUMsuption * did.InputIndicators.CockParam.CocksComposit.list2_A42_AhsCocks * did.InputIndicators.CockParam.CocksAsh.list2_B46_Cao + did.InputData2.flus.Limestone.list2_C33_CaO_Capacity * did.InputData2.flus.Limestone.list2_B33flusConsuption + did.InputData2.flus.Fluospat.list2_C33_CaO_Capacity * did.InputData2.flus.Fluospat.list2_B33flusConsuption + did.InputData2.flus.Quartzite.list2_C33_CaO_Capacity * did.InputData2.flus.Quartzite.list2_B33flusConsuption + did.InputData2.flus.Slug.list2_C33_CaO_Capacity * did.InputData2.flus.Slug.list2_B33flusConsuption )/* + did.InputData2.flus.Reserve.list2_C33_CaO_Capacity * did.InputData2.flus.Reserve.list2_B33flusConsuption) */ /did.InputIndicators.slag.list1_C53_CaO_Capacity ;
+            rh.mb.list5_C12 = (rh.mb.list5_C11 * did.InputData2.materialCons.F8_CaO + 0.01f * did.InputIndicators.BlastFur.list1_C21_CockCUMsuption * did.InputIndicators.CockParam.CocksComposit.list2_A42_AhsCocks * did.InputIndicators.CockParam.CocksAsh.list2_B46_Cao + did.InputData2.flus.Limestone.list2_C33_CaO_Capacity * did.InputData2.flus.Limestone.list2_B33flusConsuption + did.InputData2.flus.Fluospat.list2_C33_CaO_Capacity * did.InputData2.flus.Fluospat.list2_B33flusConsuption + did.InputData2.flus.Quartzite.list2_C33_CaO_Capacity * did.InputData2.flus.Quartzite.list2_B33flusConsuption + did.InputData2.flus.Slug.list2_C33_CaO_Capacity * did.InputData2.flus.Slug.list2_B33flusConsuption)/* + did.InputData2.flus.Reserve.list2_C33_CaO_Capacity * did.InputData2.flus.Reserve.list2_B33flusConsuption) */ / did.InputIndicators.slag.list1_C53_CaO_Capacity;
             rh.mb.list5_C13 = 0.00124f * indicators.list3_C20_Qd_BlastConsuptionCalculate * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm + 0.01f * did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas * (2 * did.InputIndicators.blowing.list1_C39_CH4Consuption + 3 * did.InputIndicators.blowing.list1_C40_C2H6Comsuption + 4 * did.InputIndicators.blowing.list1_C41_C3H8Comsuption);
             rh.mb.list5_C14 = 0.01f * indicators.list3_C51_Vkg_BlastFurnaceGasOut * indicators.list3_C57_BlastFurnaceGasСomposition_H2_persent;
             rh.mb.list5_C15 = rh.mb.list5_C13 - rh.mb.list5_C14;
-            rh.mb.list5_C16 =(18/22.4f)*rh.mb.list5_C15 ;
-            rh.mb.list5_C17 = 0.01f* did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas* (1/22.4f)*(16*did.InputIndicators.blowing.list1_C39_CH4Consuption + 30 * did.InputIndicators.blowing.list1_C40_C2H6Comsuption+ 44 * did.InputIndicators.blowing.list1_C41_C3H8Comsuption);
-           
+            rh.mb.list5_C16 = (18 / 22.4f) * rh.mb.list5_C15;
+            rh.mb.list5_C17 = 0.01f * did.InputIndicators.blowing.list1_C38_SpecificConsuptionNaturalGas * (1 / 22.4f) * (16 * did.InputIndicators.blowing.list1_C39_CH4Consuption + 30 * did.InputIndicators.blowing.list1_C40_C2H6Comsuption + 44 * did.InputIndicators.blowing.list1_C41_C3H8Comsuption);
+
             rh.mb.list5_C18 = indicators.list3_C20_Qd_BlastConsuptionCalculate * ((((1 - 0.01f * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing) * 28) / 22.4f + 0.01f * did.InputIndicators.blowing.list1_C37_PersentOxygenInBlowing * 32 / 22.4f) * (1 - 0.00124f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm) + 0.001f * did.InputIndicators.blowing.list1_C36_BlowingMoistureSumm);
-            
+
             rh.mb.list5_C19 = 0.01f * indicators.list3_C51_Vkg_BlastFurnaceGasOut * (1 / 22.4f) * (44 * indicators.list3_C53_BlastFurnaceGasСomposition_С02_persent + 28 * indicators.list3_C55_BlastFurnaceGasСomposition_С0_persent + 16 * indicators.list3_C59_BlastFurnaceGasСomposition_CH4_persent + 2 * indicators.list3_C57_BlastFurnaceGasСomposition_H2_persent + 28 * indicators.list3_C61_BlastFurnaceGasСomposition_N2_persent);
-           
+
             //---- Приходная часть материального ---- ////
-            rh.mb.list5_C23 = ResultToString( did.InputIndicators.zhrm.c69 + did.InputIndicators.zhrm.c70 );        
+            rh.mb.list5_C23 = ResultToString( indicators.B27_SUMMZHRM_Simple + indicators.B28_MetalAdd_Simple);
             // ------ ЗДЕСЬ ТОЖЕ РЕЗЕРВНЫЕ ФЛЮСЫ УБРАТЬ КОММИТ -- //
             rh.mb.list5_C25 = ResultToString(did.InputData2.flus.Limestone.list2_B33flusConsuption + did.InputData2.flus.Fluospat.list2_B33flusConsuption + did.InputData2.flus.Quartzite.list2_B33flusConsuption + did.InputData2.flus.Slug.list2_B33flusConsuption /*+ did.InputData2.flus.Reserve.list2_B33flusConsuption*/);
             rh.mb.list5_C27 = ResultToString(did.InputIndicators.BlastFur.list1_C21_CockCUMsuption);
             rh.mb.list5_C29 = ResultToString(rh.mb.list5_C17);
             rh.mb.list5_C31 = ResultToString(rh.mb.list5_C18);
-            rh.mb.list5_InputMeterial = (did.InputIndicators.zhrm.c69 + did.InputIndicators.zhrm.c70)  + did.InputData2.flus.Limestone.list2_B33flusConsuption + did.InputData2.flus.Fluospat.list2_B33flusConsuption + did.InputData2.flus.Quartzite.list2_B33flusConsuption + did.InputData2.flus.Slug.list2_B33flusConsuption /*+ did.InputData2.flus.Reserve.list2_B33flusConsuption*/  + did.InputIndicators.BlastFur.list1_C21_CockCUMsuption + rh.mb.list5_C17 + rh.mb.list5_C18;
-            rh.mb.list5_C23_percent = PersentToString((did.InputIndicators.zhrm.c69 + did.InputIndicators.zhrm.c70)  / rh.mb.list5_InputMeterial);
+            rh.mb.list5_InputMeterial = ( indicators.B27_SUMMZHRM_Simple + indicators.B28_MetalAdd_Simple) + did.InputData2.flus.Limestone.list2_B33flusConsuption + did.InputData2.flus.Fluospat.list2_B33flusConsuption + did.InputData2.flus.Quartzite.list2_B33flusConsuption + did.InputData2.flus.Slug.list2_B33flusConsuption /*+ did.InputData2.flus.Reserve.list2_B33flusConsuption*/  + did.InputIndicators.BlastFur.list1_C21_CockCUMsuption + rh.mb.list5_C17 + rh.mb.list5_C18;
+            rh.mb.list5_C23_percent = PersentToString(( indicators.B27_SUMMZHRM_Simple + indicators.B28_MetalAdd_Simple) / rh.mb.list5_InputMeterial);
             rh.mb.list5_C25_percent = PersentToString(did.InputData2.flus.Limestone.list2_B33flusConsuption + did.InputData2.flus.Fluospat.list2_B33flusConsuption + did.InputData2.flus.Quartzite.list2_B33flusConsuption + did.InputData2.flus.Slug.list2_B33flusConsuption /*+ did.InputData2.flus.Reserve.list2_B33flusConsuption*/ / rh.mb.list5_InputMeterial);
             rh.mb.list5_C27_percent = PersentToString(did.InputIndicators.BlastFur.list1_C21_CockCUMsuption / rh.mb.list5_InputMeterial);
             rh.mb.list5_C29_percent = PersentToString(rh.mb.list5_C17 / rh.mb.list5_InputMeterial);
-            rh.mb.list5_C31_percent= PersentToString(rh.mb.list5_C18 / rh.mb.list5_InputMeterial);
-            rh.mb.list5_InputMaterial_percent = ((did.InputIndicators.zhrm.c69 + did.InputIndicators.zhrm.c70)  / rh.mb.list5_InputMeterial) + ((did.InputData2.flus.Limestone.list2_B33flusConsuption + did.InputData2.flus.Fluospat.list2_B33flusConsuption + did.InputData2.flus.Quartzite.list2_B33flusConsuption + did.InputData2.flus.Slug.list2_B33flusConsuption /*+ did.InputData2.flus.Reserve.list2_B33flusConsuption*/ )/ rh.mb.list5_InputMeterial) + (did.InputIndicators.BlastFur.list1_C21_CockCUMsuption / rh.mb.list5_InputMeterial) + (rh.mb.list5_C17 / rh.mb.list5_InputMeterial)+(rh.mb.list5_C18 / rh.mb.list5_InputMeterial);
+            rh.mb.list5_C31_percent = PersentToString(rh.mb.list5_C18 / rh.mb.list5_InputMeterial);
+            rh.mb.list5_InputMaterial_percent = (( indicators.B27_SUMMZHRM_Simple + indicators.B28_MetalAdd_Simple) / rh.mb.list5_InputMeterial) + ((did.InputData2.flus.Limestone.list2_B33flusConsuption + did.InputData2.flus.Fluospat.list2_B33flusConsuption + did.InputData2.flus.Quartzite.list2_B33flusConsuption + did.InputData2.flus.Slug.list2_B33flusConsuption /*+ did.InputData2.flus.Reserve.list2_B33flusConsuption*/ ) / rh.mb.list5_InputMeterial) + (did.InputIndicators.BlastFur.list1_C21_CockCUMsuption / rh.mb.list5_InputMeterial) + (rh.mb.list5_C17 / rh.mb.list5_InputMeterial) + (rh.mb.list5_C18 / rh.mb.list5_InputMeterial);
             rh.mb.C33 = ResultToString(rh.mb.list5_InputMeterial);
             rh.mb.C33_percent = PersentToString(rh.mb.list5_InputMaterial_percent);
-                     // ------ Расходная часть материального баланса ----- ////
+            // ------ Расходная часть материального баланса ----- ////
             rh.mb.list5_C37 = 1000.ToString();
             rh.mb.list5_C39 = ResultToString(rh.mb.list5_C12);
             rh.mb.list5_C41 = ResultToString(rh.mb.list5_C19);
             rh.mb.list5_C43 = ResultToString(rh.mb.list5_C16);
             rh.mb.list5_C45 = ResultToString(did.InputIndicators.FurnaceGas.list1_C66_DustExit);
             rh.mb.list5_Output = 1000 + rh.mb.list5_C12 + rh.mb.list5_C19 + rh.mb.list5_C16 + did.InputIndicators.FurnaceGas.list1_C66_DustExit;
-            
-            rh.mb.list5_C37_percent = PersentToString(1000 / rh.mb.list5_Output) ;
+
+            rh.mb.list5_C37_percent = PersentToString(1000 / rh.mb.list5_Output);
             rh.mb.list5_C39_percent = PersentToString(rh.mb.list5_C12 / rh.mb.list5_Output);
             rh.mb.list5_C41_percent = PersentToString(rh.mb.list5_C19 / rh.mb.list5_Output);
             rh.mb.list5_C43_percent = PersentToString(rh.mb.list5_C16 / rh.mb.list5_Output);
             rh.mb.list5_C45_percent = PersentToString(did.InputIndicators.FurnaceGas.list1_C66_DustExit / rh.mb.list5_Output);
-            rh.mb.list5_Output_percent = (1000 / rh.mb.list5_Output)+ (rh.mb.list5_C12 / rh.mb.list5_Output)+ (rh.mb.list5_C19 / rh.mb.list5_Output)+ (rh.mb.list5_C16 / rh.mb.list5_Output)+ (did.InputIndicators.FurnaceGas.list1_C66_DustExit / rh.mb.list5_Output);
-            rh.mb.C47 =ResultToString( rh.mb.list5_Output);
-            rh.mb.C47_persent =  PersentToString( rh.mb.list5_Output_percent);
+            rh.mb.list5_Output_percent = (1000 / rh.mb.list5_Output) + (rh.mb.list5_C12 / rh.mb.list5_Output) + (rh.mb.list5_C19 / rh.mb.list5_Output) + (rh.mb.list5_C16 / rh.mb.list5_Output) + (did.InputIndicators.FurnaceGas.list1_C66_DustExit / rh.mb.list5_Output);
+            rh.mb.C47 = ResultToString(rh.mb.list5_Output);
+            rh.mb.C47_persent = PersentToString(rh.mb.list5_Output_percent);
             rh.mb.list5_C50 = ResultToString(rh.mb.list5_InputMeterial - rh.mb.list5_Output);
             rh.mb.list5_C50_percent = PersentToString((rh.mb.list5_InputMeterial - rh.mb.list5_Output) / rh.mb.list5_InputMeterial);
-   
+
 
             return rh;
         }
@@ -241,7 +259,7 @@ namespace balance_dp.Models
         }
     }
 
-    
+
 
     public class Indicators
     {
@@ -280,10 +298,10 @@ namespace balance_dp.Models
         public float list3_C33_N2_FurmaGasN2ElementCapacity; // м3/м3
         // ---- Содержание отдельных составляющих в горновом газе ---- //
 
-        public float list3_C34_Vpv_CO2ForOxids; 
-        public float list3_C35_nCO_PowerCoUses; 
-        public float list3_C36_nH_PowerHUses; 
-        public float list3_C37_Vt1000CO_VolumeCOon1000; 
+        public float list3_C34_Vpv_CO2ForOxids;
+        public float list3_C35_nCO_PowerCoUses;
+        public float list3_C36_nH_PowerHUses;
+        public float list3_C37_Vt1000CO_VolumeCOon1000;
         public float list3_C38_Vt1000H2_VolumeH2on1000;
         public float list3_C39_Vt1000N2_VolumeN2on1000;
         public float list3_C40_Vgas_VolumeGason1000;
@@ -375,13 +393,30 @@ namespace balance_dp.Models
         public float C29_SUMM_Ruda_Fe;
         public float D29_SUMM_Ruda_FeO;
 
+        public float S9_basicity;
+        public float S10_basicity;
+        public float S11_basicity;
+        public float S12_basicity;
+        public float S13_basicity;
+        public float S14_basicity;
+        public float S15_basicity;
+        public float S16_basicity;
+        public float S17_basicity;
+        public float S18_basicity;
+        public float S19_basicity;
+        public float S20_basicity;
+        public float S21_basicity;
+        public float S22_basicity;
+        public float S23_basicity;
+        public float basicity_summ;
+
 
 
     }
 
     public class HeatBalance
     {
-        
+
         //  --- ПРИХОД ТЕПЛА СТАТЬИ (: клиент :)--- //
         public string HeatOfBurningCocks { get; set; }
         public string HeatOfBurningCocks_persent { get; set; }
@@ -420,7 +455,7 @@ namespace balance_dp.Models
         public string C114 { get; set; }
         public string C114_persent { get; set; }
     }
-    
+
     public class ResultHeat
     {
         public MaterialBalance mb { get; set; }

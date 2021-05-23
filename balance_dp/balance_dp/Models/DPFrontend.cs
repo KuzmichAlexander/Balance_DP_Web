@@ -205,6 +205,32 @@ namespace balance_dp.Models
             public InputZRModels A22_Ruda_Mn_Nizgul { get; set; }
             public InputZRModels A23_Ruda_Mn_Jairem { get; set; }
         }
+        public class InputZRModels
+        {
+           
+            public float B9_CastIronConsuption { get; set; }
+            public float C9_FE { get; set; }
+            public float D9_Fe0 { get; set; }
+            public float E9_Fe2O3 { get; set; }
+            public float F9_SiO2 { get; set; }
+            public float G9_Al203 { get; set; }
+            public float H9_CaO { get; set; }
+            public float I9_Mgo { get; set; }
+            public float J9_P { get; set; }
+            public float K9_S { get; set; }
+            public float L9_MnO { get; set; }
+            public float M9_Zn { get; set; }
+            public float N9_Pmpp { get; set; }
+            public float O9_H20 { get; set; }
+            public float P9_TiO2 { get; set; }
+            public float Q9_Cr { get; set; }
+            public float R9_basicity
+
+            {
+                get { return F9_SiO2 != 0 ? H9_CaO / F9_SiO2 : 0; }
+            }
+
+        }
         public class MaterialConsuption
         {
             public float A8_Fe { get; set; }

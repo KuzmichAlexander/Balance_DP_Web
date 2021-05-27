@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 
 namespace balance_dp.Models
 {
-    
-
     public class FrontUser
     {
         public FrontUser(RegistrationData? user)
@@ -25,8 +23,4 @@ namespace balance_dp.Models
         public string Name { get; set; }
         public string Token { get; set; }
     }
-
-
-
-
 }

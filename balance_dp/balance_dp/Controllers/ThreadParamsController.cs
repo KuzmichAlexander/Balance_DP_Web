@@ -1,17 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Helpers;
 using balance_dp.Models;
-using Microsoft.AspNetCore.Http.Features;
-using System.Text.Json;
 using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore;
+using BookShop.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,13 +14,14 @@ namespace balance_dp.Controllers
     public class ThreadParamsController : ControllerBase
     {
         private DPContext DpDataBase = new DPContext();
+
         [HttpGet] // Контроллер для отправки входных параметров :)
         public string[] Get()
         {
             string[] result = null;
 
             string token = Request.Headers["Authorization"];
-            int id = ParseToken(token);
+            int id = new SecurityMethods().ParseToken(token);
             if (id < 0)
             {
                 result = DpDataBase.Inputs.Where(p => p.Id == 1).Select(x => x.NAME).ToArray();
@@ -75,8 +68,6 @@ namespace balance_dp.Controllers
                  .Include(p => p.InputData2)
                 .ThenInclude(p => p.flus)
                 .ThenInclude(p => p.Fluospat)
-
-
 
                 .Include(p => p.InputData2)
                 .ThenInclude(p => p.flus)
@@ -143,9 +134,6 @@ namespace balance_dp.Controllers
                  .Include(p => p.InputData2.InputZRHMs)
                  .ThenInclude(p => p.A23_Ruda_Mn_Jairem)
                  
-
-
-
                 .Where(p => p.NAME == id)
                 .ToList();
 
@@ -159,7 +147,7 @@ namespace balance_dp.Controllers
         public bool Post([FromBody] SaveParams sp)
         {
             string token = Request.Headers["Authorization"];
-            int userid = ParseToken(token);
+            int userid = new SecurityMethods().ParseToken(token);
             
             if (DpDataBase.Inputs.Where(p => p.UserId == userid).Select(x => x.NAME).ToList().Contains(sp.name))
             {
@@ -183,7 +171,7 @@ namespace balance_dp.Controllers
         public bool Patch(SaveParams sp)
         {
             string token = Request.Headers["Authorization"];
-            int userid = ParseToken(token);
+            int userid = new SecurityMethods().ParseToken(token);
             
             DPInputData  a = DpDataBase.Inputs.First(p => p.NAME == sp.name && p.UserId == userid);
                 a.NAME = sp.name;
@@ -193,26 +181,7 @@ namespace balance_dp.Controllers
             DpDataBase.SaveChanges();
             return true;
         }
-        [HttpDelete]
-        public bool Delete(string name) 
-        {
-            DPInputData a = DpDataBase.Inputs.First(p => p.NAME == name);
-            DpDataBase.Inputs.Remove(a);
-            return true;
-        }
 
-        [NonAction]
-        public int ParseToken(string token)
-        {
-            var trueUser = DpDataBase.Users.FirstOrDefault(user => user.Token == token);
-
-            if (trueUser == null)
-            {
-                return -1;
-            }
-
-            return trueUser.Id;
-        }
 
     }
 }

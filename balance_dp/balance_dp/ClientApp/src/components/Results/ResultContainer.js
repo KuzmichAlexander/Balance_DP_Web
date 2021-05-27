@@ -1,6 +1,7 @@
 import React from "react";
 import {HeatBalance} from "./HeatBalance";
 import {MaterialBalance} from "./MaterialBalance";
+import {Sostav} from "./Sostav";
 
 export const ResultContainer = ({results}) => {
 
@@ -12,6 +13,7 @@ export const ResultContainer = ({results}) => {
                 <HeatBalance result={results.hb} />
                 <MaterialBalance result={results.mb} />
             </div>
+            <Sostav result={results.mb} />
         </>
     )
 };

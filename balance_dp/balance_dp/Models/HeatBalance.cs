@@ -282,6 +282,7 @@ namespace balance_dp.Models
             rh.mb.I8_S = ResultToString(did.InputData2.materialCons.I8_S);
             rh.mb.J8_MnO = ResultToString(did.InputData2.materialCons.J8_MnO);
             rh.mb.K8_Zn = ResultToString(did.InputData2.materialCons.K8_Zn);
+            rh.mb.L8_Pmpp = ResultToString(did.InputData2.materialCons.L8_Pmpp);
             rh.mb.M8_H20 = ResultToString(did.InputData2.materialCons.M8_H20);
             rh.mb.N8_TiO2 = ResultToString(did.InputData2.materialCons.N8_TiO2);
             rh.mb.O8_Cr = ResultToString(did.InputData2.materialCons.O8_Cr);

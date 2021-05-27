@@ -29,6 +29,8 @@ export const CustomModal = ({onToggle, saveParams, type, nameParams, fetch, isSa
         setName(e.target.value);
     }
 
+    console.log(type)
+
     let content;
 
     switch (type) {
@@ -50,6 +52,20 @@ export const CustomModal = ({onToggle, saveParams, type, nameParams, fetch, isSa
                             <input value={'Перезаписать'} className={'modal-custom__button'} type="button"
                                    onClick={() => reWriteParams(name)}/>
                         </> : null}
+                    </>
+                </div>
+            </div> )
+        case "delete":
+            return ( <div className='modal-wrapper' onClick={onToggle}>
+                <div className="modal-custom" onClick={event => event.stopPropagation()}>
+                    <><h2>Удаление входных параметров</h2>
+                        <select onChange={selectChange} value={name} className={'modal__select'}>{nameParams.map(elem => {
+                            return <option key={elem + Math.random() * 42} value={elem}>{elem}</option>
+                        })}</select>
+
+                        <input value={'Удалить'} className={'modal-custom__button'} type="button"
+                               onClick={() => saveParams(name)}/>
+                        {isSave ? <p style={{color: 'green'}}>Успешно сохранено!</p> : null}
                     </>
                 </div>
             </div> )

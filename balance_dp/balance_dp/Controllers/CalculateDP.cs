@@ -16,7 +16,7 @@ namespace balance_dp.Controllers
     {
         // POST api/<CalculateDP>
         [HttpPost]
-        public ResultHeat Post(DPInputData dt)
+        public ResultHeat Post([FromBody] DPInputData dt)
         {
             var result = new ResultHeat();
             

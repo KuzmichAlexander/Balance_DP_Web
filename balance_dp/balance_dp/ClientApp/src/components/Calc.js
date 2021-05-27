@@ -50,22 +50,22 @@ export class Calc extends React.Component {
 
     onInputChange = (e) => {
         let value = e.target.value;
+        console.log(value)
         console.log(this.state.data)
         if (value[0] === '0' && value[1] && value[1] !== '.') value = value.substring(1, value.length)
-        if (!isNaN(value)) {
+        if (!isNaN(value) || value[value.length - 1] === '.' && value.indexOf('.') === value.length - 1) {
             const [firstDeep, secondDeep, thirdDeep, forthDeep] = e.target.id.split('-');
             if (forthDeep) {
                 this.setState(() => {
-                    this.state.data[firstDeep][secondDeep][thirdDeep][forthDeep] = +value;
+                    this.state.data[firstDeep][secondDeep][thirdDeep][forthDeep] = value;
                 })
-                this.forceUpdate();
             } else {
                 this.setState(() => {
-                    this.state.data[firstDeep][secondDeep][thirdDeep] = +value;
+                    this.state.data[firstDeep][secondDeep][thirdDeep] = value;
                 })
-                this.forceUpdate();
             }
         }
+        this.forceUpdate();
     };
 
     onSelectChange = (e) => {
@@ -182,7 +182,7 @@ export class Calc extends React.Component {
                 </div>
                 <div className={'flus__container'}>
                     {this.state.data ?
-                        <InputSostavov name={'InputData2-inputZRMs'}
+                        <InputSostavov name={'InputData2-InputZRHMs'}
                               params={this.state.data.InputData2.InputZRHMs}
                               onChangeInput={this.onInputChange}/>
                         : null}

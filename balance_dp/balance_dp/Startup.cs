@@ -17,34 +17,18 @@ namespace balance_dp
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-
-            services.AddControllersWithViews()
-                //.AddJsonOptions(opts =>
-                //{
-                //    // opts.JsonSerializerOptions.PropertyNamingPolicy = ;
-                //})
-                .AddNewtonsoftJson(opts =>
-                {
-                    opts.SerializerSettings.ContractResolver = new DefaultContractResolver();
-                });
-// Don't change Property name in Json
-
-            // Don't change Property name in Json
-
-
-
-            // In production, the React files will be served from this directory
+            services.AddControllersWithViews().AddNewtonsoftJson(opts =>
+            {
+                opts.SerializerSettings.ContractResolver = new DefaultContractResolver();
+            });
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/build";
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -54,7 +38,6 @@ namespace balance_dp
             else
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 

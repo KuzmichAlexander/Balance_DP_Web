@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace balance_dp.Models
+﻿namespace balance_dp.Models
 {
     public class FrontUser
     {

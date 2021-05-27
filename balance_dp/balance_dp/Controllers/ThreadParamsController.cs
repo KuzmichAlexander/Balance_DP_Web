@@ -25,14 +25,32 @@ namespace balance_dp.Controllers
         [HttpGet] // Контроллер для отправки входных параметров :)
         public string[] Get()
         {
+            string[] result = null;
+
             string token = Request.Headers["Authorization"];
             int id = ParseToken(token);
             if (id < 0)
             {
+                result = DpDataBase.Inputs.Where(p => p.Id == 1).Select(x => x.NAME).ToArray();
+            }
+            else
+            {
+                result = DpDataBase.Inputs.Where(p => p.UserId == id || p.Id == 1).Select(x => x.NAME).ToArray();
+            }
+
+            if (result.Length == 0)
+            {
+                string sw = new System.IO.StreamReader("log.txt", true).ReadToEnd();
+                var dt = JsonConvert.DeserializeObject<DPInputData>(sw.ToString());
+                dt.NAME = "Ознакомительный вариант расчета";
+                dt.UserId = 0;
+                DpDataBase.Inputs.Add(dt);
+                DpDataBase.SaveChanges();
+
                 return DpDataBase.Inputs.Where(p => p.Id == 1).Select(x => x.NAME).ToArray();
             }
 
-            return DpDataBase.Inputs.Where(p => p.UserId == id || p.Id == 1).Select(x=> x.NAME).ToArray();
+            return result;
         }
 
         [HttpGet("{id}", Name = "Get")]
@@ -138,7 +156,7 @@ namespace balance_dp.Controllers
         }
 
         [HttpPost] // Контроллер для принятия и сейва входных параметров :)
-        public bool Post(SaveParams sp)
+        public bool Post([FromBody] SaveParams sp)
         {
             string token = Request.Headers["Authorization"];
             int userid = ParseToken(token);

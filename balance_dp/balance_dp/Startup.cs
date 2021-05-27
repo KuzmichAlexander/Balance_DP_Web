@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json.Serialization;
 
 namespace balance_dp
 {
@@ -21,7 +21,21 @@ namespace balance_dp
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllersWithViews();
+
+            services.AddControllersWithViews()
+                //.AddJsonOptions(opts =>
+                //{
+                //    // opts.JsonSerializerOptions.PropertyNamingPolicy = ;
+                //})
+                .AddNewtonsoftJson(opts =>
+                {
+                    opts.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                });
+// Don't change Property name in Json
+
+            // Don't change Property name in Json
+
+
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

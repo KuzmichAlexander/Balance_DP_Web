@@ -9,7 +9,7 @@ using balance_dp.Models;
 namespace balance_dp.Migrations
 {
     [DbContext(typeof(DPContext))]
-    [Migration("20210520053303_Imigration")]
+    [Migration("20210527103343_Imigration")]
     partial class Imigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -464,12 +464,6 @@ namespace balance_dp.Migrations
                     b.Property<int?>("A23_Ruda_Mn_JairemID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("A24_Aglomeran_screeningID")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("A25_ReserveID")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int?>("A9_Aglomerat2ID")
                         .HasColumnType("INTEGER");
 
@@ -502,10 +496,6 @@ namespace balance_dp.Migrations
                     b.HasIndex("A22_Ruda_Mn_NizgulID");
 
                     b.HasIndex("A23_Ruda_Mn_JairemID");
-
-                    b.HasIndex("A24_Aglomeran_screeningID");
-
-                    b.HasIndex("A25_ReserveID");
 
                     b.HasIndex("A9_Aglomerat2ID");
 
@@ -919,14 +909,6 @@ namespace balance_dp.Migrations
                         .WithMany()
                         .HasForeignKey("A23_Ruda_Mn_JairemID");
 
-                    b.HasOne("balance_dp.Models.InputZRModels", "A24_Aglomeran_screening")
-                        .WithMany()
-                        .HasForeignKey("A24_Aglomeran_screeningID");
-
-                    b.HasOne("balance_dp.Models.InputZRModels", "A25_Reserve")
-                        .WithMany()
-                        .HasForeignKey("A25_ReserveID");
-
                     b.HasOne("balance_dp.Models.InputZRModels", "A9_Aglomerat2")
                         .WithMany()
                         .HasForeignKey("A9_Aglomerat2ID");
@@ -958,10 +940,6 @@ namespace balance_dp.Migrations
                     b.Navigation("A22_Ruda_Mn_Nizgul");
 
                     b.Navigation("A23_Ruda_Mn_Jairem");
-
-                    b.Navigation("A24_Aglomeran_screening");
-
-                    b.Navigation("A25_Reserve");
 
                     b.Navigation("A9_Aglomerat2");
                 });

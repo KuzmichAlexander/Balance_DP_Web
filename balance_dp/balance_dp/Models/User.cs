@@ -16,6 +16,7 @@ namespace balance_dp.Models
                 this.Token = user.Token;
                 this.Name = user.Name;
                 this.Id = user.Id;
+                this.isAuth = true;
             }
             
         }

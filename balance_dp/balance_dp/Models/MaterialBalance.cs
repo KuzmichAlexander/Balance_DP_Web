@@ -51,21 +51,21 @@
 
         public string list5_C50 { get; set; }
         public string list5_C50_percent { get; set; }
-        public float A8_Fe { get; set; }
-        public float B8_FeO { get; set; }
-        public float C8_Fe2O3 { get; set; }
-        public float D8_SiO2 { get; set; }
-        public float E8_AlO3 { get; set; }
-        public float F8_CaO { get; set; }
-        public float G8_MgO { get; set; }
-        public float H8_P { get; set; }
-        public float I8_S { get; set; }
-        public float J8_MnO { get; set; }
-        public float K8_Zn { get; set; }
-        public float L8_Pmpp { get; set; }
-        public float M8_H20 { get; set; }
-        public float N8_TiO2 { get; set; }
-        public float O8_Cr { get; set; }
+        public string A8_Fe { get; set; }
+        public string B8_FeO { get; set; }
+        public string C8_Fe2O3 { get; set; }
+        public string D8_SiO2 { get; set; }
+        public string E8_AlO3 { get; set; }
+        public string F8_CaO { get; set; }
+        public string G8_MgO { get; set; }
+        public string H8_P { get; set; }
+        public string I8_S { get; set; }
+        public string J8_MnO { get; set; }
+        public string K8_Zn { get; set; }
+        public string L8_Pmpp { get; set; }
+        public string M8_H20 { get; set; }
+        public string N8_TiO2 { get; set; }
+        public string O8_Cr { get; set; }
 
     }
     

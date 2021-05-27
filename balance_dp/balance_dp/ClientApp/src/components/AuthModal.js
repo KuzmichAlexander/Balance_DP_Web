@@ -15,8 +15,8 @@ export const AuthModal = ({toggle, setName}) => {
             return;
         }
 
-        localStorage.setItem('token', data.token);
-        setName(data.name);
+        localStorage.setItem('token', data.Token);
+        setName(data.Name);
         toggle();
 
     }

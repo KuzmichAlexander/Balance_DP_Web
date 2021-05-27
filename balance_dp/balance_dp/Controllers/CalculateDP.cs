@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using balance_dp.Models;
+using Newtonsoft.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -18,9 +19,16 @@ namespace balance_dp.Controllers
         [HttpPost]
         public ResultHeat Post([FromBody] DPInputData dt)
         {
+            string zap = JsonConvert.SerializeObject(dt);
+            Console.WriteLine(zap);
             var result = new ResultHeat();
-            
-            result = Calculate.Calculator(dt);
+
+            using (System.IO.StreamWriter sw = new System.IO.StreamWriter("log.txt", true))
+            {
+                sw.WriteLine(zap);
+            }
+
+                result = Calculate.Calculator(dt);
             
             return result;
         }

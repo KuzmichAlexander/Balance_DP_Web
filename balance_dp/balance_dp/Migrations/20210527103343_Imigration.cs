@@ -344,9 +344,7 @@ namespace balance_dp.Migrations
                     A20_KorolekID = table.Column<int>(type: "INTEGER", nullable: true),
                     A21_Domen_prisadID = table.Column<int>(type: "INTEGER", nullable: true),
                     A22_Ruda_Mn_NizgulID = table.Column<int>(type: "INTEGER", nullable: true),
-                    A23_Ruda_Mn_JairemID = table.Column<int>(type: "INTEGER", nullable: true),
-                    A24_Aglomeran_screeningID = table.Column<int>(type: "INTEGER", nullable: true),
-                    A25_ReserveID = table.Column<int>(type: "INTEGER", nullable: true)
+                    A23_Ruda_Mn_JairemID = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -432,18 +430,6 @@ namespace balance_dp.Migrations
                     table.ForeignKey(
                         name: "FK_InputZRM_InputZRModels_A23_Ruda_Mn_JairemID",
                         column: x => x.A23_Ruda_Mn_JairemID,
-                        principalTable: "InputZRModels",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_InputZRM_InputZRModels_A24_Aglomeran_screeningID",
-                        column: x => x.A24_Aglomeran_screeningID,
-                        principalTable: "InputZRModels",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_InputZRM_InputZRModels_A25_ReserveID",
-                        column: x => x.A25_ReserveID,
                         principalTable: "InputZRModels",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
@@ -742,16 +728,6 @@ namespace balance_dp.Migrations
                 name: "IX_InputZRM_A23_Ruda_Mn_JairemID",
                 table: "InputZRM",
                 column: "A23_Ruda_Mn_JairemID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_InputZRM_A24_Aglomeran_screeningID",
-                table: "InputZRM",
-                column: "A24_Aglomeran_screeningID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_InputZRM_A25_ReserveID",
-                table: "InputZRM",
-                column: "A25_ReserveID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_InputZRM_A9_Aglomerat2ID",

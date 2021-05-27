@@ -18,15 +18,13 @@ export default class App extends Component {
         const token = localStorage.getItem('token');
         if (token) {
             const data = await tokenAuth(token);
-            this.setState({name: data.name})
+            this.setState({name: data.Name})
         }
     }
 
     setName = (newName) => {
         this.setState({name: newName})
     }
-
-
 
     render() {
         return (
@@ -42,9 +40,7 @@ export default class App extends Component {
                         </section>
                     </div>
                     <Footer/>
-
                 </div>
-
             </>
         );
     };

@@ -51,6 +51,21 @@
 
         public string list5_C50 { get; set; }
         public string list5_C50_percent { get; set; }
+        public string A8_Fe { get; set; }
+        public string B8_FeO { get; set; }
+        public string C8_Fe2O3 { get; set; }
+        public string D8_SiO2 { get; set; }
+        public string E8_AlO3 { get; set; }
+        public string F8_CaO { get; set; }
+        public string G8_MgO { get; set; }
+        public string H8_P { get; set; }
+        public string I8_S { get; set; }
+        public string J8_MnO { get; set; }
+        public string K8_Zn { get; set; }
+        public string L8_Pmpp { get; set; }
+        public string M8_H20 { get; set; }
+        public string N8_TiO2 { get; set; }
+        public string O8_Cr { get; set; }
 
     }
     

@@ -11,32 +11,32 @@ export const HeatBalance = ({result}) => {
     const [chartTitle, setChartTitle] = useState('');
 
     const rows_prihod = [
-        createData(prihodDescription[0], result.heatOfBurningCocks, result.heatOfBurningCocks_persent),
-        createData(prihodDescription[1], result.heatCountBlowin, result.heatCountBlowing_persent),
-        createData(prihodDescription[2], result.heatCountOfConversion, result.heatCountOfConversion_persent),
-        createData('Итого приход тепла', result.sum, result.sum_persent),
+        createData(prihodDescription[0], result.HeatOfBurningCocks, result.HeatOfBurningCocks_persent),
+        createData(prihodDescription[1], result.HeatCountBlowin, result.HeatCountBlowing_persent),
+        createData(prihodDescription[2], result.HeatCountOfConversion, result.HeatCountOfConversion_persent),
+        createData('Итого приход тепла', result.Sum, result.Sum_persent),
     ];
 
     const rows_loastHeat = [
-        createData(nevyazka[0], result.c107, result.c107_persent),
-        createData(nevyazka[1], result.c114, result.c114_persent),
+        createData(nevyazka[0], result.C107, result.C107_persent),
+        createData(nevyazka[1], result.C114, result.C114_persent),
     ];
 
     const rows_nevyzka = [
-        createData(nevyazka[2], result.c112, result.c112_persent),
+        createData(nevyazka[2], result.C112, result.C112_persent),
     ]
 
     const rows_rashod = [
-        createData(rashodDescription[0], result.c81, result.c81_persent),
-        createData(rashodDescription[1], result.c83, result.c83_persent),
-        createData(rashodDescription[2], result.c85, result.c85_persent),
-        createData(rashodDescription[3], result.c87, result.c87_persent),
-        createData(rashodDescription[4], result.c89, result.c89_persent),
-        createData(rashodDescription[5], result.c91, result.c91_persent),
-        createData(rashodDescription[6], result.c93, result.c93_persent),
-        createData(rashodDescription[7], result.c95, result.c95_persent),
-        createData(rashodDescription[8], result.c97, result.c97_persent),
-        createData(rashodDescription[9], result.c104, result.c104_persent),
+        createData(rashodDescription[0], result.C81, result.C81_persent),
+        createData(rashodDescription[1], result.C83, result.C83_persent),
+        createData(rashodDescription[2], result.C85, result.C85_persent),
+        createData(rashodDescription[3], result.C87, result.C87_persent),
+        createData(rashodDescription[4], result.C89, result.C89_persent),
+        createData(rashodDescription[5], result.C91, result.C91_persent),
+        createData(rashodDescription[6], result.C93, result.C93_persent),
+        createData(rashodDescription[7], result.C95, result.C95_persent),
+        createData(rashodDescription[8], result.C97, result.C97_persent),
+        createData(rashodDescription[9], result.C104, result.C104_persent),
     ];
 
     const toggleModal = (e) => {
@@ -48,7 +48,7 @@ export const HeatBalance = ({result}) => {
                 setChartTitle('Диаграмма прихода');
                 break;
             case rashod:
-                setChartData([result.c81, result.c83, result.c85, result.c87, result.c89, result.c91, result.c93, result.c95, result.c97, result.c104]);
+                setChartData([result.C81, result.C83, result.C85, result.C87, result.C89, result.C91, result.C93, result.C95, result.C97, result.C104]);
                 setChartLabels(rashodDescription);
                 setChartTitle('Диаграмма расхода');
                 break;

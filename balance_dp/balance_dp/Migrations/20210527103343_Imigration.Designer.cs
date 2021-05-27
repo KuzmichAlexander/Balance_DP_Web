@@ -9,8 +9,8 @@ using balance_dp.Models;
 namespace balance_dp.Migrations
 {
     [DbContext(typeof(DPContext))]
-    [Migration("20210416163206_auth")]
-    partial class auth
+    [Migration("20210527103343_Imigration")]
+    partial class Imigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -399,6 +399,9 @@ namespace balance_dp.Migrations
                     b.Property<int>("FlusId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("InputZRHMsID")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("MaterialConsuptionId")
                         .HasColumnType("INTEGER");
 
@@ -406,9 +409,156 @@ namespace balance_dp.Migrations
 
                     b.HasIndex("FlusId");
 
+                    b.HasIndex("InputZRHMsID");
+
                     b.HasIndex("MaterialConsuptionId");
 
                     b.ToTable("InputMaterials");
+                });
+
+            modelBuilder.Entity("balance_dp.Models.InputZRM", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("A10_Aglomerat3ID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("A11_Aglomerat4ID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("A12_Aglomerat5ID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("A13_AglomeratNotClearedID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("A14_AglomeratYamaID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("A15_Okat_SokolovID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("A16_Okat_LebedID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("A17_Okat_KachkanID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("A18_Okat_MikhayID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("A19_Welding_slagID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("A20_KorolekID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("A21_Domen_prisadID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("A22_Ruda_Mn_NizgulID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("A23_Ruda_Mn_JairemID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("A9_Aglomerat2ID")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("A10_Aglomerat3ID");
+
+                    b.HasIndex("A11_Aglomerat4ID");
+
+                    b.HasIndex("A12_Aglomerat5ID");
+
+                    b.HasIndex("A13_AglomeratNotClearedID");
+
+                    b.HasIndex("A14_AglomeratYamaID");
+
+                    b.HasIndex("A15_Okat_SokolovID");
+
+                    b.HasIndex("A16_Okat_LebedID");
+
+                    b.HasIndex("A17_Okat_KachkanID");
+
+                    b.HasIndex("A18_Okat_MikhayID");
+
+                    b.HasIndex("A19_Welding_slagID");
+
+                    b.HasIndex("A20_KorolekID");
+
+                    b.HasIndex("A21_Domen_prisadID");
+
+                    b.HasIndex("A22_Ruda_Mn_NizgulID");
+
+                    b.HasIndex("A23_Ruda_Mn_JairemID");
+
+                    b.HasIndex("A9_Aglomerat2ID");
+
+                    b.ToTable("InputZRM");
+                });
+
+            modelBuilder.Entity("balance_dp.Models.InputZRModels", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<float>("B9_CastIronConsuption")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("C9_FE")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("D9_Fe0")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("E9_Fe2O3")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("F9_SiO2")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("G9_Al203")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("H9_CaO")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("I9_Mgo")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("J9_P")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("K9_S")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("L9_MnO")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("M9_Zn")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("N9_Pmpp")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("O9_H20")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("P9_TiO2")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("Q9_Cr")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("InputZRModels");
                 });
 
             modelBuilder.Entity("balance_dp.Models.MaterialConsuption", b =>
@@ -684,6 +834,10 @@ namespace balance_dp.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("balance_dp.Models.InputZRM", "InputZRHMs")
+                        .WithMany()
+                        .HasForeignKey("InputZRHMsID");
+
                     b.HasOne("balance_dp.Models.MaterialConsuption", "materialCons")
                         .WithMany()
                         .HasForeignKey("MaterialConsuptionId")
@@ -692,7 +846,102 @@ namespace balance_dp.Migrations
 
                     b.Navigation("flus");
 
+                    b.Navigation("InputZRHMs");
+
                     b.Navigation("materialCons");
+                });
+
+            modelBuilder.Entity("balance_dp.Models.InputZRM", b =>
+                {
+                    b.HasOne("balance_dp.Models.InputZRModels", "A10_Aglomerat3")
+                        .WithMany()
+                        .HasForeignKey("A10_Aglomerat3ID");
+
+                    b.HasOne("balance_dp.Models.InputZRModels", "A11_Aglomerat4")
+                        .WithMany()
+                        .HasForeignKey("A11_Aglomerat4ID");
+
+                    b.HasOne("balance_dp.Models.InputZRModels", "A12_Aglomerat5")
+                        .WithMany()
+                        .HasForeignKey("A12_Aglomerat5ID");
+
+                    b.HasOne("balance_dp.Models.InputZRModels", "A13_AglomeratNotCleared")
+                        .WithMany()
+                        .HasForeignKey("A13_AglomeratNotClearedID");
+
+                    b.HasOne("balance_dp.Models.InputZRModels", "A14_AglomeratYama")
+                        .WithMany()
+                        .HasForeignKey("A14_AglomeratYamaID");
+
+                    b.HasOne("balance_dp.Models.InputZRModels", "A15_Okat_Sokolov")
+                        .WithMany()
+                        .HasForeignKey("A15_Okat_SokolovID");
+
+                    b.HasOne("balance_dp.Models.InputZRModels", "A16_Okat_Lebed")
+                        .WithMany()
+                        .HasForeignKey("A16_Okat_LebedID");
+
+                    b.HasOne("balance_dp.Models.InputZRModels", "A17_Okat_Kachkan")
+                        .WithMany()
+                        .HasForeignKey("A17_Okat_KachkanID");
+
+                    b.HasOne("balance_dp.Models.InputZRModels", "A18_Okat_Mikhay")
+                        .WithMany()
+                        .HasForeignKey("A18_Okat_MikhayID");
+
+                    b.HasOne("balance_dp.Models.InputZRModels", "A19_Welding_slag")
+                        .WithMany()
+                        .HasForeignKey("A19_Welding_slagID");
+
+                    b.HasOne("balance_dp.Models.InputZRModels", "A20_Korolek")
+                        .WithMany()
+                        .HasForeignKey("A20_KorolekID");
+
+                    b.HasOne("balance_dp.Models.InputZRModels", "A21_Domen_prisad")
+                        .WithMany()
+                        .HasForeignKey("A21_Domen_prisadID");
+
+                    b.HasOne("balance_dp.Models.InputZRModels", "A22_Ruda_Mn_Nizgul")
+                        .WithMany()
+                        .HasForeignKey("A22_Ruda_Mn_NizgulID");
+
+                    b.HasOne("balance_dp.Models.InputZRModels", "A23_Ruda_Mn_Jairem")
+                        .WithMany()
+                        .HasForeignKey("A23_Ruda_Mn_JairemID");
+
+                    b.HasOne("balance_dp.Models.InputZRModels", "A9_Aglomerat2")
+                        .WithMany()
+                        .HasForeignKey("A9_Aglomerat2ID");
+
+                    b.Navigation("A10_Aglomerat3");
+
+                    b.Navigation("A11_Aglomerat4");
+
+                    b.Navigation("A12_Aglomerat5");
+
+                    b.Navigation("A13_AglomeratNotCleared");
+
+                    b.Navigation("A14_AglomeratYama");
+
+                    b.Navigation("A15_Okat_Sokolov");
+
+                    b.Navigation("A16_Okat_Lebed");
+
+                    b.Navigation("A17_Okat_Kachkan");
+
+                    b.Navigation("A18_Okat_Mikhay");
+
+                    b.Navigation("A19_Welding_slag");
+
+                    b.Navigation("A20_Korolek");
+
+                    b.Navigation("A21_Domen_prisad");
+
+                    b.Navigation("A22_Ruda_Mn_Nizgul");
+
+                    b.Navigation("A23_Ruda_Mn_Jairem");
+
+                    b.Navigation("A9_Aglomerat2");
                 });
 #pragma warning restore 612, 618
         }

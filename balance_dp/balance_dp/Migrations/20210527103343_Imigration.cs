@@ -2,7 +2,7 @@
 
 namespace balance_dp.Migrations
 {
-    public partial class auth : Migration
+    public partial class Imigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -140,6 +140,34 @@ namespace balance_dp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_FlusModels", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "InputZRModels",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    B9_CastIronConsuption = table.Column<float>(type: "REAL", nullable: false),
+                    C9_FE = table.Column<float>(type: "REAL", nullable: false),
+                    D9_Fe0 = table.Column<float>(type: "REAL", nullable: false),
+                    E9_Fe2O3 = table.Column<float>(type: "REAL", nullable: false),
+                    F9_SiO2 = table.Column<float>(type: "REAL", nullable: false),
+                    G9_Al203 = table.Column<float>(type: "REAL", nullable: false),
+                    H9_CaO = table.Column<float>(type: "REAL", nullable: false),
+                    I9_Mgo = table.Column<float>(type: "REAL", nullable: false),
+                    J9_P = table.Column<float>(type: "REAL", nullable: false),
+                    K9_S = table.Column<float>(type: "REAL", nullable: false),
+                    L9_MnO = table.Column<float>(type: "REAL", nullable: false),
+                    M9_Zn = table.Column<float>(type: "REAL", nullable: false),
+                    N9_Pmpp = table.Column<float>(type: "REAL", nullable: false),
+                    O9_H20 = table.Column<float>(type: "REAL", nullable: false),
+                    P9_TiO2 = table.Column<float>(type: "REAL", nullable: false),
+                    Q9_Cr = table.Column<float>(type: "REAL", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_InputZRModels", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -297,6 +325,123 @@ namespace balance_dp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "InputZRM",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    A9_Aglomerat2ID = table.Column<int>(type: "INTEGER", nullable: true),
+                    A10_Aglomerat3ID = table.Column<int>(type: "INTEGER", nullable: true),
+                    A11_Aglomerat4ID = table.Column<int>(type: "INTEGER", nullable: true),
+                    A12_Aglomerat5ID = table.Column<int>(type: "INTEGER", nullable: true),
+                    A13_AglomeratNotClearedID = table.Column<int>(type: "INTEGER", nullable: true),
+                    A14_AglomeratYamaID = table.Column<int>(type: "INTEGER", nullable: true),
+                    A15_Okat_SokolovID = table.Column<int>(type: "INTEGER", nullable: true),
+                    A16_Okat_LebedID = table.Column<int>(type: "INTEGER", nullable: true),
+                    A17_Okat_KachkanID = table.Column<int>(type: "INTEGER", nullable: true),
+                    A18_Okat_MikhayID = table.Column<int>(type: "INTEGER", nullable: true),
+                    A19_Welding_slagID = table.Column<int>(type: "INTEGER", nullable: true),
+                    A20_KorolekID = table.Column<int>(type: "INTEGER", nullable: true),
+                    A21_Domen_prisadID = table.Column<int>(type: "INTEGER", nullable: true),
+                    A22_Ruda_Mn_NizgulID = table.Column<int>(type: "INTEGER", nullable: true),
+                    A23_Ruda_Mn_JairemID = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_InputZRM", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_InputZRM_InputZRModels_A10_Aglomerat3ID",
+                        column: x => x.A10_Aglomerat3ID,
+                        principalTable: "InputZRModels",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_InputZRM_InputZRModels_A11_Aglomerat4ID",
+                        column: x => x.A11_Aglomerat4ID,
+                        principalTable: "InputZRModels",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_InputZRM_InputZRModels_A12_Aglomerat5ID",
+                        column: x => x.A12_Aglomerat5ID,
+                        principalTable: "InputZRModels",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_InputZRM_InputZRModels_A13_AglomeratNotClearedID",
+                        column: x => x.A13_AglomeratNotClearedID,
+                        principalTable: "InputZRModels",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_InputZRM_InputZRModels_A14_AglomeratYamaID",
+                        column: x => x.A14_AglomeratYamaID,
+                        principalTable: "InputZRModels",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_InputZRM_InputZRModels_A15_Okat_SokolovID",
+                        column: x => x.A15_Okat_SokolovID,
+                        principalTable: "InputZRModels",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_InputZRM_InputZRModels_A16_Okat_LebedID",
+                        column: x => x.A16_Okat_LebedID,
+                        principalTable: "InputZRModels",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_InputZRM_InputZRModels_A17_Okat_KachkanID",
+                        column: x => x.A17_Okat_KachkanID,
+                        principalTable: "InputZRModels",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_InputZRM_InputZRModels_A18_Okat_MikhayID",
+                        column: x => x.A18_Okat_MikhayID,
+                        principalTable: "InputZRModels",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_InputZRM_InputZRModels_A19_Welding_slagID",
+                        column: x => x.A19_Welding_slagID,
+                        principalTable: "InputZRModels",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_InputZRM_InputZRModels_A20_KorolekID",
+                        column: x => x.A20_KorolekID,
+                        principalTable: "InputZRModels",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_InputZRM_InputZRModels_A21_Domen_prisadID",
+                        column: x => x.A21_Domen_prisadID,
+                        principalTable: "InputZRModels",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_InputZRM_InputZRModels_A22_Ruda_Mn_NizgulID",
+                        column: x => x.A22_Ruda_Mn_NizgulID,
+                        principalTable: "InputZRModels",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_InputZRM_InputZRModels_A23_Ruda_Mn_JairemID",
+                        column: x => x.A23_Ruda_Mn_JairemID,
+                        principalTable: "InputZRModels",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_InputZRM_InputZRModels_A9_Aglomerat2ID",
+                        column: x => x.A9_Aglomerat2ID,
+                        principalTable: "InputZRModels",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "InputIndicators",
                 columns: table => new
                 {
@@ -365,7 +510,8 @@ namespace balance_dp.Migrations
                     ID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     FlusId = table.Column<int>(type: "INTEGER", nullable: false),
-                    MaterialConsuptionId = table.Column<int>(type: "INTEGER", nullable: false)
+                    MaterialConsuptionId = table.Column<int>(type: "INTEGER", nullable: false),
+                    InputZRHMsID = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -376,6 +522,12 @@ namespace balance_dp.Migrations
                         principalTable: "Flus",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_InputMaterials_InputZRM_InputZRHMsID",
+                        column: x => x.InputZRHMsID,
+                        principalTable: "InputZRM",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_InputMaterials_MaterialConsuptions_MaterialConsuptionId",
                         column: x => x.MaterialConsuptionId,
@@ -488,6 +640,11 @@ namespace balance_dp.Migrations
                 column: "FlusId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_InputMaterials_InputZRHMsID",
+                table: "InputMaterials",
+                column: "InputZRHMsID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_InputMaterials_MaterialConsuptionId",
                 table: "InputMaterials",
                 column: "MaterialConsuptionId");
@@ -501,6 +658,81 @@ namespace balance_dp.Migrations
                 name: "IX_Inputs_InputIndicatorsId",
                 table: "Inputs",
                 column: "InputIndicatorsId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputZRM_A10_Aglomerat3ID",
+                table: "InputZRM",
+                column: "A10_Aglomerat3ID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputZRM_A11_Aglomerat4ID",
+                table: "InputZRM",
+                column: "A11_Aglomerat4ID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputZRM_A12_Aglomerat5ID",
+                table: "InputZRM",
+                column: "A12_Aglomerat5ID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputZRM_A13_AglomeratNotClearedID",
+                table: "InputZRM",
+                column: "A13_AglomeratNotClearedID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputZRM_A14_AglomeratYamaID",
+                table: "InputZRM",
+                column: "A14_AglomeratYamaID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputZRM_A15_Okat_SokolovID",
+                table: "InputZRM",
+                column: "A15_Okat_SokolovID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputZRM_A16_Okat_LebedID",
+                table: "InputZRM",
+                column: "A16_Okat_LebedID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputZRM_A17_Okat_KachkanID",
+                table: "InputZRM",
+                column: "A17_Okat_KachkanID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputZRM_A18_Okat_MikhayID",
+                table: "InputZRM",
+                column: "A18_Okat_MikhayID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputZRM_A19_Welding_slagID",
+                table: "InputZRM",
+                column: "A19_Welding_slagID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputZRM_A20_KorolekID",
+                table: "InputZRM",
+                column: "A20_KorolekID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputZRM_A21_Domen_prisadID",
+                table: "InputZRM",
+                column: "A21_Domen_prisadID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputZRM_A22_Ruda_Mn_NizgulID",
+                table: "InputZRM",
+                column: "A22_Ruda_Mn_NizgulID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputZRM_A23_Ruda_Mn_JairemID",
+                table: "InputZRM",
+                column: "A23_Ruda_Mn_JairemID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InputZRM_A9_Aglomerat2ID",
+                table: "InputZRM",
+                column: "A9_Aglomerat2ID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -542,6 +774,9 @@ namespace balance_dp.Migrations
                 name: "Flus");
 
             migrationBuilder.DropTable(
+                name: "InputZRM");
+
+            migrationBuilder.DropTable(
                 name: "MaterialConsuptions");
 
             migrationBuilder.DropTable(
@@ -552,6 +787,9 @@ namespace balance_dp.Migrations
 
             migrationBuilder.DropTable(
                 name: "FlusModels");
+
+            migrationBuilder.DropTable(
+                name: "InputZRModels");
         }
     }
 }

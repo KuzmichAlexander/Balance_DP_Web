@@ -61,7 +61,6 @@ export const Help = () => {
                     </Table>
                 </TableContainer>
             </div>
-            <h4>Ознакомится с алгоритмом калькулятора можно скачав файлы:</h4>
-             </div>
+        </div>
     )
 }

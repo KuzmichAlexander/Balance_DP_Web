@@ -61,16 +61,16 @@ export const HeatBalance = ({result}) => {
             <h1 className={'title'}>Тепловой баланс</h1>
             <div className={'result-table'}>
                 <div className={'result-row'}>
-                    <Tables rows = {rows_prihod} isComming={true}/>
+                    <Tables rows = {rows_prihod} isComming={true} isHeat={true}/>
                     <button name={prihod} className={'send-button'} onClick={toggleModal}>Диаграмма прихода</button>
                 </div>
                 <div className={'result-row'}>
-                    <Tables rows = {rows_rashod}/>
+                    <Tables rows = {rows_rashod} isHeat={true}/>
                     <button name={rashod} className={'send-button'} onClick={toggleModal}>Диаграмма расхода</button>
                     <h5>Тепловые потери печи с охлаждающей водой и в окружающее пространство</h5>
-                    <Tables rows={rows_loastHeat} title={true} />
+                    <Tables rows={rows_loastHeat} title={true} isHeat={true}/>
                     <h5>Невязка теплового баланса (по отношению к приходу тепла в печь)</h5>
-                    <Tables rows={rows_nevyzka} title={true} />
+                    <Tables rows={rows_nevyzka} title={true} isHeat={true}/>
                 </div>
             </div>
             {activeModal ? <ChartModal title={chartTitle} onToggle={toggleModal} data={chartData} labels={chartLabels} /> : null}

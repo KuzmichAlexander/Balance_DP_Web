@@ -18,7 +18,6 @@ export const CocksTech = ({name, params, onChangeInput}) => {
         <div>
             <h5>Состав золы кокса</h5>
             {setInputs()}
-            <hr />
         </div>
     )
 }
